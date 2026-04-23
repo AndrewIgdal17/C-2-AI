@@ -1,0 +1,43 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: visualization-agent
+  namespace: data-agents-demo
+  labels:
+    app.kubernetes.io/part-of: data-agents
+    app.kubernetes.io/component: visualization-agent
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "0"
+        autoscaling.knative.dev/max-scale: "3"
+        autoscaling.knative.dev/scale-down-delay: "60s"
+    spec:
+      containers:
+        - image: image-registry.openshift-image-registry.svc:5000/data-agents-demo/visualization-agent:latest
+          ports:
+            - containerPort: 8002
+          env:
+            - name: LLM_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: agent-secrets
+                  key: LLM_API_KEY
+            - name: MCP_AUTH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: agent-secrets
+                  key: MCP_AUTH_TOKEN
+            - name: QUERY_AGENT_MCP_URL
+              value: "http://query-agent.data-agents-demo.svc.cluster.local/mcp"
+          envFrom:
+            - configMapRef:
+                name: agent-config
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "200m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"

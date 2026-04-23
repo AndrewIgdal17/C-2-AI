@@ -1,0 +1,78 @@
+name: "Travel & Hospitality"
+description: "Specialized agents for travel and hospitality services including travel planning, hotel concierge, and tour guidance."
+category: "travel"
+templates:
+  travel_agent:
+    name: "Travel Agent Specialist"
+    persona: "travel_agent"
+    prompt: "You are a Travel Agent Specialist who helps clients plan and book their travel arrangements. You provide expert advice on destinations, flights, hotels, car rentals, travel insurance, and vacation packages. You help clients find the best deals and create memorable travel experiences."
+    model_name: "meta-llama/Llama-3.1-8B-Instruct"
+    tools:
+      - toolgroup_id: "builtin::websearch"
+    knowledge_base_ids:
+      - "travel_agent_kb"
+    demo_questions:
+      - "What are the best flight options to Tokyo next month under $800?"
+      - "Can you suggest a 7-day Italy itinerary with hotels and trains?"
+      - "Do I need a visa or vaccines for a trip to Thailand this summer?"
+      - "Find all-inclusive beach resorts in Mexico for two adults in May."
+    knowledge_base_config:
+      name: "Travel Agent Reference"
+      version: "1.0"
+      embedding_model: "all-MiniLM-L6-v2"
+      provider_id: "pgvector"
+      vector_store_name: "travel_agent_kb"
+      is_external: false
+      source: "URL"
+      source_configuration:
+        - "https://www.iata.org/contentassets/947a44798c8a4b94bc5620f8680e0013/sc155-travel-information.pdf"
+
+  hotel_concierge:
+    name: "Hotel Concierge Assistant"
+    persona: "hotel_concierge"
+    prompt: "You are a Hotel Concierge Assistant who provides personalized service to hotel guests. You help with restaurant reservations, local attractions, transportation arrangements, room service, spa bookings, and special requests. You ensure guests have an exceptional stay experience."
+    model_name: "meta-llama/Llama-3.1-8B-Instruct"
+    tools:
+      - toolgroup_id: "builtin::websearch"
+    knowledge_base_ids:
+      - "hotel_concierge_kb"
+    demo_questions:
+      - "Can you book a table for two at a top-rated Italian restaurant nearby?"
+      - "What are the best family-friendly attractions within walking distance?"
+      - "Can you arrange airport pickup tomorrow at 8 AM for room 512?"
+      - "Do you have recommendations for a late-night spa appointment?"
+    knowledge_base_config:
+      name: "Hotel Concierge Reference"
+      version: "1.0"
+      embedding_model: "all-MiniLM-L6-v2"
+      provider_id: "pgvector"
+      vector_store_name: "hotel_concierge_kb"
+      is_external: false
+      source: "URL"
+      source_configuration:
+        - "https://www.conferencehotelgroup.com/img/hotels/files/6981/1.Concierge%20Guide%20LVP2021.pdf"
+
+  tour_guide:
+    name: "Tour Guide Assistant"
+    persona: "tour_guide"
+    prompt: "You are a Tour Guide Assistant who provides informative and engaging tours for travelers. You share historical facts, cultural insights, local stories, and practical information about destinations. You help visitors understand and appreciate the places they're exploring."
+    model_name: "meta-llama/Llama-3.1-8B-Instruct"
+    tools:
+      - toolgroup_id: "builtin::websearch"
+    knowledge_base_ids:
+      - "tour_guide_kb"
+    demo_questions:
+      - "What must-see landmarks can I cover in a 1-day walking tour?"
+      - "Tell me a brief history of the old town and its main cathedral."
+      - "Can you suggest a kid-friendly museum route with lunch options?"
+      - "What local customs should I know before visiting religious sites?"
+    knowledge_base_config:
+      name: "Tour Guide Reference"
+      version: "1.0"
+      embedding_model: "all-MiniLM-L6-v2"
+      provider_id: "pgvector"
+      vector_store_name: "tour_guide_kb"
+      is_external: false
+      source: "URL"
+      source_configuration:
+        - "https://www.tourismleadershipcouncil.com/wp-content/uploads/2024/07/Certified-Tour-Guides-SAV-Tour-Guide-Manual-UPDATED-2020.pdf"

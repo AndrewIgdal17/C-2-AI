@@ -1,0 +1,54 @@
+# Pre-commit hooks for AI Virtual Agent Quickstart backend
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: '^(backend/migrations/|migrations/)'
+      - id: end-of-file-fixer
+        exclude: '^(backend/migrations/|migrations/)'
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: debug-statements
+
+  - repo: https://github.com/psf/black
+    rev: 26.1.0
+    hooks:
+      - id: black
+        language_version: python3.13
+        exclude: '^(backend/migrations/|migrations/)'
+
+  - repo: https://github.com/pycqa/isort
+    rev: 6.0.1
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+        exclude: '^(backend/migrations/|migrations/)'
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.2.0
+    hooks:
+      - id: flake8
+        exclude: '^(backend/migrations/|migrations/|deploy/)'
+        args:
+          - --max-line-length=120
+          - --extend-ignore=E203,W503
+          - "--per-file-ignores=backend/main.py:E402"
+
+  - repo: local
+    hooks:
+      - id: vulture
+        name: vulture
+        entry: vulture
+        language: system
+        types: [python]
+        exclude: '^(backend/migrations/|migrations/|deploy/|tests/)'
+        args: [--min-confidence=80, "--ignore-names=session_id,prompt,budget"]
+      - id: helm-lint
+        name: Helm lint
+        entry: helm lint ./deploy/cluster/helm
+        language: system
+        pass_filenames: false

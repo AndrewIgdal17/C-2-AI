@@ -1,0 +1,259 @@
+---
+# Conversation History Integration Tests
+# Tests the LlamaStack Conversations API for persistent message history
+
+test_name: Conversation History Tests
+
+stages:
+  # Global Setup: Get available models
+  - name: get_available_models
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/llama_stack/llms"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      save:
+        json:
+          model_name: "[0].model_name"
+
+  # Global Setup: Create shared virtual agent for all tests
+  - name: create_shared_virtual_agent
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        name: "Shared Test Assistant"
+        prompt: "You are a helpful assistant for testing conversation history functionality."
+        model_name: "{model_name}"
+        temperature: 0.0
+        top_p: 0.9
+        max_tokens: 300
+        repetition_penalty: 1.0
+        max_infer_iters: 1
+        tools: []
+        knowledge_base_ids: []
+        input_shields: []
+        output_shields: []
+    response:
+      status_code: 201
+      headers:
+        content-type: application/json
+      save:
+        json:
+          agent_id: "id"
+  # Create first test session
+  - name: create_first_test_session
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/"
+      method: POST
+      headers:
+        Content-Type: application/json
+      json:
+        agent_id: "{agent_id}"
+        session_name: "First Test Session"
+    response:
+      status_code: 200
+      save:
+        json:
+          first_session_id: id
+
+  # Test 1: First message in session - should succeed
+  - name: test_first_message_in_session
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+      json:
+        virtualAgentId: "{agent_id}"
+        message:
+          role: user
+          content:
+            - type: input_text
+              text: "Hello, what is 2+2?"
+        sessionId: "{first_session_id}"
+        # First message will start conversation history
+    response:
+      status_code: 200
+      headers:
+        content-type: text/event-stream; charset=utf-8
+
+  # Test 2: Follow-up message with conversation history - should succeed
+  - name: test_followup_message_with_history
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+      json:
+        virtualAgentId: "{agent_id}"
+        message:
+          role: user
+          content:
+            - type: input_text
+              text: "What about 3+3?"
+        sessionId: "{first_session_id}"
+        # Backend will include previous messages as conversation history
+    response:
+      status_code: 200
+      headers:
+        content-type: text/event-stream; charset=utf-8
+
+  # Create second test session
+  - name: create_second_test_session
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/"
+      method: POST
+      headers:
+        Content-Type: application/json
+      json:
+        agent_id: "{agent_id}"
+        session_name: "Second Test Session"
+    response:
+      status_code: 200
+      save:
+        json:
+          second_session_id: id
+
+  # Test 3: New session should work with empty conversation history
+  - name: test_new_session_empty_history
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+      json:
+        virtualAgentId: "{agent_id}"
+        message:
+          role: user
+          content:
+            - type: input_text
+              text: "Hello from new session"
+        sessionId: "{second_session_id}"
+        # No previous messages in database for this new session
+    response:
+      status_code: 200
+      headers:
+        content-type: text/event-stream; charset=utf-8
+
+  # Message Fetching Tests
+  # Setup: Create a session to test message fetching
+  - name: create_session_for_message_fetching
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/"
+      method: POST
+      headers:
+        Content-Type: application/json
+      json:
+        agent_id: "{agent_id}"
+        session_name: "Message Fetch Test Session"
+    response:
+      status_code: 200
+      save:
+        json:
+          message_test_session_id: id
+
+  # Send first message to build conversation
+  - name: send_first_message_for_fetching
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+      json:
+        virtualAgentId: "{agent_id}"
+        message:
+          role: user
+          content:
+            - type: input_text
+              text: "First test message"
+        sessionId: "{message_test_session_id}"
+    response:
+      status_code: 200
+      headers:
+        content-type: text/event-stream; charset=utf-8
+
+  # Send second message to build conversation history
+  - name: send_second_message_for_fetching
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+      json:
+        virtualAgentId: "{agent_id}"
+        message:
+          role: user
+          content:
+            - type: input_text
+              text: "Second test message"
+        sessionId: "{message_test_session_id}"
+    response:
+      status_code: 200
+      headers:
+        content-type: text/event-stream; charset=utf-8
+
+  # Test 4: Fetch messages using the new messages endpoint
+  - name: test_fetch_conversation_messages
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/{message_test_session_id}/messages"
+      method: GET
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      json:
+        messages: !anything
+      verify_response_with:
+        - function: tests.integration.validators:validate_conversation_messages
+        - function: tests.integration.validators:validate_session_messages
+          extra_kwargs:
+            expected_message_count: 4  # 2 user messages + 2 assistant responses
+            expected_user_messages:
+              - "First test message"
+              - "Second test message"
+
+  # Cleanup: Delete the test sessions
+  - name: cleanup_first_test_session
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/{first_session_id}"
+      method: DELETE
+      params:
+        agent_id: "{agent_id}"
+    response:
+      status_code: 200
+
+  - name: cleanup_second_test_session
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/{second_session_id}"
+      method: DELETE
+      params:
+        agent_id: "{agent_id}"
+    response:
+      status_code: 200
+
+  - name: cleanup_message_test_session
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/{message_test_session_id}"
+      method: DELETE
+      params:
+        agent_id: "{agent_id}"
+    response:
+      status_code: 200
+
+  # Global Cleanup: Delete the shared test agent
+  - name: cleanup_shared_agent
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/{agent_id}"
+      method: DELETE
+      headers:
+        Accept: application/json
+    response:
+      status_code: 204

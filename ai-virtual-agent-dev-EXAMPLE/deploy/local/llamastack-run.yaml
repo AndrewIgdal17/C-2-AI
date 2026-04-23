@@ -1,0 +1,86 @@
+version: 2
+image_name: ollama
+apis:
+- agents
+- files
+- inference
+- safety
+- tool_runtime
+- vector_io
+providers:
+  inference:
+  - provider_id: ollama
+    provider_type: remote::ollama
+    config:
+      base_url: http://ollama:11434/v1
+  safety:
+  - provider_id: llama-guard
+    provider_type: inline::llama-guard
+    config:
+      excluded_categories: []
+  agents:
+  - provider_id: meta-reference
+    provider_type: inline::meta-reference
+    config:
+      persistence:
+        agent_state:
+          namespace: agents
+          backend: kv_default
+        responses:
+          table_name: responses
+          backend: sql_default
+          max_write_queue_size: 10000
+          num_writers: 4
+  files:
+  - provider_id: localfs
+    provider_type: inline::localfs
+    config:
+      storage_dir: /.llama/distributions/ollama/files
+      metadata_store:
+        table_name: files
+        backend: sql_default
+  tool_runtime:
+  - provider_id: model-context-protocol
+    provider_type: remote::model-context-protocol
+  - provider_id: tavily-search
+    provider_type: remote::tavily-search
+    config:
+      api_key: ${env.TAVILY_API_KEY:}
+storage:
+  backends:
+    kv_default:
+      type: kv_sqlite
+      db_path: /.llama/distributions/ollama/kvstore.db
+    sql_default:
+      type: sql_sqlite
+      db_path: /.llama/distributions/ollama/sql_store.db
+  stores:
+    metadata:
+      namespace: registry
+      backend: kv_default
+    inference:
+      table_name: inference_store
+      backend: sql_default
+      max_write_queue_size: 10000
+      num_writers: 4
+    conversations:
+      table_name: openai_conversations
+      backend: sql_default
+registered_resources:
+  models:
+  - metadata: {}
+    model_id: llama3.2:1b
+    provider_id: ollama
+    model_type: llm
+  shields: []
+  vector_dbs: []
+  datasets: []
+  scoring_fns: []
+  benchmarks: []
+  tool_groups:
+  - toolgroup_id: "builtin::websearch"
+    provider_id: tavily-search
+server:
+  port: 8321
+telemetry:
+  enabled: true

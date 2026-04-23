@@ -1,0 +1,19 @@
+# .prettierignore
+
+# Build output
+dist
+
+# Dependencies
+node_modules
+
+# Logs
+*.log
+npm-debug.log*
+
+# ESLint cache
+.eslintcache
+
+# Other common ignores
+.DS_Store
+*.env
+*.lock

@@ -1,0 +1,283 @@
+---
+# Session Switching Integration Test
+# Tests creating multiple sessions, storing messages via LlamaStack, and switching between sessions
+
+test_name: Session Switching and Message Fetching Test
+
+stages:
+  # Global Setup: Get available models
+  - name: get_available_models
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/llama_stack/llms"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      save:
+        json:
+          model_name: "[0].model_name"
+
+  # Global Setup: Create shared virtual agent for all tests
+  - name: create_shared_virtual_agent
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        name: "Session Switching Test Assistant"
+        prompt: "You are a helpful assistant. Give concise, accurate answers."
+        model_name: "{model_name}"
+        temperature: 0.0
+        top_p: 0.9
+        max_tokens: 50
+        repetition_penalty: 1.0
+        max_infer_iters: 1
+        tools: []
+        knowledge_base_ids: []
+        input_shields: []
+        output_shields: []
+    response:
+      status_code: 201
+      headers:
+        content-type: application/json
+      save:
+        json:
+          agent_id: "id"
+
+  # Create first session
+  - name: create_first_session
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        agent_id: "{agent_id}"
+        session_name: "Math Session"
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      save:
+        json:
+          session1_id: "id"
+
+  # Create second session
+  - name: create_second_session
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        agent_id: "{agent_id}"
+        session_name: "Geography Session"
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      save:
+        json:
+          session2_id: "id"
+
+  # Send messages to first session
+  - name: send_message_to_session1_first
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+      json:
+        virtualAgentId: "{agent_id}"
+        message:
+          role: user
+          content:
+            - type: input_text
+              text: "What is 5+5?"
+        sessionId: "{session1_id}"
+    response:
+      status_code: 200
+      headers:
+        content-type: text/event-stream; charset=utf-8
+      verify_response_with:
+        - function: tests.integration.validators:validate_exact_text
+          extra_kwargs:
+            expected_text: "10"
+
+  - name: send_message_to_session1_second
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+      json:
+        virtualAgentId: "{agent_id}"
+        message:
+          role: user
+          content:
+            - type: input_text
+              text: "What is 6+6?"
+        sessionId: "{session1_id}"
+    response:
+      status_code: 200
+      headers:
+        content-type: text/event-stream; charset=utf-8
+      verify_response_with:
+        - function: tests.integration.validators:validate_exact_text
+          extra_kwargs:
+            expected_text: "12"
+
+  # Send messages to second session
+  - name: send_message_to_session2_first
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+      json:
+        virtualAgentId: "{agent_id}"
+        message:
+          role: user
+          content:
+            - type: input_text
+              text: "What is the capital of France?"
+        sessionId: "{session2_id}"
+    response:
+      status_code: 200
+      headers:
+        content-type: text/event-stream; charset=utf-8
+      verify_response_with:
+        - function: tests.integration.validators:validate_exact_text
+          extra_kwargs:
+            expected_text: "Paris"
+
+  - name: send_message_to_session2_second
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+      json:
+        virtualAgentId: "{agent_id}"
+        message:
+          role: user
+          content:
+            - type: input_text
+              text: "What is the capital of Germany?"
+        sessionId: "{session2_id}"
+    response:
+      status_code: 200
+      headers:
+        content-type: text/event-stream; charset=utf-8
+      verify_response_with:
+        - function: tests.integration.validators:validate_exact_text
+          extra_kwargs:
+            expected_text: "Berlin"
+
+  # Test session switching: Fetch first session messages using new endpoint
+  - name: fetch_session1_messages
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/{session1_id}/messages"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      json:
+        messages: !anything
+      verify_response_with:
+        - function: tests.integration.validators:validate_conversation_messages
+        - function: tests.integration.validators:validate_session_messages
+          extra_kwargs:
+            expected_message_count: 4
+            expected_user_messages: ["What is 5+5?", "What is 6+6?"]
+
+  # Test chronological message order for session1
+  - name: validate_session1_message_order
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/{session1_id}/messages"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      verify_response_with:
+        function: tests.integration.validators:validate_message_chronological_order
+        extra_kwargs:
+          expected_sequence: ["What is 5+5?", "5 + 5 = 10.", "What is 6+6?", "6 + 6 = 12."]
+
+  # Test session switching: Fetch second session messages
+  - name: fetch_session2_messages
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/{session2_id}/messages"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      json:
+        messages: !anything
+      verify_response_with:
+        - function: tests.integration.validators:validate_conversation_messages
+        - function: tests.integration.validators:validate_session_messages
+          extra_kwargs:
+            expected_message_count: 4
+            expected_user_messages: ["What is the capital of France?", "What is the capital of Germany?"]
+
+  # Test chronological message order for session2
+  - name: validate_session2_message_order
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/{session2_id}/messages"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      verify_response_with:
+        function: tests.integration.validators:validate_message_chronological_order
+        extra_kwargs:
+          expected_sequence: ["What is the capital of France?", "The capital of France is Paris.", "What is the capital of Germany?", "The capital of Germany is Berlin."]
+
+  # Cleanup: Delete the test sessions
+  - name: cleanup_session1
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/{session1_id}"
+      method: DELETE
+      params:
+        agent_id: "{agent_id}"
+    response:
+      status_code: 200
+
+  - name: cleanup_session2
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat_sessions/{session2_id}"
+      method: DELETE
+      params:
+        agent_id: "{agent_id}"
+    response:
+      status_code: 200
+
+  # Global Cleanup: Delete the shared test agent
+  - name: cleanup_shared_agent
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/{agent_id}"
+      method: DELETE
+      headers:
+        Accept: application/json
+    response:
+      status_code: 204

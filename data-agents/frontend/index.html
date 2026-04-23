@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residential Electrification Data Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Residential Electrification Data Explorer</h1>
+            <p class="subtitle">Ask natural language questions about residential building energy data</p>
+        </div>
+        <a id="grafana-link" href="#" target="_blank" class="grafana-btn" title="View traces in Grafana">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Traces
+        </a>
+    </header>
+
+    <main id="chat-container">
+        <div id="messages">
+            <div class="message system-message">
+                <div class="message-content">
+                    <p>Welcome! Ask me anything about residential electrification data. For example:</p>
+                    <ul class="example-queries">
+                        <li><button class="example-btn" onclick="askExample(this)">What happens to electricity demand in Texas if homes use solar water heating?</button></li>
+                        <li><button class="example-btn" onclick="askExample(this)">Compare electricity usage before and after heat pump adoption in the Southeast</button></li>
+                        <li><button class="example-btn" onclick="askExample(this)">Show me the distribution of energy savings from envelope upgrades across climate zones</button></li>
+                        <li><button class="example-btn" onclick="askExample(this)">What's the average natural gas consumption for hot water heating?</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <form id="chat-form" onsubmit="handleSubmit(event)">
+            <input type="text" id="question-input" placeholder="Ask a question about residential energy data..." autocomplete="off" />
+            <button type="submit" id="send-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+            </button>
+        </form>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

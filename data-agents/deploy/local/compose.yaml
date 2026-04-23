@@ -1,0 +1,247 @@
+# Electrification Data Agents - Local Development
+#
+# Usage:
+#   cd deploy/local
+#   docker compose up --build
+#
+# Requires: LLM_API_KEY set in ../../.env or environment
+#
+services:
+  # === Database Init ===
+  database:
+    build:
+      context: ../../database
+      dockerfile: Containerfile
+    container_name: data-agents-db-init
+    volumes:
+      - sqlite-data:/data
+    networks:
+      - agents-network
+
+  # === Query Agent (MCP Server) ===
+  query-agent:
+    build:
+      context: ../../query-agent
+      dockerfile: Containerfile
+    container_name: data-agents-query
+    restart: unless-stopped
+    env_file:
+      - path: ../../.env
+        required: false
+    environment:
+      - LLM_API_BASE=${LLM_API_BASE:-https://litellm-litemaas.apps.prod.rhoai.rh-aiservices-bu.com/v1}
+      - LLM_API_KEY=${LLM_API_KEY}
+      - LLM_MODEL=${LLM_MODEL:-Qwen3.6-35B-A3B}
+      - SQLITE_DB_PATH=/data/residential_energy.db
+      - MCP_HOST=0.0.0.0
+      - MCP_PORT=8003
+      - MCP_AUTH_TOKEN=${MCP_AUTH_TOKEN:-demo-token-2024}
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+      - OTEL_ENABLED=${OTEL_ENABLED:-true}
+    ports:
+      - '8003:8003'
+    volumes:
+      - sqlite-data:/data
+    depends_on:
+      database:
+        condition: service_completed_successfully
+    networks:
+      - agents-network
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import socket; s=socket.create_connection(('localhost',8003),2); s.close()\""]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+
+  # === Statistics Sub-Agent ===
+  statistics-agent:
+    build:
+      context: ../../statistics-agent
+      dockerfile: Containerfile
+    container_name: data-agents-stats
+    restart: unless-stopped
+    env_file:
+      - path: ../../.env
+        required: false
+    environment:
+      - LLM_API_BASE=${LLM_API_BASE:-https://litellm-litemaas.apps.prod.rhoai.rh-aiservices-bu.com/v1}
+      - LLM_API_KEY=${LLM_API_KEY}
+      - LLM_MODEL=${LLM_MODEL:-Qwen3.6-35B-A3B}
+      - QUERY_AGENT_MCP_URL=http://query-agent:8003/mcp
+      - MCP_AUTH_TOKEN=${MCP_AUTH_TOKEN:-demo-token-2024}
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+      - OTEL_ENABLED=${OTEL_ENABLED:-true}
+    ports:
+      - '8001:8001'
+    depends_on:
+      query-agent:
+        condition: service_healthy
+    networks:
+      - agents-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8001/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  # === Visualization Sub-Agent ===
+  visualization-agent:
+    build:
+      context: ../../visualization-agent
+      dockerfile: Containerfile
+    container_name: data-agents-viz
+    restart: unless-stopped
+    env_file:
+      - path: ../../.env
+        required: false
+    environment:
+      - LLM_API_BASE=${LLM_API_BASE:-https://litellm-litemaas.apps.prod.rhoai.rh-aiservices-bu.com/v1}
+      - LLM_API_KEY=${LLM_API_KEY}
+      - LLM_MODEL=${LLM_MODEL:-Qwen3.6-35B-A3B}
+      - QUERY_AGENT_MCP_URL=http://query-agent:8003/mcp
+      - MCP_AUTH_TOKEN=${MCP_AUTH_TOKEN:-demo-token-2024}
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+      - OTEL_ENABLED=${OTEL_ENABLED:-true}
+    ports:
+      - '8002:8002'
+    depends_on:
+      query-agent:
+        condition: service_healthy
+    networks:
+      - agents-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8002/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  # === Orchestrator (User-facing) ===
+  orchestrator:
+    build:
+      context: ../../orchestrator
+      dockerfile: Containerfile
+    container_name: data-agents-orchestrator
+    restart: unless-stopped
+    env_file:
+      - path: ../../.env
+        required: false
+    environment:
+      - LLM_API_BASE=${LLM_API_BASE:-https://litellm-litemaas.apps.prod.rhoai.rh-aiservices-bu.com/v1}
+      - LLM_API_KEY=${LLM_API_KEY}
+      - LLM_MODEL=${LLM_MODEL:-Qwen3.6-35B-A3B}
+      - STATS_AGENT_URL=http://statistics-agent:8001
+      - VIZ_AGENT_URL=http://visualization-agent:8002
+      - GRAFANA_URL=http://localhost:3001
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+      - OTEL_ENABLED=${OTEL_ENABLED:-true}
+    ports:
+      - '8000:8000'
+    depends_on:
+      statistics-agent:
+        condition: service_healthy
+      visualization-agent:
+        condition: service_healthy
+    networks:
+      - agents-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # === Frontend ===
+  frontend:
+    build:
+      context: ../../frontend
+      dockerfile: Containerfile
+    container_name: data-agents-frontend
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    depends_on:
+      orchestrator:
+        condition: service_healthy
+    networks:
+      - agents-network
+
+  # === Observability: Tempo (trace backend) ===
+  tempo:
+    image: grafana/tempo:2.6.1
+    container_name: data-agents-tempo
+    command: ["-config.file=/etc/tempo.yaml"]
+    volumes:
+      - tempo-data:/tmp/tempo
+    configs:
+      - source: tempo-config
+        target: /etc/tempo.yaml
+    networks:
+      - agents-network
+
+  # === Observability: OTel Collector ===
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.104.0
+    container_name: data-agents-otel
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ../../otel-collector/config.yaml:/etc/otelcol/config.yaml:ro
+    ports:
+      - '4317:4317'
+      - '4318:4318'
+    depends_on:
+      - tempo
+    networks:
+      - agents-network
+
+  # === Observability: Grafana ===
+  grafana:
+    image: grafana/grafana:11.1.0
+    container_name: data-agents-grafana
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+    volumes:
+      - ../../grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml:ro
+      - ../../grafana/dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
+      - ../../grafana/dashboards:/etc/grafana/provisioning/dashboards/json:ro
+      - grafana-data:/var/lib/grafana
+    ports:
+      - '3001:3000'
+    depends_on:
+      - tempo
+    networks:
+      - agents-network
+
+configs:
+  tempo-config:
+    content: |
+      server:
+        http_listen_port: 3200
+      distributor:
+        receivers:
+          otlp:
+            protocols:
+              grpc:
+                endpoint: 0.0.0.0:4317
+      storage:
+        trace:
+          backend: local
+          local:
+            path: /tmp/tempo/blocks
+      ingester:
+        trace_idle_period: 10s
+        max_block_bytes: 1048576
+        max_block_duration: 5m
+
+volumes:
+  sqlite-data:
+  tempo-data:
+  grafana-data:
+
+networks:
+  agents-network:
+    driver: bridge

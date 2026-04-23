@@ -1,0 +1,38 @@
+FROM registry.access.redhat.com/ubi9/python-312:latest
+
+USER root
+
+# Set working directory
+WORKDIR /app
+
+# Configure pip for better performance
+RUN pip install --upgrade pip && \
+    pip config set global.disable-pip-version-check true
+
+# Copy requirements first for better layer caching
+COPY backend/requirements.txt .
+
+# Install Python dependencies with optimizations
+RUN pip install --prefer-binary --no-cache-dir -r requirements.txt
+
+# Install coverage for integration test coverage collection
+RUN pip install --prefer-binary --no-cache-dir 'coverage[toml]>=7.0.0'
+
+# Copy coverage configuration from project root
+COPY .coveragerc /app/.coveragerc
+
+# Note: backend code will be mounted via volume in compose.yaml
+# No need to COPY it here for dev environment
+
+# Set Python path
+ENV PYTHONPATH=/app
+
+# Copy startup script and make executable
+COPY deploy/local/scripts/start-backend-dev.sh /app/start-backend-dev.sh
+RUN chmod +x /app/start-backend-dev.sh
+
+# Expose the port
+EXPOSE 8000
+
+# Start the development server with auto-migrations
+CMD ["/app/start-backend-dev.sh"]

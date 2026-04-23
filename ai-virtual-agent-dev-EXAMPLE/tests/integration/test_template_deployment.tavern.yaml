@@ -1,0 +1,219 @@
+---
+test_name: Test Agent Template Deployment Pipeline
+
+stages:
+  - name: Get available agent templates
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/agent_templates/"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      verify_response_with:
+        - function: tests.integration.validators:validate_list_not_empty
+      save:
+        json:
+          first_template: "[1]"
+
+  - name: Get template details
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/agent_templates/{first_template}"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      strict:
+        - json:off
+      json:
+        name: !anystr
+        persona: !anystr
+        prompt: !anystr
+        model_name: !anystr
+        tools: !anything
+        knowledge_base_ids: !anything
+        demo_questions: !anything
+        knowledge_base_config: !anything
+      verify_response_with:
+        - function: tests.integration.validators:validate_template_demo_questions
+
+  - name: Get available models for template deployment
+    request:
+      url: "{tavern.env_vars.TEST_FRONTEND_URL}/api/v1/llama_stack/llms"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      save:
+        json:
+          available_model: "[0].model_name"
+
+  - name: Deploy agent from template
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/agent_templates/initialize"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        template_name: "{first_template}"
+        include_knowledge_base: false
+        model_name: "{available_model}"
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      verify_response_with:
+        - function: tests.integration.validators:validate_template_initialize_response
+      save:
+        json:
+          deployed_agent_id: "agent_id"
+
+  - name: Verify template agent exists
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/{deployed_agent_id}"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      strict:
+        - json:off
+      json:
+        id: "{deployed_agent_id}"
+
+  # Cleanup: Delete the test agent (only if one was created)
+  - name: cleanup_test_agent
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/{deployed_agent_id}"
+      method: DELETE
+      headers:
+        Accept: application/json
+    response:
+      status_code: [204, 404, 405]  # Accept multiple status codes for different scenarios
+
+---
+test_name: Test Template Suite Deployment
+
+stages:
+  - name: Get available suites
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/agent_templates/suites"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      verify_response_with:
+        - function: tests.integration.validators:validate_list_not_empty
+      save:
+        json:
+          first_suite: "[0]"
+
+  - name: Get suite details
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/agent_templates/suites/{first_suite}/details"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      json:
+        id: "{first_suite}"
+        name: !anystr
+        description: !anystr
+        category: !anystr
+        agent_count: !anyint
+        agent_names: !anylist
+        template_ids: !anylist
+      save:
+        json:
+          suite_template_count: "agent_count"
+
+  - name: Deploy entire suite
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/agent_templates/initialize-suite/{first_suite}"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      verify_response_with:
+        - function: tests.integration.validators:validate_suite_deployment_results
+          extra_kwargs:
+            expected_count: "{suite_template_count}"
+
+  - name: Verify agents were created with correct suite grouping
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      verify_response_with:
+        - function: tests.integration.validators:validate_agents_grouped_by_suite
+
+  # Cleanup: Re-fetch deployment results and delete all agents
+  - name: get_deployment_results_for_cleanup
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/agent_templates/initialize-suite/{first_suite}"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+    response:
+      status_code: 200
+      verify_response_with:
+        - function: tests.integration.validators:cleanup_deployed_agents
+          extra_kwargs:
+            base_url: "{tavern.env_vars.TEST_BACKEND_URL}"
+
+---
+test_name: Test Template Categories and Grouping
+
+stages:
+  - name: Get suites by category
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/agent_templates/suites/categories"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      verify_response_with:
+        - function: tests.integration.validators:validate_categories_structure
+
+  - name: Get categories info
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/agent_templates/categories/info"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 200
+      headers:
+        content-type: application/json
+      verify_response_with:
+        - function: tests.integration.validators:validate_categories_info_structure

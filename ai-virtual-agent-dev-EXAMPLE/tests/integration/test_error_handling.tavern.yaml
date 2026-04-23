@@ -1,0 +1,445 @@
+---
+test_name: Test Chat API Error Handling
+stages:
+  - name: Test invalid agent ID
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        virtualAgentId: "invalid-uuid-format"
+        sessionId: "test-session"
+        message:
+          role: "user"
+          content:
+            - type: "input_text"
+              text: "test message"
+        stream: false
+    response:
+      status_code: 422  # UUID validation error
+      json:
+        detail: !anything
+
+  - name: Test non-existent agent ID
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        virtualAgentId: "12345678-1234-1234-1234-123456789012"
+        sessionId: "87654321-4321-4321-4321-210987654321"
+        message:
+          role: "user"
+          content:
+            - type: "input_text"
+              text: "test message"
+        stream: false
+    response:
+      status_code: [404, 500]  # Could be 404 or 500 depending on validation
+      json:
+        detail: !anything
+
+  - name: Test missing required fields
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        virtualAgentId: "12345678-1234-1234-1234-123456789012"
+        # Missing message field
+        stream: false
+    response:
+      status_code: 422
+      json:
+        detail: !anything
+
+  - name: Test empty messages array
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        virtualAgentId: "12345678-1234-1234-1234-123456789012"
+        sessionId: "87654321-4321-4321-4321-210987654321"
+        message:
+          role: "user"
+          content: []
+        stream: false
+    response:
+      status_code: [404, 422, 500]  # Agent not found, validation error, or server error
+      json:
+        detail: !anything
+
+---
+test_name: Test User API Error Handling
+stages:
+  - name: Test create user with missing OAuth headers
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+        # Missing X-Forwarded-User and X-Forwarded-Email
+      json:
+        username: "test_user_{tavern.env_vars.TAVERN_UNIQUE}"
+        email: "test_{tavern.env_vars.TAVERN_UNIQUE}@example.com"
+        role: "user"
+    response:
+      status_code: 201  # In dev mode, missing headers are allowed
+      save:
+        json:
+          test_user_id: "id"
+
+  - name: Test create user with invalid email
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        username: "invalid_email_user_{tavern.env_vars.TAVERN_UNIQUE}"
+        email: "invalid-email-format"
+        role: "user"
+    response:
+      status_code: [422, 201, 409]  # Could be validation error, success (lenient), or conflict
+      json: !anything  # Could be error message or user data
+      save:
+        json:
+          invalid_email_user_id: "id"
+
+  - name: Test create user with invalid role
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        username: "test_user"
+        email: "test@example.com"
+        role: "invalid_role"
+    response:
+      status_code: 422
+      json:
+        detail: !anything
+
+  - name: Test access user with non-existent ID
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/12345678-1234-1234-1234-123456789012"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 404
+      json:
+        detail: "User not found"
+
+  - name: Test regular user trying to create another user
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        username: "new_user_{tavern.env_vars.TAVERN_UNIQUE}"
+        email: "new_{tavern.env_vars.TAVERN_UNIQUE}@example.com"
+        role: "user"
+    response:
+      status_code: [403, 201]  # In dev mode, may allow non-admin users
+      json: !anything  # Could be error message or user data
+      save:
+        json:
+          regular_user_id: "id"
+
+  - name: Test regular user trying to list all users
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: [403, 200]  # In dev mode, may allow regular users to list users
+      json: !anything  # Could be error message or user list
+
+  # Cleanup: Delete any test users that were successfully created
+  - name: cleanup_test_user
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/{test_user_id}"
+      method: DELETE
+      headers:
+        Accept: application/json
+    response:
+      status_code: [204, 404]  # 404 if user wasn't created
+
+  - name: cleanup_invalid_email_user
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/{invalid_email_user_id}"
+      method: DELETE
+      headers:
+        Accept: application/json
+    response:
+      status_code: [204, 404, 422]  # 422 if UUID is None, 404 if user wasn't created, 204 if deleted
+
+  - name: cleanup_regular_user
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/{regular_user_id}"
+      method: DELETE
+      headers:
+        Accept: application/json
+    response:
+      status_code: [204, 404]  # 404 if user wasn't created
+
+---
+test_name: Test Virtual Agent API Error Handling
+stages:
+  - name: Test create agent with missing OAuth headers
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+        # Missing authentication headers
+      json:
+        name: "Test Agent {tavern.env_vars.TAVERN_UNIQUE}"
+        prompt: "You are a helpful assistant."
+        model_name: "ollama/llama3.2:1b"
+        input_shields: []
+        output_shields: []
+        knowledge_base_ids: []
+        tools: []
+        enable_session_persistence: false
+    response:
+      status_code: 201  # In dev mode, missing headers are allowed
+      save:
+        json:
+          test_agent_unique_id: "id"
+
+  - name: Test create agent with missing required fields
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        # Missing name field
+        prompt: "You are a helpful assistant."
+        model_name: "ollama/llama3.2:1b"
+    response:
+      status_code: 422
+      json:
+        detail: !anything
+
+  - name: Test get non-existent agent
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/12345678-1234-1234-1234-123456789012"
+      method: GET
+      headers:
+        Accept: application/json
+    response:
+      status_code: 404
+      json:
+        detail: !anything  # Message includes the UUID, so use flexible matching
+
+  - name: Test delete non-existent agent
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/12345678-1234-1234-1234-123456789012"
+      method: DELETE
+      headers:
+        Accept: application/json
+    response:
+      status_code: 404
+      json:
+        detail: !anything  # Message includes the UUID, so use flexible matching
+
+  - name: Test create agent with invalid model name
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        name: "Test Agent"
+        prompt: "You are a helpful assistant."
+        model_name: "non-existent-model"
+        input_shields: []
+        output_shields: []
+        knowledge_base_ids: []
+        tools: []
+        enable_session_persistence: false
+    response:
+      status_code: [201, 422, 400]  # Could be created but fail later, or rejected immediately
+      # Note: The exact behavior depends on when model validation occurs
+      save:
+        json:
+          test_agent_nonexistent_id: "id"
+
+  # Cleanup: Delete the test agents that were successfully created
+  - name: cleanup_test_agent_unique
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/{test_agent_unique_id}"
+      method: DELETE
+      headers:
+        Accept: application/json
+    response:
+      status_code: [204, 404]  # 404 if agent wasn't actually created
+
+  - name: cleanup_test_agent_nonexistent
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/virtual_agents/{test_agent_nonexistent_id}"
+      method: DELETE
+      headers:
+        Accept: application/json
+    response:
+      status_code: [204, 404]  # 404 if agent wasn't actually created
+
+---
+test_name: Test Malformed Request Handling
+stages:
+  - name: Test invalid JSON in chat request
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      data: "invalid json {{"
+    response:
+      status_code: 422
+
+  - name: Test invalid JSON in user creation
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      data: "invalid json {{"
+    response:
+      status_code: 422
+
+  - name: Test unsupported content type
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/"
+      method: POST
+      headers:
+        Content-Type: text/plain
+        Accept: application/json
+      data: "plain text data"
+    response:
+      status_code: 422
+
+  - name: Test missing content type
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/"
+      method: POST
+      headers:
+        Accept: application/json
+      json:
+        username: "test_user_unique_{tavern.env_vars.TAVERN_UNIQUE}"
+        email: "test_unique_{tavern.env_vars.TAVERN_UNIQUE}@example.com"
+        role: "user"
+    response:
+      status_code: [200, 201, 409, 422]  # FastAPI might be lenient about missing Content-Type, or conflict if user exists
+      save:
+        json:
+          missing_content_type_user_id: "id"
+
+  # Cleanup: Delete any test users that were successfully created
+  - name: cleanup_missing_content_type_user
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/{missing_content_type_user_id}"
+      method: DELETE
+      headers:
+        Accept: application/json
+    response:
+      status_code: [204, 404, 422]  # 422 if UUID is None, 404 if user wasn't created, 204 if deleted
+
+---
+test_name: Test API Validation Edge Cases
+stages:
+  - name: Test extremely long username
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        username: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"  # Very long username
+        email: "longtest_{tavern.env_vars.TAVERN_UNIQUE}@example.com"
+        role: "user"
+    response:
+      status_code: [201, 422, 413, 409]  # Could succeed, validation error, payload too large, or conflict
+      save:
+        json:
+          long_username_user_id: "id"
+
+  - name: Test extremely long chat message
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/chat"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        virtualAgentId: "12345678-1234-1234-1234-123456789012"
+        sessionId: "test-session"
+        message:
+          role: "user"
+          content:
+            - type: "input_text"
+              text: "This is a very long message that repeats many times to test payload limits. This is a very long message that repeats many times to test payload limits. This is a very long message that repeats many times to test payload limits. This is a very long message that repeats many times to test payload limits. This is a very long message that repeats many times to test payload limits."
+        stream: false
+    response:
+      status_code: [404, 422, 413, 500]  # Agent not found, validation error, payload too large, or server error
+
+  - name: Test SQL injection attempt in username
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/"
+      method: POST
+      headers:
+        Content-Type: application/json
+        Accept: application/json
+      json:
+        username: "'; DROP TABLE users; --{tavern.env_vars.TAVERN_UNIQUE}"
+        email: "hacker_{tavern.env_vars.TAVERN_UNIQUE}@example.com"
+        role: "user"
+    response:
+      status_code: [201, 422, 409]  # Should be safely handled by SQLAlchemy
+      # If 201, the username should be stored as-is without executing SQL
+      save:
+        json:
+          sql_injection_user_id: "id"
+
+  # Cleanup: Delete any test users that were successfully created
+  - name: cleanup_long_username_user
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/{long_username_user_id}"
+      method: DELETE
+      headers:
+        Accept: application/json
+    response:
+      status_code: [204, 404, 422]  # 422 if UUID is None, 404 if user wasn't created, 204 if deleted
+
+  - name: cleanup_sql_injection_user
+    request:
+      url: "{tavern.env_vars.TEST_BACKEND_URL}/api/v1/users/{sql_injection_user_id}"
+      method: DELETE
+      headers:
+        Accept: application/json
+    response:
+      status_code: [204, 404]  # 404 if user wasn't created

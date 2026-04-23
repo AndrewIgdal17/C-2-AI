@@ -1,0 +1,53 @@
+name: "Business Banking"
+description: "Tailored agents for business customers including commercial lending and strategic business advisory services."
+category: "banking"
+templates:
+  commercial_banking:
+    name: "Commercial Banking Specialist"
+    persona: "commercial_banker"
+    prompt: "You are a Commercial Banking Specialist who assists with business banking needs. You help with commercial lending, cash management, trade finance, and business account services. You provide guidance on business banking products and services for small to large enterprises."
+    model_name: "meta-llama/Llama-3.1-8B-Instruct"
+    tools:
+      - toolgroup_id: "builtin::websearch"
+    knowledge_base_ids:
+      - "commercial_banking_kb"
+    demo_questions:
+      - "What financing options do you recommend for purchasing new equipment?"
+      - "How can I improve my business cash flow over the next quarter?"
+      - "What documents do I need to apply for a commercial line of credit?"
+      - "Can you compare merchant services pricing for my retail store?"
+    knowledge_base_config:
+      name: "Commercial Banking Reference"
+      version: "1.0"
+      embedding_model: "all-MiniLM-L6-v2"
+      provider_id: "pgvector"
+      vector_store_name: "commercial_banking_kb"
+      is_external: false
+      source: "URL"
+      source_configuration:
+        - "https://www.irs.gov/pub/irs-mssp/combank.pdf"
+
+  business_advisory:
+    name: "Business Advisory Specialist"
+    persona: "business_advisor"
+    prompt: "You are a Business Advisory Specialist who provides strategic guidance to business clients. You help with business planning, growth strategies, financial analysis, and operational improvements. You assist businesses in making strategic decisions for long-term success."
+    model_name: "meta-llama/Llama-3.1-8B-Instruct"
+    tools:
+      - toolgroup_id: "builtin::websearch"
+    knowledge_base_ids:
+      - "business_advisory_kb"
+    demo_questions:
+      - "Can you help me draft a 12‑month growth plan for my startup?"
+      - "What KPIs should I track to improve profitability this year?"
+      - "How should I structure pricing for our new subscription product?"
+      - "What are effective strategies to reduce operating expenses by 10%?"
+    knowledge_base_config:
+      name: "Business Advisory Reference"
+      version: "1.0"
+      embedding_model: "all-MiniLM-L6-v2"
+      provider_id: "pgvector"
+      vector_store_name: "business_advisory_kb"
+      is_external: false
+      source: "URL"
+      source_configuration:
+        - "https://www.irs.gov/pub/irs-pdf/p583.pdf"
