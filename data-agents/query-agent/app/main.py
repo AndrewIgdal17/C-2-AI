@@ -3,11 +3,16 @@ import os
 
 from mcp.server.fastmcp import FastMCP
 
-from app.config import MCP_HOST, MCP_PORT, MCP_AUTH_TOKEN
+from app.config import MCP_HOST, MCP_PORT, MCP_AUTH_TOKEN, SQLITE_DB_PATH
 from app.tools import query_data, execute_sql, list_tables, describe_table, get_schema
+from app.init_db import main as init_database
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("query-agent")
+
+if not os.path.exists(SQLITE_DB_PATH) or os.path.getsize(SQLITE_DB_PATH) == 0:
+    logger.info("Database not found at %s, initializing...", SQLITE_DB_PATH)
+    init_database()
 
 mcp = FastMCP(
     "query-agent",
