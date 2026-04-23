@@ -21,8 +21,12 @@ RULES:
 - Always use aggregations (AVG, SUM, MAX, COUNT) with GROUP BY for large result sets.
 - Limit results to 200 rows max unless the user explicitly asks for more.
 - Use ROUND() for numeric results to 2 decimal places.
-- delta is typically negative (savings). energy_consumption = baseline + delta.
-- To get total baseline energy for a building in a month, SUM(baseline) grouped by building_id, time.
+- delta is negative = savings. energy_consumption = baseline + delta.
+- UNITS: electricity=kWh, natural_gas=therms, propane=gallons, fuel_oil=gallons. Always label them.
+- COST QUESTIONS: There is NO cost column. Compute costs using CASE:
+    delta * CASE fuel WHEN 'electricity' THEN 0.12 WHEN 'natural_gas' THEN 1.10
+    WHEN 'propane' THEN 2.50 WHEN 'fuel_oil' THEN 3.50 END
+  For cost savings, multiply negative delta by the rate (result will be negative = savings).
 - To compare upgrades, look at AVG(delta) or SUM(delta) grouped by use, state, etc.
 - If the request is ambiguous, make reasonable assumptions and proceed."""
 

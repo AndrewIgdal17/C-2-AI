@@ -213,11 +213,13 @@ def import_csvs(conn):
 
 
 def main():
-    os.makedirs(os.path.dirname(DB_PATH) or ".", exist_ok=True)
+    db_path = os.getenv("SQLITE_DB_PATH", DB_PATH)
+    db_dir = os.path.dirname(db_path) or "."
+    os.makedirs(db_dir, exist_ok=True)
 
-    if os.path.exists(DB_PATH) and os.path.getsize(DB_PATH) > 0:
-        print(f"Database already exists at {DB_PATH}, verifying...")
-        conn = sqlite3.connect(DB_PATH)
+    if os.path.exists(db_path) and os.path.getsize(db_path) > 0:
+        print(f"Database already exists at {db_path}, verifying...")
+        conn = sqlite3.connect(db_path)
         cur = conn.cursor()
         cur.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table'")
         table_count = cur.fetchone()[0]
@@ -227,8 +229,8 @@ def main():
             return
         print("  Database is empty, initializing...")
 
-    print(f"Initializing database at {DB_PATH}")
-    conn = sqlite3.connect(DB_PATH)
+    print(f"Initializing database at {db_path}")
+    conn = sqlite3.connect(db_path)
     conn.executescript(SCHEMA)
 
     if not import_csvs(conn):

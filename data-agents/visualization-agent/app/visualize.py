@@ -1,12 +1,5 @@
-import base64
-import io
 import json
 import logging
-
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import numpy as np
 
 from app.llm import chat
 from app.mcp_client import query_data
@@ -14,100 +7,53 @@ from app.tracing import tracer
 
 logger = logging.getLogger("visualization-agent.visualize")
 
+COLORS = ['#5b8def', '#FF5722', '#4CAF50', '#FFC107', '#9C27B0', '#00BCD4', '#E91E63', '#8BC34A']
+
 SYSTEM_PROMPT = """You are a data visualization expert for residential energy and electrification data.
-You receive a task describing what visualizations to create. You have access to a database
-with a single 'upgrade' table: building_id, energy_consumption, fuel, use (heating/cooling/hot_water/
-lighting/appliances/cooking), time (YYYY-MM), baseline, delta (negative=savings), characteristics,
-vintage, occupants, county, state.
+You have a database with a single 'upgrade' table: building_id, energy_consumption, fuel,
+use (heating/cooling/hot_water/lighting/appliances/cooking), time (YYYY-MM), baseline,
+delta (negative=savings), characteristics, vintage, occupants, county, state.
 
-Your workflow:
-1. Determine what chart types are appropriate (bar, grouped bar, line/time series,
-   histogram, box plot, heatmap, scatter, stacked bar, etc.)
-2. Formulate data queries as natural language descriptions
-3. You'll receive query results as JSON arrays of objects
-4. Write matplotlib Python code to generate each chart
+UNITS: electricity=kWh, natural_gas=therms, propane=gallons, fuel_oil=gallons.
+There is NO upgrade_scenario column. Filter by: use column + delta < 0.
 
-When formulating queries, be specific about aggregations, groupings, and filters.
+Given a task, output a JSON array of chart specs. Each chart must include:
+- A data query that returns rows with clear column names
+- The column to use for labels (x axis) and values (y axis)
+- Optionally a group column for grouped/stacked charts
 
-For your response, output a JSON array of chart specifications:
 [
   {
     "title": "Chart Title",
     "description": "What this chart shows",
-    "query": "Natural language data query",
-    "chart_type": "bar|line|histogram|scatter|heatmap|box|stacked_bar",
-    "code_hint": "Brief note about how to structure the matplotlib code"
+    "query": "Natural language data query for the database",
+    "chart_type": "bar|line|doughnut|horizontalBar",
+    "x_key": "column name from query results for labels",
+    "y_key": "column name from query results for values",
+    "group_key": "optional column name for grouping/series",
+    "x_label": "X axis label with units",
+    "y_label": "Y axis label with units"
   }
 ]
 
-Return ONLY the JSON array, no markdown fences."""
-
-CHART_CODE_PROMPT = """Write matplotlib Python code to create a chart.
-The data is available as a Python variable called `data` which is a list of dicts.
-
-Requirements:
-- Use plt.figure(figsize=(10, 6)) for sizing
-- Set a descriptive title, axis labels, and legend where appropriate
-- Use a clean style: plt.style.use('seaborn-v0_8-whitegrid') if available
-- Use colors from this palette: ['#2196F3', '#FF5722', '#4CAF50', '#FFC107', '#9C27B0', '#00BCD4']
-- Rotate x-axis labels 45 degrees if there are more than 5 categories
-- Call plt.tight_layout() at the end
-- Save the figure to a variable called `fig` (fig = plt.gcf())
-- Do NOT call plt.show() or plt.savefig()
-
-Chart specification:
-- Title: {title}
-- Type: {chart_type}
-- Description: {description}
-- Hint: {code_hint}
-
-Sample data (first 3 rows): {sample_data}
-All column names: {columns}
-
-Return ONLY Python code, no markdown fences or explanation."""
+Return ONLY JSON, no markdown fences."""
 
 
-def _execute_chart_code(code: str, data: list[dict]) -> str | None:
-    """Execute matplotlib code and return base64 PNG, or None on failure."""
-    try:
-        plt.close("all")
-        try:
-            plt.style.use("seaborn-v0_8-whitegrid")
-        except Exception:
-            pass
+async def create_visualizations(task: str, context: str = "", log_callback=None) -> list[dict]:
+    """Create chart specifications by querying data and structuring it for frontend rendering."""
+    async def log(msg):
+        logger.info(msg)
+        if log_callback:
+            await log_callback(msg)
 
-        local_vars = {
-            "data": data,
-            "plt": plt,
-            "np": np,
-            "json": json,
-        }
-        exec(code, {"__builtins__": __builtins__}, local_vars)
-
-        fig = local_vars.get("fig", plt.gcf())
-        buf = io.BytesIO()
-        fig.savefig(buf, format="png", dpi=120, bbox_inches="tight")
-        buf.seek(0)
-        b64 = base64.b64encode(buf.read()).decode("utf-8")
-        plt.close("all")
-        return b64
-    except Exception as exc:
-        logger.error("Chart code execution failed: %s", exc)
-        plt.close("all")
-        return None
-
-
-async def create_visualizations(task: str, context: str = "") -> list[dict]:
-    """Create visualizations for the given task."""
     with tracer.start_as_current_span("create_visualizations") as span:
         span.set_attribute("task", task)
 
+        await log(f"Planning charts for: {task[:80]}")
+
         plan_messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
-            {
-                "role": "user",
-                "content": f"Task: {task}\nAdditional context: {context}",
-            },
+            {"role": "user", "content": f"Task: {task}\nContext: {context}"},
         ]
 
         plan_raw = await chat(plan_messages)
@@ -120,69 +66,119 @@ async def create_visualizations(task: str, context: str = "") -> list[dict]:
 
         try:
             chart_specs = json.loads(cleaned)
+            if isinstance(chart_specs, dict):
+                chart_specs = [chart_specs]
         except json.JSONDecodeError:
-            logger.warning("Failed to parse chart plan, attempting single chart")
+            logger.warning("Failed to parse chart plan: %s", cleaned[:200])
             chart_specs = [{
-                "title": "Data Visualization",
+                "title": "Data Overview",
                 "description": task,
                 "query": task,
                 "chart_type": "bar",
-                "code_hint": "Create an appropriate chart for the data",
+                "x_key": "", "y_key": "",
+                "x_label": "", "y_label": "",
             }]
 
+        await log(f"Will generate {len(chart_specs[:3])} chart(s)")
+
         charts = []
-        for spec in chart_specs[:3]:
-            with tracer.start_as_current_span("generate_chart") as chart_span:
-                chart_span.set_attribute("chart.title", spec.get("title", ""))
+        for idx, spec in enumerate(chart_specs[:3]):
+            with tracer.start_as_current_span("generate_chart") as cs:
+                title = spec.get("title", "Chart")
+                cs.set_attribute("chart.title", title)
 
-                query_desc = spec.get("query", task)
-                data_raw = await query_data(query_desc)
+                await log(f"Chart {idx+1}: {title}")
+                await log(f"  Querying data: {spec.get('query', task)[:80]}")
 
+                data_raw = await query_data(spec.get("query", task))
                 try:
                     data = json.loads(data_raw)
                     if isinstance(data, dict) and "error" in data:
-                        logger.error("Query error: %s", data["error"])
+                        await log(f"  Query error: {data['error'][:60]}")
                         continue
                 except json.JSONDecodeError:
-                    logger.error("Failed to parse query result")
+                    await log("  Failed to parse query result")
                     continue
 
                 if not data:
-                    logger.warning("Empty data for chart: %s", spec.get("title"))
+                    await log(f"  No data returned for chart: {title}")
                     continue
 
-                sample = data[:3]
-                columns = list(data[0].keys()) if data else []
+                await log(f"  Got {len(data)} data points, building chart data...")
 
-                code_messages = [
-                    {
-                        "role": "user",
-                        "content": CHART_CODE_PROMPT.format(
-                            title=spec.get("title", "Chart"),
-                            chart_type=spec.get("chart_type", "bar"),
-                            description=spec.get("description", ""),
-                            code_hint=spec.get("code_hint", ""),
-                            sample_data=json.dumps(sample),
-                            columns=columns,
-                        ),
-                    },
-                ]
+                columns = list(data[0].keys())
+                x_key = spec.get("x_key", columns[0] if columns else "")
+                y_key = spec.get("y_key", columns[1] if len(columns) > 1 else columns[0])
+                group_key = spec.get("group_key")
+                chart_type = spec.get("chart_type", "bar")
 
-                code_raw = await chat(code_messages)
-                code = code_raw.strip()
-                if code.startswith("```"):
-                    code = code.split("\n", 1)[-1]
-                if code.endswith("```"):
-                    code = code.rsplit("```", 1)[0]
-                code = code.strip()
+                chart_data = _build_chartjs_data(
+                    data, chart_type, x_key, y_key, group_key
+                )
 
-                image_b64 = _execute_chart_code(code, data)
-                if image_b64:
+                if chart_data:
+                    await log(f"  Chart '{title}' ready ({len(data)} points)")
                     charts.append({
-                        "title": spec.get("title", "Chart"),
+                        "title": title,
                         "description": spec.get("description", ""),
-                        "image_base64": image_b64,
+                        "chart_type": chart_type,
+                        "chart_data": chart_data,
+                        "x_label": spec.get("x_label", x_key.replace("_", " ").title()),
+                        "y_label": spec.get("y_label", y_key.replace("_", " ").title()),
                     })
 
         span.set_attribute("charts.count", len(charts))
         return charts
+
+
+def _build_chartjs_data(data: list[dict], chart_type: str, x_key: str, y_key: str,
+                        group_key: str = None) -> dict | None:
+    """Transform query results into Chart.js-compatible data structure."""
+    if not data:
+        return None
+
+    columns = list(data[0].keys())
+    if x_key not in data[0]:
+        x_key = columns[0] if columns else ""
+    if y_key not in data[0]:
+        y_key = columns[1] if len(columns) > 1 else columns[0]
+
+    if not x_key or not y_key:
+        return None
+
+    if group_key and group_key in data[0]:
+        groups = sorted(set(str(row[group_key]) for row in data))
+        labels = sorted(set(str(row[x_key]) for row in data))
+
+        datasets = []
+        for i, grp in enumerate(groups):
+            values = []
+            for label in labels:
+                matches = [row[y_key] for row in data
+                           if str(row[x_key]) == label and str(row[group_key]) == grp]
+                values.append(round(float(matches[0]), 2) if matches else 0)
+            datasets.append({
+                "label": str(grp),
+                "data": values,
+                "backgroundColor": COLORS[i % len(COLORS)],
+                "borderColor": COLORS[i % len(COLORS)],
+                "borderWidth": 1,
+            })
+
+        return {"labels": labels, "datasets": datasets}
+    else:
+        labels = [str(row[x_key]) for row in data]
+        values = [round(float(row[y_key]), 2) if row[y_key] is not None else 0 for row in data]
+
+        return {
+            "labels": labels,
+            "datasets": [{
+                "label": y_key.replace("_", " ").title(),
+                "data": values,
+                "backgroundColor": COLORS[:len(values)] if chart_type in ("bar", "doughnut", "horizontalBar") else COLORS[0],
+                "borderColor": COLORS[:len(values)] if chart_type == "doughnut" else COLORS[0],
+                "borderWidth": chart_type == "line" and 2 or 1,
+                "fill": chart_type == "line",
+                "tension": 0.3,
+            }],
+        }

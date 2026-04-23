@@ -8,9 +8,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app/ app/
 
 ENV PYTHONUNBUFFERED=1
-ENV SQLITE_DB_PATH=/tmp/data/residential_energy.db
-
-RUN mkdir -p /tmp/data
+ENV SQLITE_DB_PATH=/tmp/residential_energy.db
 
 EXPOSE 8003
 

@@ -15,18 +15,24 @@ Key columns: building_id, energy_consumption, fuel, use (end-use like heating/co
 time (YYYY-MM), baseline, delta (change from upgrade, negative=savings), characteristics
 (building type), vintage, occupants, county, state.
 
+UNITS by fuel type: electricity=kWh, natural_gas=therms, propane=gallons, fuel_oil=gallons.
+COST RATES (no cost column exists — compute from energy * rate):
+  electricity: $0.12/kWh, natural_gas: $1.10/therm, propane: $2.50/gallon, fuel_oil: $3.50/gallon.
+For dollar/cost questions, ask for energy delta and multiply by the rate.
+Example query: "Average delta for electricity hot_water in TX, also compute delta * 0.12 as cost_savings_usd"
+
 Your workflow:
-1. Determine which summary statistics are relevant (mean, median, min, max, percentiles,
-   group-by aggregations, comparisons across scenarios, etc.)
+1. Determine which summary statistics are relevant
 2. Formulate data queries as natural language descriptions
 3. You'll receive query results as JSON
-4. Compute or interpret the statistics
+4. Compute or interpret the statistics — always include proper units (kWh, therms, USD, etc.)
 5. Return a structured analysis
 
 When formulating queries, be specific about:
 - What aggregations to apply (AVG, SUM, COUNT, etc.)
 - What filters (state, fuel type, end-use, time period, etc.)
 - What groupings to use (by state, by use, by fuel, etc.)
+- For cost questions: ask the query to multiply delta by the fuel rate in the SQL
 
 Return your analysis as JSON with this structure:
 {
@@ -47,10 +53,17 @@ Return your analysis as JSON with this structure:
 Return ONLY the JSON, no markdown fences or explanation outside the JSON."""
 
 
-async def analyze(task: str, context: str = "") -> dict:
-    """Run statistical analysis by querying data and computing stats."""
+async def analyze(task: str, context: str = "", log_callback=None):
+    """Run statistical analysis. log_callback(msg) is called for progress updates."""
+    async def log(msg):
+        logger.info(msg)
+        if log_callback:
+            await log_callback(msg)
+
     with tracer.start_as_current_span("analyze") as span:
         span.set_attribute("task", task)
+
+        await log(f"Planning analysis for: {task[:100]}")
 
         planning_messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -68,7 +81,6 @@ async def analyze(task: str, context: str = "") -> dict:
 
         plan = await chat(planning_messages)
         span.set_attribute("plan", plan[:500])
-        logger.info("Statistics plan: %s", plan[:300])
 
         queries = []
         for line in plan.split("\n"):
@@ -81,16 +93,26 @@ async def analyze(task: str, context: str = "") -> dict:
         if not queries:
             queries = [task]
 
+        await log(f"Planned {len(queries)} data queries")
+
         query_results = []
-        for q in queries[:5]:
-            logger.info("Executing query: %s", q)
+        for i, q in enumerate(queries[:5]):
+            await log(f"Query {i+1}/{min(len(queries),5)}: {q[:80]}")
             result = await query_data(q)
+            try:
+                parsed = json.loads(result)
+                row_count = len(parsed) if isinstance(parsed, list) else 0
+                await log(f"  -> Got {row_count} rows")
+            except json.JSONDecodeError:
+                await log(f"  -> Got response ({len(result)} chars)")
             query_results.append({"query": q, "result": result})
 
         results_text = "\n\n".join(
             f"Query: {qr['query']}\nResult: {qr['result'][:3000]}"
             for qr in query_results
         )
+
+        await log("Computing statistics from query results...")
 
         analysis_messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -115,9 +137,11 @@ async def analyze(task: str, context: str = "") -> dict:
         cleaned = cleaned.strip()
 
         try:
-            return json.loads(cleaned)
+            result = json.loads(cleaned)
+            await log(f"Analysis complete: {result.get('summary', '')[:80]}")
+            return result
         except json.JSONDecodeError:
-            logger.warning("Failed to parse LLM analysis as JSON, wrapping as text")
+            await log("Analysis complete (text format)")
             return {
                 "summary": cleaned,
                 "statistics": {},

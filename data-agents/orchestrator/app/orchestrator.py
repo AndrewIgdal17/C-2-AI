@@ -1,6 +1,7 @@
 import asyncio
 import json
 import logging
+import time
 
 import httpx
 
@@ -28,6 +29,11 @@ scenario per end-use per month. Key columns:
 - baseline (pre-upgrade energy), delta (change from upgrade, negative = savings)
 - energy_consumption (post-upgrade = baseline + delta)
 
+UNITS: electricity=kWh, natural_gas=therms, propane=gallons, fuel_oil=gallons.
+COST: No cost column exists. Costs are computed from energy using rates:
+  electricity=$0.12/kWh, natural_gas=$1.10/therm, propane=$2.50/gal, fuel_oil=$3.50/gal.
+For cost/dollar questions, tell agents to compute cost = energy * rate.
+
 Upgrade types: heat_pump_hvac, heat_pump_water_heater, solar_water_heating,
 envelope_upgrade, full_electrification, efficient_lighting, heat_pump_dryer, induction_cooking
 
@@ -46,63 +52,101 @@ Return ONLY JSON, no markdown fences."""
 REPORT_PROMPT = """You are writing a data analysis report for a non-technical audience about
 residential building energy and electrification.
 
-You received the following question: {question}
+Question: {question}
 
-Here are the results from the analysis agents:
-
-STATISTICS:
+Statistics from analysis:
 {stats_summary}
 
-VISUALIZATIONS:
+Visualizations created:
 {viz_descriptions}
 
+CRITICAL RULES:
+- Always include units: kWh for electricity, therms for natural gas, gallons for propane/fuel oil, USD for costs.
+- Never say "units" generically. Say "kWh", "therms", "$X.XX", etc.
+- Costs are estimated at: electricity $0.12/kWh, natural_gas $1.10/therm, propane $2.50/gal, fuel_oil $3.50/gal.
+- If the statistics include cost data, present it prominently.
+- If they don't include cost data but the user asked about costs, compute approximate dollar amounts from the energy values and rates above.
+
 Write a clear, well-structured report that:
-1. Opens with a direct answer to the question in 1-2 sentences
-2. Presents the key statistics in context (explain what the numbers mean)
-3. References the charts/visualizations that were created
-4. Notes any caveats or limitations
-5. Keeps the language accessible — no jargon without explanation
+1. Opens with a direct answer in 1-2 sentences, with specific numbers and units
+2. Presents key statistics in context
+3. References any charts/visualizations created
+4. Notes caveats briefly (1-2 sentences max)
 
-Write in plain English. Use paragraphs, not bullet points for the main narrative.
-Keep it under 400 words."""
+Write in plain English paragraphs. Keep it under 300 words. Be concise and specific."""
 
 
-async def _call_stats_agent(task: str, context: str) -> dict:
-    """Call the Statistics Sub-Agent."""
-    with tracer.start_as_current_span("call_stats_agent") as span:
-        span.set_attribute("task", task)
+async def _call_agent_streaming(url: str, payload: dict, agent_name: str, event_queue: asyncio.Queue):
+    """Call a sub-agent with stream=True and relay log events."""
+    payload["stream"] = True
+    result = None
+    t0 = time.time()
+    try:
         async with httpx.AsyncClient(timeout=180.0) as client:
-            resp = await client.post(
-                f"{STATS_AGENT_URL}/analyze",
-                json={"task": task, "context": context},
-            )
+            async with client.stream("POST", url, json=payload,
+                                     headers={"Accept": "text/event-stream"}) as resp:
+                resp.raise_for_status()
+                event_type = None
+                try:
+                    async for line in resp.aiter_lines():
+                        line = line.strip()
+                        if line.startswith("event:"):
+                            event_type = line[6:].strip()
+                        elif line.startswith("data:") and event_type:
+                            try:
+                                data = json.loads(line[5:].strip())
+                            except json.JSONDecodeError:
+                                event_type = None
+                                continue
+                            if event_type == "log":
+                                await event_queue.put(("log", agent_name, data.get("message", "")))
+                            elif event_type == "result":
+                                result = data
+                                elapsed = round(time.time() - t0, 1)
+                                await event_queue.put(("log", agent_name, f"Completed in {elapsed}s"))
+                            elif event_type == "error":
+                                await event_queue.put(("log", agent_name, f"Error: {data.get('error', 'unknown')}"))
+                            event_type = None
+                except httpx.RemoteProtocolError:
+                    if result:
+                        await event_queue.put(("log", agent_name, "Stream ended (result already received)"))
+                    else:
+                        await event_queue.put(("log", agent_name, "Stream interrupted, falling back to sync call"))
+                        result = await _call_agent_sync(url, payload, agent_name, event_queue)
+    except Exception as exc:
+        elapsed = round(time.time() - t0, 1)
+        if not result:
+            await event_queue.put(("log", agent_name, f"Streaming failed ({elapsed}s), trying sync..."))
+            result = await _call_agent_sync(url, payload, agent_name, event_queue)
+        else:
+            await event_queue.put(("log", agent_name, f"Stream error after result ({elapsed}s): {type(exc).__name__}"))
+
+    await event_queue.put(("done", agent_name, result))
+    return result
+
+
+async def _call_agent_sync(url: str, payload: dict, agent_name: str, event_queue: asyncio.Queue):
+    """Fallback: call a sub-agent without streaming."""
+    payload["stream"] = False
+    try:
+        async with httpx.AsyncClient(timeout=180.0) as client:
+            resp = await client.post(url, json=payload)
             resp.raise_for_status()
             result = resp.json()
-            span.set_attribute("stats.summary_length", len(result.get("summary", "")))
+            await event_queue.put(("log", agent_name, "Sync call completed"))
             return result
-
-
-async def _call_viz_agent(task: str, context: str) -> dict:
-    """Call the Visualization Sub-Agent."""
-    with tracer.start_as_current_span("call_viz_agent") as span:
-        span.set_attribute("task", task)
-        async with httpx.AsyncClient(timeout=180.0) as client:
-            resp = await client.post(
-                f"{VIZ_AGENT_URL}/visualize",
-                json={"task": task, "context": context},
-            )
-            resp.raise_for_status()
-            result = resp.json()
-            span.set_attribute("viz.chart_count", len(result.get("charts", [])))
-            return result
+    except Exception as exc:
+        await event_queue.put(("log", agent_name, f"Sync fallback also failed: {exc}"))
+        return None
 
 
 async def process_question(question: str):
     """Process a user question: decompose, dispatch, assemble. Yields SSE events."""
     with tracer.start_as_current_span("process_question") as span:
         span.set_attribute("question", question)
+        t_start = time.time()
 
-        yield _sse_event("status", {"message": "Analyzing your question..."})
+        yield _sse("log", "orchestrator", "Analyzing your question...")
 
         decompose_messages = [
             {"role": "system", "content": DECOMPOSE_PROMPT},
@@ -127,41 +171,62 @@ async def process_question(question: str):
             }
 
         understanding = plan.get("understanding", "")
-        yield _sse_event("status", {"message": f"I understand: {understanding}"})
+        yield _sse("log", "orchestrator", f"Understood: {understanding}")
 
         stats_task = plan.get("stats_task")
         viz_task = plan.get("viz_task")
         context = plan.get("context", "")
 
-        tasks = []
-        task_names = []
-        if stats_task:
-            tasks.append(_call_stats_agent(stats_task, context))
-            task_names.append("stats")
-            yield _sse_event("status", {"message": "Dispatching to Statistics Agent..."})
-        if viz_task:
-            tasks.append(_call_viz_agent(viz_task, context))
-            task_names.append("viz")
-            yield _sse_event("status", {"message": "Dispatching to Visualization Agent..."})
+        event_queue = asyncio.Queue()
+        agent_tasks = []
+        expected_agents = set()
 
-        if not tasks:
+        if stats_task:
+            yield _sse("log", "orchestrator", f"Dispatching to Statistics Agent: {stats_task[:80]}")
+            agent_tasks.append(asyncio.create_task(
+                _call_agent_streaming(f"{STATS_AGENT_URL}/analyze",
+                                      {"task": stats_task, "context": context},
+                                      "statistics", event_queue)
+            ))
+            expected_agents.add("statistics")
+
+        if viz_task:
+            yield _sse("log", "orchestrator", f"Dispatching to Visualization Agent: {viz_task[:80]}")
+            agent_tasks.append(asyncio.create_task(
+                _call_agent_streaming(f"{VIZ_AGENT_URL}/visualize",
+                                      {"task": viz_task, "context": context},
+                                      "visualization", event_queue)
+            ))
+            expected_agents.add("visualization")
+
+        if not agent_tasks:
+            yield _sse("log", "orchestrator", "Could not determine what to analyze.")
             yield _sse_event("error", {"message": "Could not determine what to analyze."})
             return
 
-        results = await asyncio.gather(*tasks, return_exceptions=True)
-
+        # Relay events from sub-agents in real-time
         stats_result = None
         viz_result = None
-        for name, result in zip(task_names, results):
-            if isinstance(result, Exception):
-                logger.error("Agent %s failed: %s", name, result)
-                yield _sse_event("status", {"message": f"{name} agent encountered an error"})
-            elif name == "stats":
-                stats_result = result
-            elif name == "viz":
-                viz_result = result
+        done_agents = set()
 
-        yield _sse_event("status", {"message": "Assembling report..."})
+        while done_agents != expected_agents:
+            try:
+                item = await asyncio.wait_for(event_queue.get(), timeout=2.0)
+            except asyncio.TimeoutError:
+                continue
+
+            event_type, agent_name, payload = item
+            if event_type == "log":
+                yield _sse("log", agent_name, payload)
+            elif event_type == "done":
+                done_agents.add(agent_name)
+                if agent_name == "statistics" and payload:
+                    stats_result = payload
+                elif agent_name == "visualization" and payload:
+                    viz_result = payload
+
+        # Emit structured results
+        yield _sse("log", "orchestrator", "All agents finished. Assembling report...")
 
         stats_summary = ""
         if stats_result:
@@ -172,18 +237,25 @@ async def process_question(question: str):
 
         viz_descriptions = "No visualizations generated."
         if viz_result and viz_result.get("charts"):
-            descs = [c.get("description", c.get("title", "")) for c in viz_result["charts"]]
+            charts = viz_result["charts"]
+            descs = [c.get("description", c.get("title", "")) for c in charts]
             viz_descriptions = "\n".join(f"- {d}" for d in descs)
             yield _sse_event("charts", {
                 "charts": [
                     {
                         "title": c.get("title", ""),
                         "description": c.get("description", ""),
+                        "chart_type": c.get("chart_type", "bar"),
+                        "chart_data": c.get("chart_data"),
+                        "x_label": c.get("x_label", ""),
+                        "y_label": c.get("y_label", ""),
                         "image_base64": c.get("image_base64", ""),
                     }
-                    for c in viz_result["charts"]
+                    for c in charts
                 ]
             })
+
+        yield _sse("log", "orchestrator", "Writing final report...")
 
         report_messages = [
             {
@@ -197,8 +269,23 @@ async def process_question(question: str):
         ]
         report = await chat(report_messages, temperature=0.3)
         yield _sse_event("report", {"text": report})
+
+        elapsed = round(time.time() - t_start, 1)
+        yield _sse("log", "orchestrator", f"Done ({elapsed}s total)")
         yield _sse_event("done", {})
 
 
+def _sse(event_type: str, agent: str, message: str) -> str:
+    """Emit a structured log event with agent name."""
+    data = json.dumps({"agent": agent, "message": message})
+    payload = f"event: {event_type}\ndata: {data}\n\n"
+    if len(payload) < 256:
+        payload += f": {'.' * (256 - len(payload))}\n\n"
+    return payload
+
+
 def _sse_event(event_type: str, data: dict) -> str:
-    return f"event: {event_type}\ndata: {json.dumps(data)}\n\n"
+    payload = f"event: {event_type}\ndata: {json.dumps(data)}\n\n"
+    if len(payload) < 256:
+        payload += f": {'.' * (256 - len(payload))}\n\n"
+    return payload
