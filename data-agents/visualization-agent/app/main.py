@@ -1,9 +1,10 @@
 import asyncio
 import json
 import logging
+from typing import Any, Optional
 
 from fastapi import FastAPI
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, JSONResponse
 from pydantic import BaseModel
 
 from app.visualize import create_visualizations
@@ -20,16 +21,6 @@ class VisualizeRequest(BaseModel):
     task: str
     context: str = ""
     stream: bool = False
-
-
-class ChartItem(BaseModel):
-    title: str = ""
-    description: str = ""
-    image_base64: str = ""
-
-
-class VisualizeResponse(BaseModel):
-    charts: list[ChartItem] = []
 
 
 @app.get("/health")
@@ -52,6 +43,7 @@ async def visualize_endpoint(request: VisualizeRequest):
                 result = await create_visualizations(request.task, request.context, log_callback=log_callback)
                 await log_queue.put(("__RESULT__", result))
             except Exception as e:
+                logger.error("Viz error: %s", e)
                 await log_queue.put(("__ERROR__", str(e)))
 
         async def event_stream():
@@ -65,12 +57,10 @@ async def visualize_endpoint(request: VisualizeRequest):
 
                 if isinstance(item, tuple):
                     if item[0] == "__RESULT__":
-                        result_data = {"charts": item[1]}
-                        yield f"event: result\ndata: {json.dumps(result_data)}\n\n"
+                        yield f"event: result\ndata: {json.dumps({'charts': item[1]})}\n\n"
                         break
                     elif item[0] == "__ERROR__":
-                        err_data = {"error": item[1]}
-                        yield f"event: error\ndata: {json.dumps(err_data)}\n\n"
+                        yield f"event: error\ndata: {json.dumps({'error': item[1]})}\n\n"
                         break
                 else:
                     yield f"event: log\ndata: {json.dumps({'message': item})}\n\n"
@@ -80,7 +70,7 @@ async def visualize_endpoint(request: VisualizeRequest):
                                  headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
     else:
         charts = await create_visualizations(request.task, request.context)
-        return VisualizeResponse(charts=[ChartItem(**c) for c in charts])
+        return JSONResponse(content={"charts": charts})
 
 
 if __name__ == "__main__":

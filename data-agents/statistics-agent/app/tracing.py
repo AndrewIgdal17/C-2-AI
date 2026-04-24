@@ -9,12 +9,15 @@ if OTEL_ENABLED:
     )
     from opentelemetry.sdk.resources import Resource
     from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+    from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
 
     resource = Resource.create({"service.name": "statistics-agent"})
     provider = TracerProvider(resource=resource)
     exporter = OTLPSpanExporter(endpoint=OTEL_ENDPOINT, insecure=True)
     provider.add_span_processor(BatchSpanProcessor(exporter))
     trace.set_tracer_provider(provider)
+
+    HTTPXClientInstrumentor().instrument()
 
     tracer = trace.get_tracer("statistics-agent")
 

@@ -101,10 +101,10 @@ const AGENT_ICONS = {
 };
 
 const AGENT_COLORS = {
-    orchestrator: '#5b8def',
-    statistics: '#4CAF50',
-    visualization: '#FF9800',
-    query: '#9C27B0',
+    orchestrator: '#0072f5',
+    statistics: '#17b169',
+    visualization: '#f5a623',
+    query: '#8e4ec6',
 };
 
 function handleEvent(type, data, container, logContainer) {
@@ -190,7 +190,7 @@ function addLogEntry(logContainer, agent, message) {
     entry.className = 'log-entry';
 
     const icon = AGENT_ICONS[agent] || '\u2022';
-    const color = AGENT_COLORS[agent] || '#8b8fa3';
+    const color = AGENT_COLORS[agent] || '#666666';
     const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
     entry.innerHTML = `<span class="log-time">${time}</span>`
@@ -292,6 +292,19 @@ function renderStatistics(container, data) {
 
 let chartCounter = 0;
 
+const CHART_PALETTE = [
+    '#171717',
+    '#0072f5',
+    '#17b169',
+    '#f5a623',
+    '#8e4ec6',
+    '#e5484d',
+    '#4d4d4d',
+    '#0068d6',
+    '#30a46c',
+    '#e54666',
+];
+
 function renderCharts(container, data) {
     if (!data.charts || data.charts.length === 0) return;
     const wrap = document.createElement('div');
@@ -336,25 +349,70 @@ function renderCharts(container, data) {
     container.appendChild(wrap);
 
     if (pendingCharts.length > 0) {
-        setTimeout(() => {
-            for (const { canvas, chart } of pendingCharts) {
-                try {
-                    renderChartJS(canvas, chart);
-                } catch (e) {
-                    console.error('Chart.js render error:', e);
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                for (const { canvas, chart } of pendingCharts) {
+                    try {
+                        renderChartJS(canvas, chart);
+                    } catch (e) {
+                        console.error('Chart.js render error:', e);
+                    }
                 }
-            }
-        }, 50);
+            });
+        });
     }
 }
 
 function renderChartJS(canvas, chart) {
+    if (typeof Chart === 'undefined') {
+        console.error('Chart.js not loaded');
+        return;
+    }
+
+    const parent = canvas.parentElement;
+    if (!parent || parent.clientWidth === 0) {
+        console.warn('Chart parent has 0 width, retrying in 200ms');
+        setTimeout(() => renderChartJS(canvas, chart), 200);
+        return;
+    }
+
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+
     const chartType = mapChartType(chart.chart_type || 'bar');
     const isHorizontal = chart.chart_type === 'horizontalBar';
 
-    const config = {
+    const chartData = chart.chart_data;
+    if (!chartData || !chartData.labels || !chartData.datasets) {
+        console.error('Invalid chart data:', chartData);
+        return;
+    }
+
+    const styledDatasets = (chartData.datasets || []).map((ds, i) => {
+        const color = CHART_PALETTE[i % CHART_PALETTE.length];
+        const patched = { ...ds };
+        if (!patched.backgroundColor) {
+            patched.backgroundColor = chartType === 'doughnut'
+                ? chartData.labels.map((_, j) => CHART_PALETTE[j % CHART_PALETTE.length])
+                : chartType === 'line' ? color + '18' : color;
+        }
+        if (!patched.borderColor) {
+            patched.borderColor = chartType === 'doughnut'
+                ? '#ffffff'
+                : color;
+        }
+        if (chartType === 'line' && patched.borderWidth === undefined) {
+            patched.borderWidth = 2;
+        }
+        if (chartType === 'doughnut' && patched.borderWidth === undefined) {
+            patched.borderWidth = 2;
+        }
+        return patched;
+    });
+
+    new Chart(canvas.getContext('2d'), {
         type: chartType,
-        data: chart.chart_data,
+        data: { ...chartData, datasets: styledDatasets },
         options: {
             responsive: true,
             maintainAspectRatio: false,
@@ -363,22 +421,36 @@ function renderChartJS(canvas, chart) {
                 title: {
                     display: true,
                     text: chart.title || '',
-                    color: '#e1e4ed',
-                    font: { size: 14, weight: 'bold' },
+                    color: '#171717',
+                    font: { size: 14, weight: '600', family: "'Geist', sans-serif" },
                     padding: { bottom: 16 },
                 },
                 legend: {
-                    display: (chart.chart_data.datasets || []).length > 1,
-                    labels: { color: '#8b8fa3', font: { size: 11 } },
+                    display: (chartData.datasets || []).length > 1,
+                    labels: {
+                        color: '#4d4d4d',
+                        font: { size: 12, family: "'Geist', sans-serif" },
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                        padding: 16,
+                    },
                 },
                 tooltip: {
-                    backgroundColor: '#1a1b26',
-                    titleColor: '#e1e4ed',
-                    bodyColor: '#e1e4ed',
-                    borderColor: '#2d2f42',
+                    backgroundColor: '#171717',
+                    titleColor: '#ffffff',
+                    bodyColor: '#ffffff',
+                    borderColor: 'rgba(255, 255, 255, 0.1)',
                     borderWidth: 1,
                     padding: 10,
                     cornerRadius: 6,
+                    titleFont: { family: "'Geist', sans-serif", weight: '500' },
+                    bodyFont: { family: "'Geist Mono', monospace" },
+                    callbacks: {
+                        label: function(ctx) {
+                            const val = ctx.parsed.y ?? ctx.parsed.x ?? ctx.raw;
+                            return `${ctx.dataset.label || ''}: ${Number(val).toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+                        }
+                    },
                 },
             },
             scales: chartType === 'doughnut' ? {} : {
@@ -386,29 +458,36 @@ function renderChartJS(canvas, chart) {
                     title: {
                         display: !!chart.x_label,
                         text: chart.x_label || '',
-                        color: '#8b8fa3',
+                        color: '#666666',
+                        font: { size: 12, family: "'Geist', sans-serif", weight: '500' },
                     },
-                    ticks: { color: '#8b8fa3', maxRotation: 45 },
-                    grid: { color: 'rgba(45,47,66,0.5)' },
+                    ticks: {
+                        color: '#666666',
+                        font: { size: 11, family: "'Geist', sans-serif" },
+                        maxRotation: 45,
+                    },
+                    grid: { color: 'rgba(0, 0, 0, 0.06)', drawBorder: false },
+                    border: { display: false },
                 },
                 y: {
                     title: {
                         display: !!chart.y_label,
                         text: chart.y_label || '',
-                        color: '#8b8fa3',
+                        color: '#666666',
+                        font: { size: 12, family: "'Geist', sans-serif", weight: '500' },
                     },
-                    ticks: { color: '#8b8fa3' },
-                    grid: { color: 'rgba(45,47,66,0.5)' },
+                    ticks: {
+                        color: '#666666',
+                        font: { size: 11, family: "'Geist Mono', monospace" },
+                    },
+                    grid: { color: 'rgba(0, 0, 0, 0.06)', drawBorder: false },
+                    border: { display: false },
+                    beginAtZero: false,
                 },
             },
-            animation: {
-                duration: 800,
-                easing: 'easeOutQuart',
-            },
+            animation: { duration: 800, easing: 'easeOutQuart' },
         },
-    };
-
-    new Chart(canvas, config);
+    });
 }
 
 function mapChartType(type) {
