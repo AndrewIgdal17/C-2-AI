@@ -77,67 +77,94 @@ Write in plain English paragraphs. Keep it under 300 words. Be concise and speci
 
 
 async def _call_agent_streaming(url: str, payload: dict, agent_name: str, event_queue: asyncio.Queue):
-    """Call a sub-agent with stream=True and relay log events."""
+    """Call a sub-agent with stream=True, retrying on 503 (Knative cold start)."""
     payload["stream"] = True
     result = None
     t0 = time.time()
-    try:
-        async with httpx.AsyncClient(timeout=180.0) as client:
-            async with client.stream("POST", url, json=payload,
-                                     headers={"Accept": "text/event-stream"}) as resp:
-                resp.raise_for_status()
-                event_type = None
-                try:
-                    async for line in resp.aiter_lines():
-                        line = line.strip()
-                        if line.startswith("event:"):
-                            event_type = line[6:].strip()
-                        elif line.startswith("data:") and event_type:
-                            try:
-                                data = json.loads(line[5:].strip())
-                            except json.JSONDecodeError:
+
+    max_retries = 12
+    for attempt in range(max_retries):
+        try:
+            async with httpx.AsyncClient(timeout=180.0) as client:
+                async with client.stream("POST", url, json=payload,
+                                         headers={"Accept": "text/event-stream"}) as resp:
+                    if resp.status_code == 503:
+                        raise httpx.HTTPStatusError("503", request=resp.request, response=resp)
+                    resp.raise_for_status()
+                    event_type = None
+                    try:
+                        async for line in resp.aiter_lines():
+                            line = line.strip()
+                            if line.startswith("event:"):
+                                event_type = line[6:].strip()
+                            elif line.startswith("data:") and event_type:
+                                try:
+                                    data = json.loads(line[5:].strip())
+                                except json.JSONDecodeError:
+                                    event_type = None
+                                    continue
+                                if event_type == "log":
+                                    await event_queue.put(("log", agent_name, data.get("message", "")))
+                                elif event_type == "result":
+                                    result = data
+                                    elapsed = round(time.time() - t0, 1)
+                                    await event_queue.put(("log", agent_name, f"Completed in {elapsed}s"))
+                                elif event_type == "error":
+                                    await event_queue.put(("log", agent_name, f"Error: {data.get('error', 'unknown')}"))
                                 event_type = None
-                                continue
-                            if event_type == "log":
-                                await event_queue.put(("log", agent_name, data.get("message", "")))
-                            elif event_type == "result":
-                                result = data
-                                elapsed = round(time.time() - t0, 1)
-                                await event_queue.put(("log", agent_name, f"Completed in {elapsed}s"))
-                            elif event_type == "error":
-                                await event_queue.put(("log", agent_name, f"Error: {data.get('error', 'unknown')}"))
-                            event_type = None
-                except httpx.RemoteProtocolError:
-                    if result:
-                        await event_queue.put(("log", agent_name, "Stream ended (result already received)"))
-                    else:
-                        await event_queue.put(("log", agent_name, "Stream interrupted, falling back to sync call"))
-                        result = await _call_agent_sync(url, payload, agent_name, event_queue)
-    except Exception as exc:
-        elapsed = round(time.time() - t0, 1)
-        if not result:
-            await event_queue.put(("log", agent_name, f"Streaming failed ({elapsed}s), trying sync..."))
-            result = await _call_agent_sync(url, payload, agent_name, event_queue)
-        else:
-            await event_queue.put(("log", agent_name, f"Stream error after result ({elapsed}s): {type(exc).__name__}"))
+                    except httpx.RemoteProtocolError:
+                        if result:
+                            pass
+                        else:
+                            result = await _call_agent_sync(url, payload, agent_name, event_queue)
+            break
+
+        except (httpx.HTTPStatusError, httpx.ConnectError, httpx.ReadError) as exc:
+            status = getattr(getattr(exc, 'response', None), 'status_code', 0)
+            if status in (503, 502, 0) or isinstance(exc, (httpx.ConnectError, httpx.ReadError)):
+                wait = min(1 + attempt * 2, 8)
+                if attempt == 0:
+                    await event_queue.put(("log", agent_name, "Waiting for agent to start (cold start)..."))
+                if attempt < max_retries - 1:
+                    await asyncio.sleep(wait)
+                    continue
+            if not result:
+                await event_queue.put(("log", agent_name, f"Streaming failed, trying sync..."))
+                result = await _call_agent_sync(url, payload, agent_name, event_queue)
+            break
+
+        except Exception as exc:
+            if not result:
+                await event_queue.put(("log", agent_name, f"Streaming failed, trying sync..."))
+                result = await _call_agent_sync(url, payload, agent_name, event_queue)
+            break
 
     await event_queue.put(("done", agent_name, result))
     return result
 
 
 async def _call_agent_sync(url: str, payload: dict, agent_name: str, event_queue: asyncio.Queue):
-    """Fallback: call a sub-agent without streaming."""
+    """Fallback: call a sub-agent without streaming, with retry for cold start."""
     payload["stream"] = False
-    try:
-        async with httpx.AsyncClient(timeout=180.0) as client:
-            resp = await client.post(url, json=payload)
-            resp.raise_for_status()
-            result = resp.json()
-            await event_queue.put(("log", agent_name, "Sync call completed"))
-            return result
-    except Exception as exc:
-        await event_queue.put(("log", agent_name, f"Sync fallback also failed: {exc}"))
-        return None
+    for attempt in range(12):
+        try:
+            async with httpx.AsyncClient(timeout=180.0) as client:
+                resp = await client.post(url, json=payload)
+                if resp.status_code in (503, 502):
+                    await asyncio.sleep(min(1 + attempt * 2, 8))
+                    continue
+                resp.raise_for_status()
+                result = resp.json()
+                await event_queue.put(("log", agent_name, "Completed (sync)"))
+                return result
+        except (httpx.ConnectError, httpx.ReadError):
+            await asyncio.sleep(min(1 + attempt * 2, 8))
+            continue
+        except Exception as exc:
+            await event_queue.put(("log", agent_name, f"Agent call failed: {type(exc).__name__}"))
+            return None
+    await event_queue.put(("log", agent_name, "Agent unavailable after retries"))
+    return None
 
 
 async def process_question(question: str):

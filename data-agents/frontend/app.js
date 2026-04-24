@@ -50,9 +50,12 @@ async function handleSubmit(event) {
     document.getElementById('send-btn').disabled = true;
     input.value = '';
 
+    const requestStart = performance.now();
+
     addMessage(question, 'user');
     const responseDiv = addMessage('', 'assistant');
     const logContainer = addLogPanel(responseDiv);
+    logContainer._startTime = requestStart;
 
     try {
         const resp = await fetch(`${API_BASE}/api/chat`, {
@@ -149,8 +152,12 @@ function handleEvent(type, data, container, logContainer) {
             break;
         }
 
-        case 'done':
+        case 'done': {
+            const startTime = logContainer._startTime || performance.now();
+            const total = ((performance.now() - startTime) / 1000).toFixed(1);
+            addLogEntry(logContainer, 'orchestrator', `Complete (${total}s)`);
             break;
+        }
     }
 
     document.getElementById('chat-container').scrollTop =
@@ -191,9 +198,11 @@ function addLogEntry(logContainer, agent, message) {
 
     const icon = AGENT_ICONS[agent] || '\u2022';
     const color = AGENT_COLORS[agent] || '#666666';
-    const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
-    entry.innerHTML = `<span class="log-time">${time}</span>`
+    const startTime = logContainer._startTime || performance.now();
+    const elapsed = ((performance.now() - startTime) / 1000).toFixed(1);
+
+    entry.innerHTML = `<span class="log-time">${elapsed}s</span>`
         + `<span class="log-agent" style="color:${color}">${icon} ${agent}</span>`
         + `<span class="log-msg">${escapeHtml(message)}</span>`;
 
