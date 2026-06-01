@@ -38,7 +38,7 @@ Return your analysis as JSON with this structure:
 {
   "summary": "Plain English summary of findings",
   "statistics": {
-    "key_metric_name": value_or_object,
+    "key_metric_name": number_or_short_string,
     ...
   },
   "tables": [
@@ -49,6 +49,11 @@ Return your analysis as JSON with this structure:
     }
   ]
 }
+
+FORMATTING RULES:
+- "statistics" values must be scalars only (numbers or short strings). These render as headline cards. Never put objects, arrays, or distributions here.
+- Distributions and breakdowns belong in "tables".
+- "summary" must mention the key quantitative findings (medians, percentages, totals) in prose, because downstream consumers read "summary" but not "tables".
 
 Return ONLY the JSON, no markdown fences or explanation outside the JSON."""
 
@@ -96,8 +101,8 @@ async def analyze(task: str, context: str = "", log_callback=None):
         await log(f"Planned {len(queries)} data queries")
 
         query_results = []
-        for i, q in enumerate(queries[:5]):
-            await log(f"Query {i+1}/{min(len(queries),5)}: {q[:80]}")
+        for i, q in enumerate(queries[:10]):
+            await log(f"Query {i+1}/{min(len(queries),10)}: {q[:80]}")
             result = await query_data(q)
             try:
                 parsed = json.loads(result)

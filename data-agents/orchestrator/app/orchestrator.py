@@ -66,6 +66,7 @@ CRITICAL RULES:
 - Costs are estimated at: electricity $0.12/kWh, natural_gas $1.10/therm, propane $2.50/gal, fuel_oil $3.50/gal.
 - If the statistics include cost data, present it prominently.
 - If they don't include cost data but the user asked about costs, compute approximate dollar amounts from the energy values and rates above.
+- Your output must be plain English prose only. Do not echo or repeat the raw data you were given as input.
 
 Write a clear, well-structured report that:
 1. Opens with a direct answer in 1-2 sentences, with specific numbers and units

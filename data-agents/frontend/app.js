@@ -397,15 +397,20 @@ function renderChartJS(canvas, chart) {
         return;
     }
 
+    const isBoxType = chartType === 'boxplot' || chartType === 'violin';
+
     const styledDatasets = (chartData.datasets || []).map((ds, i) => {
         const color = CHART_PALETTE[i % CHART_PALETTE.length];
         const patched = { ...ds };
-        if (!patched.backgroundColor) {
+        if (isBoxType) {
+            if (!patched.backgroundColor) patched.backgroundColor = color + '40';
+            if (!patched.borderColor) patched.borderColor = color;
+        } else if (!patched.backgroundColor) {
             patched.backgroundColor = chartType === 'doughnut'
                 ? chartData.labels.map((_, j) => CHART_PALETTE[j % CHART_PALETTE.length])
                 : chartType === 'line' ? color + '18' : color;
         }
-        if (!patched.borderColor) {
+        if (!isBoxType && !patched.borderColor) {
             patched.borderColor = chartType === 'doughnut'
                 ? '#ffffff'
                 : color;
@@ -454,12 +459,14 @@ function renderChartJS(canvas, chart) {
                     cornerRadius: 6,
                     titleFont: { family: "'Geist', sans-serif", weight: '500' },
                     bodyFont: { family: "'Geist Mono', monospace" },
-                    callbacks: {
-                        label: function(ctx) {
-                            const val = ctx.parsed.y ?? ctx.parsed.x ?? ctx.raw;
-                            return `${ctx.dataset.label || ''}: ${Number(val).toLocaleString(undefined, {maximumFractionDigits: 2})}`;
-                        }
-                    },
+                    ...(isBoxType ? {} : {
+                        callbacks: {
+                            label: function(ctx) {
+                                const val = ctx.parsed.y ?? ctx.parsed.x ?? ctx.raw;
+                                return `${ctx.dataset.label || ''}: ${Number(val).toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+                            }
+                        },
+                    }),
                 },
             },
             scales: chartType === 'doughnut' ? {} : {
@@ -500,7 +507,7 @@ function renderChartJS(canvas, chart) {
 }
 
 function mapChartType(type) {
-    const map = { bar: 'bar', line: 'line', doughnut: 'doughnut', horizontalBar: 'bar', grouped_bar: 'bar', stacked_bar: 'bar' };
+    const map = { bar: 'bar', line: 'line', doughnut: 'doughnut', horizontalBar: 'bar', grouped_bar: 'bar', stacked_bar: 'bar', boxplot: 'boxplot', violin: 'violin' };
     return map[type] || 'bar';
 }
 

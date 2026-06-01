@@ -27,7 +27,7 @@ Given a task, output a JSON array of chart specs. Each chart must include:
     "title": "Chart Title",
     "description": "What this chart shows",
     "query": "Natural language data query for the database",
-    "chart_type": "bar|line|doughnut|horizontalBar",
+    "chart_type": "bar|line|doughnut|horizontalBar|boxplot|violin",
     "x_key": "column name from query results for labels",
     "y_key": "column name from query results for values",
     "group_key": "optional column name for grouping/series",
@@ -35,6 +35,13 @@ Given a task, output a JSON array of chart specs. Each chart must include:
     "y_label": "Y axis label with units"
   }
 ]
+
+For boxplot or violin charts:
+- The query must return enough data points for a meaningful distribution (at least 20+ values per category).
+- x_key is the category column (e.g. state, fuel, vintage).
+- y_key is the numeric column whose distribution you want to show.
+- Aggregation is fine if the result still has many rows (e.g. GROUP BY building_id to get one total per building, then boxplot across buildings).
+- The frontend computes min, q1, median, q3, max, and outliers automatically from the raw values.
 
 Return ONLY JSON, no markdown fences."""
 
@@ -82,7 +89,7 @@ async def create_visualizations(task: str, context: str = "", log_callback=None)
         await log(f"Will generate {len(chart_specs[:3])} chart(s)")
 
         charts = []
-        for idx, spec in enumerate(chart_specs[:3]):
+        for idx, spec in enumerate(chart_specs[:10]):
             with tracer.start_as_current_span("generate_chart") as cs:
                 title = spec.get("title", "Chart")
                 cs.set_attribute("chart.title", title)
@@ -145,6 +152,25 @@ def _build_chartjs_data(data: list[dict], chart_type: str, x_key: str, y_key: st
 
     if not x_key or not y_key:
         return None
+
+    if chart_type in ("boxplot", "violin"):
+        from collections import defaultdict
+        groups = defaultdict(list)
+        for row in data:
+            try:
+                groups[str(row[x_key])].append(float(row[y_key]))
+            except (ValueError, TypeError):
+                continue
+        labels = sorted(groups.keys())
+        return {
+            "labels": labels,
+            "datasets": [{
+                "label": y_key.replace("_", " ").title(),
+                "data": [groups[label] for label in labels],
+                "backgroundColor": COLORS[0] + "40",
+                "borderColor": COLORS[0],
+            }],
+        }
 
     if group_key and group_key in data[0]:
         groups = sorted(set(str(row[group_key]) for row in data))

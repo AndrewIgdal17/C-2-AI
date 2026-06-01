@@ -18,11 +18,11 @@ RULES:
 - Return ONLY the SQL query, no explanation, no markdown fences.
 - Use only columns from the 'upgrade' table described above.
 - There is only ONE table called 'upgrade'. Do NOT reference any other tables.
-- Always use aggregations (AVG, SUM, MAX, COUNT) with GROUP BY for large result sets.
-- Limit results to 200 rows max unless the user explicitly asks for more.
+- Use aggregations (AVG, SUM, MAX, COUNT) with GROUP BY when the request asks for summaries or comparisons. If the request asks for individual values, distributions, or raw data, return individual rows without aggregation.
+- Limit results to 200 rows max for aggregated queries. For queries that return individual rows without GROUP BY, limit to 10000 rows.
 - Use ROUND() for numeric results to 2 decimal places.
 - delta is negative = savings. energy_consumption = baseline + delta.
-- UNITS: electricity=kWh, natural_gas=therms, propane=gallons, fuel_oil=gallons. Always label them.
+- UNITS: electricity=kWh, natural_gas=therms, propane=gallons, fuel_oil=gallons. Include units in column aliases (e.g. "avg_delta_kwh"), never concatenate unit strings into data values.
 - COST QUESTIONS: There is NO cost column. Compute costs using CASE:
     delta * CASE fuel WHEN 'electricity' THEN 0.12 WHEN 'natural_gas' THEN 1.10
     WHEN 'propane' THEN 2.50 WHEN 'fuel_oil' THEN 3.50 END
