@@ -10,30 +10,14 @@ _THINK_RE = re.compile(r"<think>[\s\S]*?</think>", re.IGNORECASE)
 
 
 async def chat(messages: list[dict], temperature: float = 0.0) -> str:
-    try:
-        response = await client.chat.completions.create(
-            model=LLM_MODEL,
-            messages=messages,
-            temperature=temperature,
-            max_tokens=2048,
-            extra_body={"chat_template_kwargs": {"enable_thinking": False}},
-        )
-    except Exception:
-        response = await client.chat.completions.create(
-            model=LLM_MODEL,
-            messages=messages,
-            temperature=temperature,
-            max_tokens=2048,
-        )
+    response = await client.chat.completions.create(
+        model=LLM_MODEL,
+        messages=messages,
+        temperature=temperature,
+        max_tokens=4096,
+    )
     text = response.choices[0].message.content or ""
-    cleaned = _THINK_RE.sub("", text).strip()
-    if cleaned:
-        return cleaned
-    match = re.search(r"<think>([\s\S]*)</think>", text, re.IGNORECASE)
-    if match:
-        inner = match.group(1).strip()
-        sql_match = re.search(r"(SELECT\b[\s\S]+?)(?:```|$)", inner, re.IGNORECASE)
-        if sql_match:
-            return sql_match.group(1).strip()
-        return inner
+    text = _THINK_RE.sub("", text)
+    if "<think>" in text.lower() and "</think>" not in text.lower():
+        text = re.sub(r"<think>[\s\S]*", "", text, flags=re.IGNORECASE)
     return text.strip()

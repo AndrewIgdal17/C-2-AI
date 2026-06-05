@@ -17,4 +17,7 @@ async def chat(messages: list[dict], temperature: float = 0.0) -> str:
         max_tokens=4096,
     )
     text = response.choices[0].message.content or ""
-    return _THINK_RE.sub("", text).strip()
+    text = _THINK_RE.sub("", text)
+    if "<think>" in text.lower() and "</think>" not in text.lower():
+        text = re.sub(r"<think>[\s\S]*", "", text, flags=re.IGNORECASE)
+    return text.strip()

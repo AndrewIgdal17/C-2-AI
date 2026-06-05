@@ -16,8 +16,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function askExample(btn) {
-    document.getElementById('question-input').value = btn.textContent.trim();
+    document.getElementById('question-input').value = btn.dataset.query || btn.textContent.trim();
     handleSubmit(new Event('submit'));
+}
+
+function toggleCategory(id) {
+    const panel = document.getElementById('panel-' + id);
+    const btn = document.querySelector('.category-btn[data-category="' + id + '"]');
+    const wasActive = panel.classList.contains('active');
+
+    document.querySelectorAll('.category-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+
+    if (!wasActive) {
+        panel.classList.add('active');
+        btn.classList.add('active');
+    }
 }
 
 function processSSEBuffer(buffer, eventType, responseDiv, logContainer) {
@@ -229,13 +243,6 @@ function escapeHtml(str) {
 function renderStatistics(container, data) {
     const panel = document.createElement('div');
     panel.className = 'stats-panel';
-
-    if (data.summary) {
-        const p = document.createElement('p');
-        p.textContent = data.summary;
-        p.style.marginBottom = '12px';
-        panel.appendChild(p);
-    }
 
     if (data.statistics && Object.keys(data.statistics).length > 0) {
         const h = document.createElement('h3');
@@ -459,14 +466,30 @@ function renderChartJS(canvas, chart) {
                     cornerRadius: 6,
                     titleFont: { family: "'Geist', sans-serif", weight: '500' },
                     bodyFont: { family: "'Geist Mono', monospace" },
-                    ...(isBoxType ? {} : {
-                        callbacks: {
-                            label: function(ctx) {
-                                const val = ctx.parsed.y ?? ctx.parsed.x ?? ctx.raw;
-                                return `${ctx.dataset.label || ''}: ${Number(val).toLocaleString(undefined, {maximumFractionDigits: 2})}`;
-                            }
+                    callbacks: isBoxType ? {
+                        title: function(items) {
+                            return items[0]?.label || '';
                         },
-                    }),
+                        label: function(ctx) {
+                            const raw = ctx.raw;
+                            if (ctx.formattedValue && ctx.formattedValue.hoveredOutlierIndex >= 0) {
+                                const val = raw.outliers[ctx.formattedValue.hoveredOutlierIndex];
+                                return `outlier: ${Number(val).toLocaleString(undefined, {maximumFractionDigits: 1})} MBtu`;
+                            }
+                            const med = raw.median ?? raw.med;
+                            const q1 = raw.q1;
+                            const q3 = raw.q3;
+                            if (med != null && q1 != null && q3 != null) {
+                                return `median: ${Number(med).toLocaleString(undefined, {maximumFractionDigits: 1})} MBtu | IQR: ${Number(q1).toLocaleString(undefined, {maximumFractionDigits: 1})}–${Number(q3).toLocaleString(undefined, {maximumFractionDigits: 1})} MBtu`;
+                            }
+                            return '';
+                        }
+                    } : {
+                        label: function(ctx) {
+                            const val = ctx.parsed.y ?? ctx.parsed.x ?? ctx.raw;
+                            return `${ctx.dataset.label || ''}: ${Number(val).toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+                        }
+                    },
                 },
             },
             scales: chartType === 'doughnut' ? {} : {

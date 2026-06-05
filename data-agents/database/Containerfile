@@ -2,11 +2,19 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY init_db.py .
+COPY database/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-ENV SQLITE_DB_PATH=/data/residential_energy.db
+COPY database/load_resstock.py .
+COPY database/init_db.py .
+COPY data/buildstock.csv /data/source/buildstock.csv
+COPY data/results_up00.parquet /data/source/results_up00.parquet
+
 ENV PYTHONUNBUFFERED=1
+ENV SQLITE_DB_PATH=/data/residential_energy.db
+ENV BUILDSTOCK_CSV_PATH=/data/source/buildstock.csv
+ENV RESULTS_PARQUET_PATH=/data/source/results_up00.parquet
 
 RUN mkdir -p /data
 
-CMD ["python", "init_db.py"]
+CMD ["python", "load_resstock.py"]

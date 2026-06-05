@@ -10,15 +10,15 @@ services:
   # === Database Init ===
   database:
     build:
-      context: ../../database
-      dockerfile: Containerfile
+      context: ../..
+      dockerfile: database/Containerfile
     container_name: data-agents-db-init
     volumes:
       - sqlite-data:/data
     networks:
       - agents-network
 
-  # === Query Agent (MCP Server) ===
+  # === Query Agent (MCP Server — LLM routes NL to predefined tools) ===
   query-agent:
     build:
       context: ../../query-agent

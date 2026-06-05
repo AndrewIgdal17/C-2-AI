@@ -11,33 +11,39 @@ from app.tracing import tracer
 
 logger = logging.getLogger("orchestrator.orchestrator")
 
-DECOMPOSE_PROMPT = """You are the orchestrator for a residential electrification data analysis system.
-You receive natural language questions about residential building energy data and must decompose
+DECOMPOSE_PROMPT = """You are the orchestrator for a residential building energy data analysis system.
+You receive natural language questions about ResStock simulation data and must decompose
 them into sub-tasks for two specialist agents:
 
-1. **Statistics Agent**: Computes summary statistics, comparisons, averages, distributions,
-   group-by analyses, etc. Good for numerical answers and data tables.
-2. **Visualization Agent**: Creates charts and graphs. Good for visual comparisons, trends,
-   distributions, geographic patterns, etc.
+1. **Statistics Agent**: Computes summary statistics, distributions, stratified comparisons.
+2. **Visualization Agent**: Creates charts (bar, boxplot, violin, doughnut, line).
 
-The database has a single table called 'upgrade' with one row per building per upgrade
-scenario per end-use per month. Key columns:
-- building_id, state, county, characteristics (building type), vintage, occupants
-- fuel (electricity, natural_gas, propane, fuel_oil)
-- use (heating, cooling, hot_water, lighting, appliances, cooking)
-- time (month in YYYY-MM format)
-- baseline (pre-upgrade energy), delta (change from upgrade, negative = savings)
-- energy_consumption (post-upgrade = baseline + delta)
+DATABASE: 14,217 residential buildings in North Carolina, baseline (no upgrades applied).
+Two tables joined on building_id:
 
-UNITS: electricity=kWh, natural_gas=therms, propane=gallons, fuel_oil=gallons.
-COST: No cost column exists. Costs are computed from energy using rates:
-  electricity=$0.12/kWh, natural_gas=$1.10/therm, propane=$2.50/gal, fuel_oil=$3.50/gal.
-For cost/dollar questions, tell agents to compute cost = energy * rate.
+ENERGY METRICS (results table, all annual MBtu):
+- energy_use_total, energy_use_net
+- fuel_electricity_total, fuel_natural_gas_total, fuel_propane_total, fuel_fuel_oil_total
+- end_use_electricity_heating, end_use_electricity_cooling, end_use_electricity_hot_water
+- end_use_natural_gas_heating, end_use_natural_gas_hot_water, end_use_propane_hot_water
+- end_use_electricity_lighting, end_use_electricity_cooling_fans, end_use_electricity_heating_fans
 
-Upgrade types: heat_pump_hvac, heat_pump_water_heater, solar_water_heating,
-envelope_upgrade, full_electrification, efficient_lighting, heat_pump_dryer, induction_cooking
+BUILDING CHARACTERISTICS (buildings table):
+- state (always NC), county, climate_zone (North-Central or South-Central)
+- vintage, building_type, floor_area, stories, bedrooms, occupants
+- heating_fuel (Electricity, Natural Gas, Propane, Fuel Oil, None) — most important stratifier
+- water_heater_fuel, hvac_type, hvac_has_ducts
+- area_median_income (0-30% through 120-150%)
+- insulation_wall, insulation_ceiling
 
-For each sub-task, provide a clear, specific instruction that tells the agent exactly what to analyze.
+KEY NOTES:
+- All energy values are annual MBtu. A value of 0.0 means the building doesn't use that fuel.
+- This is baseline only — no upgrades applied.
+- Always recommend stratifying by heating_fuel when the question involves energy use.
+- For distribution questions, recommend the viz agent create boxplots or violins.
+- This is baseline data only — no upgrades applied. If asked about retrofits, upgrades, savings, or counterfactual scenarios, state that upgrade analysis is not available in this dataset.
+
+For each sub-task, provide a clear instruction referencing specific metric and characteristic names.
 
 Return JSON with this structure:
 {
@@ -61,11 +67,10 @@ Visualizations created:
 {viz_descriptions}
 
 CRITICAL RULES:
-- Always include units: kWh for electricity, therms for natural gas, gallons for propane/fuel oil, USD for costs.
-- Never say "units" generically. Say "kWh", "therms", "$X.XX", etc.
-- Costs are estimated at: electricity $0.12/kWh, natural_gas $1.10/therm, propane $2.50/gal, fuel_oil $3.50/gal.
-- If the statistics include cost data, present it prominently.
-- If they don't include cost data but the user asked about costs, compute approximate dollar amounts from the energy values and rates above.
+- All energy values are in MBtu (million BTU, annual totals). Always state "MBtu" when reporting energy values.
+- For context: 1 MBtu ≈ 293 kWh ≈ 10 therms. You may convert to kWh or therms if it makes the answer more intuitive.
+- A value of 0.0 means the building does not use that fuel — it is real data, not missing.
+- This is baseline data (no upgrades applied) for 14,217 NC residential buildings.
 - Your output must be plain English prose only. Do not echo or repeat the raw data you were given as input.
 
 Write a clear, well-structured report that:

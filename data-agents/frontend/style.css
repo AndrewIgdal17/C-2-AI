@@ -209,6 +209,72 @@ main {
     outline-offset: 2px;
 }
 
+/* ── Example category accordion ────────────────────────── */
+
+.example-categories {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.category-btn {
+    padding: 8px 16px;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border: none;
+    border-radius: 6px;
+    color: #4d4d4d;
+    font-family: 'Geist', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: box-shadow 0.15s, background 0.15s, color 0.15s;
+}
+
+.category-btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 0px 1px;
+    background: #fafafa;
+    color: #171717;
+}
+
+.category-btn.active {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
+    background: #f5f5f5;
+    color: #171717;
+}
+
+.category-panel {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.category-panel.active {
+    display: flex;
+}
+
+.category-panel .example-btn {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.level {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    background: #ebebeb;
+    color: #4d4d4d;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+}
+
 /* ── Input bar ───────────────────────────────────────────── */
 
 .input-bar {
@@ -597,8 +663,8 @@ main {
         letter-spacing: -0.6px;
     }
 
-    .example-queries {
-        grid-template-columns: 1fr;
+    .example-categories {
+        flex-direction: column;
     }
 
     .user-message .message-content {

@@ -35,12 +35,43 @@
                         <h2>Residential Electrification Data Explorer</h2>
                         <p class="welcome-sub">Ask natural language questions about residential building energy data. Try one of these to get started:</p>
                     </div>
-                    <ul class="example-queries">
-                        <li><button class="example-btn" onclick="askExample(this)">What happens to electricity demand in Texas if homes use solar water heating?</button></li>
-                        <li><button class="example-btn" onclick="askExample(this)">Compare electricity usage before and after heat pump adoption in the Southeast</button></li>
-                        <li><button class="example-btn" onclick="askExample(this)">Show me the distribution of energy savings from envelope upgrades across climate zones</button></li>
-                        <li><button class="example-btn" onclick="askExample(this)">What's the average natural gas consumption for hot water heating?</button></li>
-                    </ul>
+                    <div class="example-categories">
+                        <button class="category-btn" data-category="building-stock" onclick="toggleCategory('building-stock')">Building Stock</button>
+                        <button class="category-btn" data-category="occupants" onclick="toggleCategory('occupants')">Occupants</button>
+                        <button class="category-btn" data-category="fuel-use" onclick="toggleCategory('fuel-use')">Fuel Use</button>
+                        <button class="category-btn" data-category="end-use" onclick="toggleCategory('end-use')">End Use</button>
+                        <button class="category-btn" data-category="economics" onclick="toggleCategory('economics')">Economics</button>
+                    </div>
+                    <div class="category-panel" id="panel-building-stock">
+                        <button class="example-btn" data-query="What kind of buildings are these?" onclick="askExample(this)"><span class="level">1</span> What kind of buildings are these?</button>
+                        <button class="example-btn" data-query="What's the mix of building types, ages, and sizes in this stock?" onclick="askExample(this)"><span class="level">2</span> What's the mix of building types, ages, and sizes in this stock?</button>
+                        <button class="example-btn" data-query="Show me the distribution of building types, vintage decades, floor area bins, and stories" onclick="askExample(this)"><span class="level">3</span> Show me the distribution of building types, vintage decades, floor area bins, and stories</button>
+                        <button class="example-btn" data-query="Building stock summary for building_type, vintage, floor_area, and stories — count and percentage for each" onclick="askExample(this)"><span class="level">4</span> Building stock summary for building_type, vintage, floor_area, and stories — count and percentage for each</button>
+                    </div>
+                    <div class="category-panel" id="panel-occupants">
+                        <button class="example-btn" data-query="Who lives in these homes?" onclick="askExample(this)"><span class="level">1</span> Who lives in these homes?</button>
+                        <button class="example-btn" data-query="How many people live in these buildings and what are their income levels?" onclick="askExample(this)"><span class="level">2</span> How many people live in these buildings and what are their income levels?</button>
+                        <button class="example-btn" data-query="What's the distribution of household size, bedroom count, and area median income across the stock?" onclick="askExample(this)"><span class="level">3</span> What's the distribution of household size, bedroom count, and area median income across the stock?</button>
+                        <button class="example-btn" data-query="Building stock summary for occupants, bedrooms, and area_median_income — counts and percentages, with AMI ordered from 0-30% to 120-150%" onclick="askExample(this)"><span class="level">4</span> Building stock summary for occupants, bedrooms, and area_median_income — counts and percentages, with AMI ordered from 0-30% to 120-150%</button>
+                    </div>
+                    <div class="category-panel" id="panel-fuel-use">
+                        <button class="example-btn" data-query="What fuels do these homes use?" onclick="askExample(this)"><span class="level">1</span> What fuels do these homes use?</button>
+                        <button class="example-btn" data-query="How much electricity vs natural gas vs propane do these buildings consume?" onclick="askExample(this)"><span class="level">2</span> How much electricity vs natural gas vs propane do these buildings consume?</button>
+                        <button class="example-btn" data-query="Compare total fuel consumption across electricity, natural gas, propane, and fuel oil — show distributions and break down by heating fuel type" onclick="askExample(this)"><span class="level">3</span> Compare total fuel consumption across electricity, natural gas, propane, and fuel oil — show distributions and break down by heating fuel type</button>
+                        <button class="example-btn" data-query="Boxplot of fuel_electricity_total, fuel_natural_gas_total, fuel_propane_total, and fuel_fuel_oil_total grouped by heating_fuel" onclick="askExample(this)"><span class="level">4</span> Boxplot of fuel_electricity_total, fuel_natural_gas_total, fuel_propane_total, and fuel_fuel_oil_total grouped by heating_fuel</button>
+                    </div>
+                    <div class="category-panel" id="panel-end-use">
+                        <button class="example-btn" data-query="Where does the energy actually go?" onclick="askExample(this)"><span class="level">1</span> Where does the energy actually go?</button>
+                        <button class="example-btn" data-query="How is energy split between heating, cooling, hot water, and lighting?" onclick="askExample(this)"><span class="level">2</span> How is energy split between heating, cooling, hot water, and lighting?</button>
+                        <button class="example-btn" data-query="Compare electricity used for heating vs cooling vs hot water vs lighting — distributions by climate zone" onclick="askExample(this)"><span class="level">3</span> Compare electricity used for heating vs cooling vs hot water vs lighting — distributions by climate zone</button>
+                        <button class="example-btn" data-query="Boxplot of end_use_electricity_heating, end_use_electricity_cooling, end_use_electricity_hot_water, and end_use_electricity_lighting grouped by climate_zone" onclick="askExample(this)"><span class="level">4</span> Boxplot of end_use_electricity_heating, end_use_electricity_cooling, end_use_electricity_hot_water, and end_use_electricity_lighting grouped by climate_zone</button>
+                    </div>
+                    <div class="category-panel" id="panel-economics">
+                        <button class="example-btn" data-query="How much does this cost?" onclick="askExample(this)"><span class="level">1</span> How much does this cost?</button>
+                        <button class="example-btn" data-query="What does energy cost these households and how does it vary by income?" onclick="askExample(this)"><span class="level">2</span> What does energy cost these households and how does it vary by income?</button>
+                        <button class="example-btn" data-query="Estimate annual energy costs using standard fuel rates — how do costs differ between electric and gas homes?" onclick="askExample(this)"><span class="level">3</span> Estimate annual energy costs using standard fuel rates — how do costs differ between electric and gas homes?</button>
+                        <button class="example-btn" data-query="Convert energy_use_total to estimated annual cost, compare by heating_fuel and area_median_income — show distributions" onclick="askExample(this)"><span class="level">4</span> Convert energy_use_total to estimated annual cost, compare by heating_fuel and area_median_income — show distributions</button>
+                    </div>
                 </div>
             </div>
         </div>
