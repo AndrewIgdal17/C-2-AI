@@ -43,6 +43,11 @@ When formulating queries, describe what you need in plain English. Be specific a
 - Any filters to apply (e.g. "only gas-heated homes", "only North-Central climate zone")
 - Whether you need summary statistics, grouped comparisons, or raw distributions
 
+IMPORTANT: Building characteristics (occupants, bedrooms, vintage, heating_fuel, etc.) are NOT energy metrics.
+- For counts/percentages of a characteristic: ask for a "building stock summary" or "count by category"
+- For numeric stats on occupants/bedrooms/stories: ask for "average/median occupants" or "summary statistics for occupants"
+- Do NOT request these as energy metric distributions
+
 ANALYTICAL GUIDELINES:
 - Always stratify by heating_fuel when analyzing energy use — gas and electric homes differ fundamentally
 - Report distributions (median, percentiles, share with zero), not just means

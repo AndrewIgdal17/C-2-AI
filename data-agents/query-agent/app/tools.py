@@ -403,6 +403,51 @@ async def building_stock_summary(column: str, filters: dict = None) -> str:
             return json.dumps({"error": str(exc)})
 
 
+async def describe_building_column(column: str, filters: dict = None) -> str:
+    """Get numeric summary statistics for a building characteristic column (count, mean, median, min, max).
+
+    Works on columns that contain numeric-like values (e.g. occupants, bedrooms, stories).
+    For purely categorical columns (e.g. heating_fuel, vintage), use building_stock_summary instead.
+
+    Args:
+        column: Column name from buildings table (e.g. 'occupants', 'bedrooms', 'stories').
+        filters: Optional dict of building characteristic filters.
+    """
+    with tracer.start_as_current_span("describe_building_column") as span:
+        span.set_attribute("column", column)
+        try:
+            _validate_building_col(column)
+            where_clause, params = _build_where(filters)
+            where_sql = f"WHERE 1=1{where_clause}" if where_clause else ""
+            sql = (
+                f"SELECT b.{column} FROM buildings b "
+                f"{where_sql}"
+            )
+            async with aiosqlite.connect(SQLITE_DB_PATH) as db:
+                async with db.execute(sql, params) as cursor:
+                    rows = await cursor.fetchall()
+
+            values = []
+            for row in rows:
+                try:
+                    values.append(float(row[0]))
+                except (ValueError, TypeError):
+                    continue
+
+            if not values:
+                return json.dumps({"error": f"No numeric values found in column '{column}'"})
+
+            result = _compute_percentiles(values)
+            result["column"] = column
+            if filters:
+                result["filters"] = filters
+            span.set_attribute("result.count", result["count"])
+            return json.dumps(result)
+        except Exception as exc:
+            logger.error("describe_building_column error: %s", exc)
+            return json.dumps({"error": str(exc)})
+
+
 async def list_available_data() -> str:
     """List all available metrics and building characteristics that can be queried."""
     return json.dumps({
@@ -442,7 +487,12 @@ AVAILABLE TOOLS:
    Returns value counts and percentages for a building characteristic.
    Use for: "What's the breakdown of...?", "How many buildings have...?", stock composition.
 
-6. list_available_data()
+6. describe_building_column(column, filters?)
+   Returns numeric summary stats (count, mean, median, min, max, p25, p75) for a building characteristic.
+   Use for: "What's the average number of occupants?", "How many bedrooms do these homes have?"
+   Only works on numeric-like columns (occupants, bedrooms, stories). For categorical columns, use building_stock_summary.
+
+7. list_available_data()
    Returns all available metric and characteristic names. No arguments.
 
 VALID METRIC NAMES (results table, all annual MBtu):
@@ -480,6 +530,7 @@ Examples:
 {{"tool": "building_stock_summary", "args": {{"column": "vintage"}}}}
 {{"tool": "compare_metrics", "args": {{"metrics": ["end_use_electricity_heating", "end_use_natural_gas_heating"], "group_by": "vintage"}}}}
 {{"tool": "describe_metric", "args": {{"metric": "energy_use_total", "filters": {{"heating_fuel": "Natural Gas"}}}}}}
+{{"tool": "describe_building_column", "args": {{"column": "occupants"}}}}
 """
 
 _TOOL_DISPATCH = {
@@ -488,6 +539,7 @@ _TOOL_DISPATCH = {
     "distribution": distribution,
     "compare_metrics": compare_metrics,
     "building_stock_summary": building_stock_summary,
+    "describe_building_column": describe_building_column,
     "list_available_data": list_available_data,
 }
 
