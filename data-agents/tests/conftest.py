@@ -83,7 +83,7 @@ SEED_RESULTS = [
 
 @pytest.fixture
 def test_db(tmp_path):
-    """Create an in-memory SQLite database with known test data."""
+    """Create a SQLite database with 5 hand-crafted buildings for unit tests."""
     db_path = str(tmp_path / "test.db")
     conn = sqlite3.connect(db_path)
     conn.executescript(SCHEMA)
@@ -99,3 +99,76 @@ def test_db(tmp_path):
     conn.commit()
     conn.close()
     return db_path
+
+
+FIXTURES_DIR = Path(__file__).parent / "fixtures"
+
+
+@pytest.fixture(scope="session")
+def research_db(tmp_path_factory):
+    """Create a SQLite database with 1,000 real ResStock buildings (fixed seed=42 sample).
+
+    This fixture loads once per test session from CSV fixtures and provides
+    a representative dataset for validating statistical correctness.
+    """
+    import csv
+
+    db_path = str(tmp_path_factory.mktemp("research") / "research.db")
+    conn = sqlite3.connect(db_path)
+    conn.executescript(SCHEMA)
+
+    buildings_csv = FIXTURES_DIR / "buildings_sample.csv"
+    with open(buildings_csv) as f:
+        reader = csv.DictReader(f)
+        rows = []
+        for row in reader:
+            rows.append((
+                int(row["building_id"]),
+                row["state"], row["county"], row["vintage"], row["vintage_acs"],
+                row["building_type"], row["floor_area"], row["stories"],
+                row["bedrooms"], row["occupants"], row["heating_fuel"],
+                row["water_heater_fuel"], row["hvac_type"], row["hvac_has_ducts"],
+                row["climate_zone"], row["area_median_income"],
+                row["insulation_wall"],
+                row["insulation_ceiling"] if row["insulation_ceiling"] else None,
+            ))
+        conn.executemany(
+            "INSERT INTO buildings VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            rows,
+        )
+
+    results_csv = FIXTURES_DIR / "results_sample.csv"
+    with open(results_csv) as f:
+        reader = csv.DictReader(f)
+        rows = []
+        for row in reader:
+            rows.append(tuple(
+                float(row[col]) if row[col] and col != "building_id" else
+                int(row[col]) if col == "building_id" else None
+                for col in [
+                    "building_id", "energy_use_total", "energy_use_net",
+                    "fuel_electricity_total", "fuel_natural_gas_total",
+                    "fuel_propane_total", "fuel_fuel_oil_total",
+                    "end_use_electricity_heating", "end_use_electricity_cooling",
+                    "end_use_electricity_hot_water", "end_use_natural_gas_heating",
+                    "end_use_natural_gas_hot_water", "end_use_propane_hot_water",
+                    "end_use_electricity_lighting", "end_use_electricity_cooling_fans",
+                    "end_use_electricity_heating_fans",
+                ]
+            ))
+        conn.executemany(
+            "INSERT INTO results VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            rows,
+        )
+
+    conn.commit()
+    conn.close()
+    return db_path
+
+
+@pytest.fixture(scope="session")
+def expected_values():
+    """Load pre-computed expected values for the 1,000-building sample."""
+    import json
+    with open(FIXTURES_DIR / "expected_values.json") as f:
+        return json.load(f)

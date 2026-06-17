@@ -1,0 +1,52 @@
+{
+  "describe_energy_use_total": {
+    "count": 1000,
+    "mean": 76.5907,
+    "std": 33.3001,
+    "min": 17.597,
+    "p25": 54.451,
+    "median": 69.172,
+    "p75": 91.728,
+    "max": 261.838
+  },
+  "describe_energy_use_total_electric": {
+    "count": 635,
+    "mean": 66.3827,
+    "median": 61.708
+  },
+  "metric_by_group_heating_fuel": {
+    "Electricity": {
+      "count": 635,
+      "mean": 66.3827
+    },
+    "Fuel Oil": {
+      "count": 46,
+      "mean": 92.5397
+    },
+    "Natural Gas": {
+      "count": 250,
+      "mean": 95.2244
+    },
+    "Propane": {
+      "count": 69,
+      "mean": 92.3878
+    }
+  },
+  "stock_summary_heating_fuel": {
+    "total": 1000,
+    "counts": {
+      "Electricity": 635,
+      "Natural Gas": 250,
+      "Propane": 69,
+      "Fuel Oil": 46
+    }
+  },
+  "stock_summary_climate_zone": {
+    "total": 1000,
+    "counts": {
+      "North-Central": 514,
+      "South-Central": 486
+    }
+  },
+  "multi_group_count": 8
+}

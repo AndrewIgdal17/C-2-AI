@@ -180,3 +180,136 @@ class TestListAvailableData:
         assert "building_characteristics" in result
         assert "energy_use_total" in result["metrics"]
         assert "heating_fuel" in result["building_characteristics"]
+
+
+# ============================================================================
+# Integration tests against 1,000-building ResStock sample (seed=42)
+# ============================================================================
+
+
+@pytest.mark.asyncio
+class TestDescribeMetricResearch:
+    """Validate describe_metric against 1,000 real ResStock buildings."""
+
+    async def test_energy_use_total_distribution(self, research_db, expected_values, monkeypatch):
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await describe_metric("energy_use_total"))
+        ev = expected_values["describe_energy_use_total"]
+
+        assert result["count"] == ev["count"]
+        assert result["mean"] == ev["mean"]
+        assert result["std"] == ev["std"]
+        assert result["min"] == ev["min"]
+        assert result["p25"] == ev["p25"]
+        assert result["median"] == ev["median"]
+        assert result["p75"] == ev["p75"]
+        assert result["max"] == ev["max"]
+        assert result["unit"] == "MBtu"
+
+    async def test_filtered_by_electric_heating(self, research_db, expected_values, monkeypatch):
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await describe_metric("energy_use_total", {"heating_fuel": "Electricity"}))
+        ev = expected_values["describe_energy_use_total_electric"]
+
+        assert result["count"] == ev["count"]
+        assert result["mean"] == ev["mean"]
+        assert result["median"] == ev["median"]
+
+    async def test_zero_values_are_real_not_excluded(self, research_db, monkeypatch):
+        """Buildings that don't use natural gas should have 0.0, not be excluded."""
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await describe_metric("fuel_natural_gas_total"))
+        assert result["count"] == 1000
+        assert result["min"] == 0.0
+
+    async def test_propane_mostly_zero(self, research_db, monkeypatch):
+        """Most buildings don't use propane — median should be 0."""
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await describe_metric("fuel_propane_total"))
+        assert result["count"] == 1000
+        assert result["median"] == 0.0
+
+
+@pytest.mark.asyncio
+class TestMetricByGroupResearch:
+    """Validate metric_by_group against 1,000 real ResStock buildings."""
+
+    async def test_energy_by_heating_fuel(self, research_db, expected_values, monkeypatch):
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await metric_by_group("energy_use_total", "heating_fuel"))
+        ev = expected_values["metric_by_group_heating_fuel"]
+
+        groups = {r["group"]: r for r in result["data"]}
+        for fuel, expected_group in ev.items():
+            assert groups[fuel]["count"] == expected_group["count"], f"{fuel} count mismatch"
+            assert groups[fuel]["mean"] == expected_group["mean"], f"{fuel} mean mismatch"
+
+    async def test_multi_group(self, research_db, expected_values, monkeypatch):
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await metric_by_group("energy_use_total", ["climate_zone", "heating_fuel"]))
+        assert len(result["data"]) == expected_values["multi_group_count"]
+
+    async def test_gas_homes_use_more_energy(self, research_db, monkeypatch):
+        """Gas-heated homes should have higher total energy than electric (known NC pattern)."""
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await metric_by_group("energy_use_total", "heating_fuel"))
+        groups = {r["group"]: r["mean"] for r in result["data"]}
+        assert groups["Natural Gas"] > groups["Electricity"]
+
+
+@pytest.mark.asyncio
+class TestBuildingStockSummaryResearch:
+    """Validate building_stock_summary against 1,000 real ResStock buildings."""
+
+    async def test_heating_fuel_counts(self, research_db, expected_values, monkeypatch):
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await building_stock_summary("heating_fuel"))
+        ev = expected_values["stock_summary_heating_fuel"]
+
+        assert result["total"] == ev["total"]
+        counts = {r["value"]: r["count"] for r in result["data"]}
+        for fuel, expected_count in ev["counts"].items():
+            assert counts[fuel] == expected_count, f"{fuel}: got {counts.get(fuel)}, expected {expected_count}"
+
+    async def test_climate_zone_counts(self, research_db, expected_values, monkeypatch):
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await building_stock_summary("climate_zone"))
+        ev = expected_values["stock_summary_climate_zone"]
+
+        assert result["total"] == ev["total"]
+        counts = {r["value"]: r["count"] for r in result["data"]}
+        for zone, expected_count in ev["counts"].items():
+            assert counts[zone] == expected_count
+
+    async def test_electricity_dominant(self, research_db, monkeypatch):
+        """Electricity should be the most common heating fuel in NC (known fact)."""
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await building_stock_summary("heating_fuel"))
+        top_fuel = result["data"][0]
+        assert top_fuel["value"] == "Electricity"
+        assert top_fuel["percentage"] > 50.0
+
+
+@pytest.mark.asyncio
+class TestDistributionResearch:
+    """Validate distribution queries against 1,000 real ResStock buildings."""
+
+    async def test_ungrouped_returns_all_values(self, research_db, monkeypatch):
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await distribution("energy_use_total"))
+        assert len(result["values"]) == 1000
+        assert result["stats"]["count"] == 1000
+
+    async def test_grouped_by_heating_fuel(self, research_db, expected_values, monkeypatch):
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await distribution("energy_use_total", group_by="heating_fuel"))
+        ev = expected_values["metric_by_group_heating_fuel"]
+
+        for fuel, expected_group in ev.items():
+            assert len(result["groups"][fuel]) == expected_group["count"]
+
+    async def test_values_are_non_negative(self, research_db, monkeypatch):
+        """Energy values in MBtu should never be negative (physical constraint)."""
+        monkeypatch.setattr("app.tools.SQLITE_DB_PATH", research_db)
+        result = json.loads(await distribution("energy_use_total"))
+        assert all(v >= 0 for v in result["values"])

@@ -1,0 +1,1001 @@
+building_id,state,county,vintage,vintage_acs,building_type,floor_area,stories,bedrooms,occupants,heating_fuel,water_heater_fuel,hvac_type,hvac_has_ducts,climate_zone,area_median_income,insulation_wall,insulation_ceiling
+9,NC,"NC, Guilford County",1990s,1980-99,Mobile Home,1000-1499,1,3,3,Electricity,Electricity,Electricity Baseboard,No,North-Central,30-60%,"Wood Stud, R-11",
+15,NC,"NC, Mecklenburg County",1950s,1940-59,Single-Family Detached,1000-1499,1,2,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-38
+28,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Detached,2500-2999,2,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",R-30
+32,NC,"NC, Mecklenburg County",1950s,1940-59,Single-Family Detached,1000-1499,2,3,3,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-19
+48,NC,"NC, Perquimans County",1990s,1980-99,Single-Family Detached,2000-2499,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-15",R-19
+64,NC,"NC, Iredell County",1960s,1960-79,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, Uninsulated",R-38
+100,NC,"NC, Mecklenburg County",1980s,1980-99,Single-Family Detached,2500-2999,1,4,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, R-11",
+102,NC,"NC, Haywood County",1980s,1980-99,Mobile Home,750-999,1,3,4,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-11",
+103,NC,"NC, Caldwell County",1950s,1940-59,Single-Family Detached,1500-1999,1,2,1,Fuel Oil,Electricity,Fuel Oil Fuel Boiler,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-7
+169,NC,"NC, Scotland County",1980s,1980-99,Single-Family Detached,1000-1499,2,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",
+170,NC,"NC, Mecklenburg County",2010s,2010s,Single-Family Detached,2500-2999,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, R-19",R-30
+174,NC,"NC, Rockingham County",1990s,1980-99,Single-Family Detached,1500-1999,2,3,1,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-15",R-30
+178,NC,"NC, Pitt County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity Baseboard,No,South-Central,0-30%,"Wood Stud, R-7",Uninsulated
+182,NC,"NC, Craven County",1990s,1980-99,Single-Family Attached,1000-1499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-15",
+219,NC,"NC, Guilford County",2000s,2000-09,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, R-15",R-30
+281,NC,"NC, Iredell County",1940s,1940-59,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-30
+285,NC,"NC, Randolph County",<1940,<1940,Single-Family Detached,750-999,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",
+287,NC,"NC, Brunswick County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",R-30
+291,NC,"NC, Cabarrus County",1950s,1940-59,Single-Family Detached,2000-2499,2,3,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-30
+305,NC,"NC, Wilson County",1990s,1980-99,Single-Family Detached,1000-1499,1,5,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-11",R-30
+312,NC,"NC, Wake County",2010s,2010s,Single-Family Attached,1000-1499,2,2,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-19",
+328,NC,"NC, Mecklenburg County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-19
+340,NC,"NC, Guilford County",1950s,1940-59,Single-Family Detached,1000-1499,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",
+354,NC,"NC, Bladen County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,1,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, R-7",R-30
+358,NC,"NC, Orange County",1970s,1960-79,Single-Family Detached,2000-2499,2,4,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-7",R-38
+361,NC,"NC, Durham County",1960s,1960-79,Single-Family Detached,750-999,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-19
+380,NC,"NC, Wake County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,1,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+386,NC,"NC, Wake County",1960s,1960-79,Single-Family Detached,2000-2499,1,4,3,Electricity,Electricity,Electricity Baseboard,No,North-Central,80-100%,"Wood Stud, Uninsulated",
+400,NC,"NC, Catawba County",1950s,1940-59,Single-Family Detached,1000-1499,1,2,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, Uninsulated",Uninsulated
+411,NC,"NC, Forsyth County",1940s,1940-59,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"CMU, 6-in, Uninsulated",R-19
+451,NC,"NC, Wake County",1980s,1980-99,Single-Family Detached,2000-2499,2,4,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-11",R-30
+456,NC,"NC, Cumberland County",2000s,2000-09,Single-Family Detached,2500-2999,1,5,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+458,NC,"NC, Bladen County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,4,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",
+469,NC,"NC, Madison County",1950s,1940-59,Mobile Home,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",
+474,NC,"NC, Forsyth County",<1940,<1940,Single-Family Detached,1000-1499,1,5,5,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-7
+477,NC,"NC, Lee County",<1940,<1940,Single-Family Detached,1000-1499,1,3,3,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",
+488,NC,"NC, Alamance County",1970s,1960-79,Single-Family Detached,1500-1999,2,4,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, R-7",R-19
+519,NC,"NC, Haywood County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-11",R-19
+534,NC,"NC, Cumberland County",1960s,1960-79,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-13
+543,NC,"NC, New Hanover County",1980s,1980-99,Mobile Home,1000-1499,1,3,2,Electricity,Electricity,Electricity Baseboard,Yes,South-Central,60-80%,"Wood Stud, R-11",
+569,NC,"NC, Iredell County",1990s,1980-99,Single-Family Detached,3000-3999,1,4,6,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-15",R-30
+587,NC,"NC, Robeson County",1990s,1980-99,Mobile Home,1500-1999,1,3,1,Electricity,Propane,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, R-15",
+609,NC,"NC, Pasquotank County",1970s,1960-79,Mobile Home,1500-1999,1,4,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",
+625,NC,"NC, Mecklenburg County",2010s,2010s,Single-Family Detached,4000+,1,4,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, R-19",
+684,NC,"NC, Surry County",1950s,1940-59,Single-Family Detached,1000-1499,1,4,9,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+709,NC,"NC, Yadkin County",<1940,<1940,Single-Family Detached,1000-1499,1,4,3,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-19
+733,NC,"NC, Rowan County",1960s,1960-79,Mobile Home,1500-1999,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Brick, 12-in, 3-wythe, Uninsulated",
+736,NC,"NC, Orange County",1970s,1960-79,Mobile Home,1000-1499,1,3,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-7",
+737,NC,"NC, Sampson County",1990s,1980-99,Single-Family Detached,2500-2999,2,5,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-11",
+748,NC,"NC, Yancey County",1960s,1960-79,Single-Family Detached,1500-1999,1,4,1,Fuel Oil,Electricity,Fuel Oil Fuel Boiler,No,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+750,NC,"NC, Mecklenburg County",1980s,1980-99,Mobile Home,1000-1499,1,2,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",
+773,NC,"NC, Forsyth County",1960s,1960-79,Single-Family Detached,750-999,2,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+795,NC,"NC, Iredell County",1990s,1980-99,Mobile Home,4000+,1,3,4,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-15",
+796,NC,"NC, Wilkes County",1980s,1980-99,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-19
+812,NC,"NC, Wilson County",1970s,1960-79,Single-Family Detached,2500-2999,1,4,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, R-7",R-38
+837,NC,"NC, Jackson County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-7
+863,NC,"NC, Buncombe County",1980s,1980-99,Mobile Home,1000-1499,1,3,1,Electricity,Electricity,Electricity Baseboard,No,North-Central,0-30%,"Wood Stud, R-11",
+885,NC,"NC, New Hanover County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,3,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",
+903,NC,"NC, Mecklenburg County",1970s,1960-79,Single-Family Detached,3000-3999,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, R-7",R-13
+904,NC,"NC, Mecklenburg County",1980s,1980-99,Single-Family Attached,2000-2499,2,4,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",
+908,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Detached,1500-1999,2,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-19",R-30
+915,NC,"NC, Lenoir County",2000s,2000-09,Mobile Home,1000-1499,1,3,2,Electricity,Propane,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-19",
+928,NC,"NC, Harnett County",1970s,1960-79,Single-Family Detached,1000-1499,1,2,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, Uninsulated",
+978,NC,"NC, Durham County",2000s,2000-09,Single-Family Detached,3000-3999,1,4,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+994,NC,"NC, Cabarrus County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, R-15",
+1007,NC,"NC, McDowell County",1990s,1980-99,Mobile Home,1000-1499,1,2,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-15",
+1011,NC,"NC, Sampson County",1970s,1960-79,Mobile Home,1000-1499,1,2,4,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, R-7",
+1023,NC,"NC, Pitt County",2000s,2000-09,Single-Family Detached,2000-2499,1,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Wall/Floor Furnace,Yes,South-Central,0-30%,"Wood Stud, R-11",R-38
+1035,NC,"NC, Northampton County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",
+1040,NC,"NC, Henderson County",2000s,2000-09,Single-Family Detached,1500-1999,2,3,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",
+1054,NC,"NC, Northampton County",<1940,<1940,Single-Family Detached,750-999,1,2,1,Natural Gas,Natural Gas,Natural Gas Fuel Wall/Floor Furnace,No,North-Central,30-60%,"Wood Stud, Uninsulated",
+1062,NC,"NC, Rowan County",1990s,1980-99,Mobile Home,1000-1499,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-11",
+1079,NC,"NC, New Hanover County",1990s,1980-99,Single-Family Detached,1500-1999,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Brick, 12-in, 3-wythe, R-11",
+1087,NC,"NC, Onslow County",1950s,1940-59,Single-Family Detached,2000-2499,2,4,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",
+1088,NC,"NC, Duplin County",2000s,2000-09,Single-Family Detached,1000-1499,1,3,2,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",R-30
+1108,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-30
+1122,NC,"NC, Carteret County",1980s,1980-99,Mobile Home,750-999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-11",
+1140,NC,"NC, Pender County",1990s,1980-99,Single-Family Detached,2000-2499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, R-15",R-30
+1218,NC,"NC, Rutherford County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-7",R-19
+1226,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Detached,2500-2999,2,4,3,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+1248,NC,"NC, Bertie County",1990s,1980-99,Mobile Home,1500-1999,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-15",
+1254,NC,"NC, Martin County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity Baseboard,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",
+1262,NC,"NC, Forsyth County",1960s,1960-79,Single-Family Detached,1000-1499,1,4,1,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, Uninsulated",
+1271,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, R-11",
+1311,NC,"NC, Alamance County",1950s,1940-59,Single-Family Detached,1000-1499,2,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, Uninsulated",
+1321,NC,"NC, Wake County",1940s,1940-59,Single-Family Detached,0-499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"CMU, 6-in, Uninsulated",Uninsulated
+1324,NC,"NC, Burke County",1990s,1980-99,Mobile Home,750-999,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-19",
+1347,NC,"NC, New Hanover County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,3,Electricity,Electricity,Electricity Baseboard,Yes,South-Central,120-150%,"Wood Stud, R-11",R-13
+1351,NC,"NC, Gaston County",<1940,<1940,Single-Family Detached,1500-1999,2,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Boiler,No,South-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",
+1352,NC,"NC, Brunswick County",1990s,1980-99,Single-Family Detached,3000-3999,2,4,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-15",
+1359,NC,"NC, Burke County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,1,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, R-7",
+1369,NC,"NC, Swain County",1970s,1960-79,Mobile Home,1500-1999,1,2,2,Electricity,Electricity,Electricity Baseboard,No,North-Central,120-150%,"Wood Stud, R-7",
+1373,NC,"NC, Wake County",<1940,<1940,Single-Family Detached,1500-1999,2,5,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",
+1374,NC,"NC, Franklin County",1940s,1940-59,Single-Family Detached,2500-2999,3,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Boiler,No,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+1386,NC,"NC, Cleveland County",1980s,1980-99,Single-Family Detached,3000-3999,2,4,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, R-11",R-13
+1399,NC,"NC, Mecklenburg County",1950s,1940-59,Single-Family Detached,1500-1999,1,3,3,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, Uninsulated",R-19
+1419,NC,"NC, Greene County",2000s,2000-09,Single-Family Detached,1000-1499,1,2,2,Electricity,Natural Gas,Electricity Electric Furnace,Yes,South-Central,100-120%,"Wood Stud, R-19",R-30
+1454,NC,"NC, Robeson County",2000s,2000-09,Mobile Home,1000-1499,1,3,4,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,100-120%,"Wood Stud, R-15",
+1455,NC,"NC, Lincoln County",1950s,1940-59,Single-Family Detached,1500-1999,1,4,1,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",R-13
+1476,NC,"NC, Wake County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,3,Electricity,Electricity,Electricity Electric Wall Furnace,No,North-Central,120-150%,"Wood Stud, R-11",
+1483,NC,"NC, Buncombe County",1980s,1980-99,Single-Family Attached,1500-1999,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-13
+1484,NC,"NC, Chatham County",1960s,1960-79,Single-Family Detached,2500-2999,1,3,6,Propane,Propane,Propane Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-30
+1490,NC,"NC, Halifax County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,4,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-7",R-30
+1517,NC,"NC, Transylvania County",2000s,2000-09,Single-Family Detached,1000-1499,1,3,3,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",R-38
+1534,NC,"NC, Chatham County",1950s,1940-59,Single-Family Detached,2000-2499,2,3,2,Fuel Oil,Electricity,Fuel Oil Fuel Boiler,No,North-Central,120-150%,"Wood Stud, Uninsulated",Uninsulated
+1535,NC,"NC, Burke County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, R-19",R-19
+1548,NC,"NC, Wayne County",1980s,1980-99,Mobile Home,1000-1499,1,3,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-11",
+1576,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Attached,1000-1499,2,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",R-30
+1587,NC,"NC, Mecklenburg County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,4,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,60-80%,"Wood Stud, Uninsulated",R-7
+1594,NC,"NC, Mecklenburg County",<1940,<1940,Single-Family Detached,750-999,1,2,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-30
+1599,NC,"NC, Union County",1970s,1960-79,Single-Family Detached,750-999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Brick, 12-in, 3-wythe, R-7",R-13
+1607,NC,"NC, Craven County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,6,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, R-7",
+1612,NC,"NC, Davidson County",2000s,2000-09,Mobile Home,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",
+1618,NC,"NC, Johnston County",2000s,2000-09,Single-Family Detached,1000-1499,1,2,3,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,60-80%,"Wood Stud, R-15",R-49
+1625,NC,"NC, Union County",1990s,1980-99,Single-Family Detached,2500-2999,1,4,6,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, R-19",R-30
+1635,NC,"NC, Henderson County",2000s,2000-09,Single-Family Attached,2500-2999,1,5,5,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, R-11",R-30
+1656,NC,"NC, Craven County",2010s,2010s,Single-Family Detached,1500-1999,1,4,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-11",R-19
+1663,NC,"NC, Dare County",1940s,1940-59,Single-Family Detached,750-999,1,2,3,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",
+1684,NC,"NC, New Hanover County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",R-7
+1689,NC,"NC, Moore County",1990s,1980-99,Single-Family Detached,750-999,1,2,1,Electricity,Propane,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-11",R-19
+1740,NC,"NC, Cumberland County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Brick, 12-in, 3-wythe, Uninsulated",
+1741,NC,"NC, Cherokee County",2010s,2010s,Mobile Home,2000-2499,1,5,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-11",
+1744,NC,"NC, Mecklenburg County",1970s,1960-79,Single-Family Detached,2000-2499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-7",
+1745,NC,"NC, Buncombe County",1990s,1980-99,Single-Family Detached,3000-3999,2,4,5,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, R-15",R-30
+1748,NC,"NC, Edgecombe County",2000s,2000-09,Mobile Home,1500-1999,1,2,2,Electricity,Electricity,Electricity Baseboard,No,South-Central,100-120%,"Wood Stud, R-11",
+1749,NC,"NC, Cumberland County",1960s,1960-79,Single-Family Detached,1000-1499,1,4,2,Propane,Propane,Propane Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",
+1769,NC,"NC, Guilford County",2000s,2000-09,Single-Family Attached,2500-2999,2,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-49
+1770,NC,"NC, Cabarrus County",1960s,1960-79,Single-Family Detached,2000-2499,1,2,5,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",
+1800,NC,"NC, Guilford County",1980s,1980-99,Single-Family Detached,2000-2499,2,4,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-11",R-19
+1808,NC,"NC, Yadkin County",2010s,2010s,Mobile Home,1000-1499,1,3,1,Electricity,Electricity,Electricity MSHP,No,North-Central,80-100%,"Wood Stud, R-11",
+1881,NC,"NC, Caldwell County",1950s,1940-59,Single-Family Detached,1500-1999,2,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",
+1890,NC,"NC, Catawba County",2000s,2000-09,Mobile Home,3000-3999,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",
+1912,NC,"NC, Randolph County",1990s,1980-99,Mobile Home,750-999,1,3,3,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,100-120%,"Wood Stud, R-15",
+1924,NC,"NC, Davidson County",2000s,2000-09,Single-Family Detached,2000-2499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",R-30
+1945,NC,"NC, Durham County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, R-19",R-30
+1963,NC,"NC, Caldwell County",1970s,1960-79,Mobile Home,750-999,1,2,1,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, Uninsulated",
+1965,NC,"NC, Buncombe County",2000s,2000-09,Single-Family Detached,2500-2999,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-19",R-30
+1966,NC,"NC, Pitt County",2000s,2000-09,Mobile Home,0-499,1,1,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,80-100%,"CMU, 6-in, R-11",
+1984,NC,"NC, Rowan County",1980s,1980-99,Mobile Home,750-999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",
+2003,NC,"NC, Lenoir County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,1,Propane,Electricity,Propane Fuel Wall/Floor Furnace,Yes,South-Central,30-60%,"CMU, 6-in, Uninsulated",R-30
+2010,NC,"NC, Macon County",1980s,1980-99,Mobile Home,1000-1499,1,2,5,Electricity,Propane,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-11",
+2013,NC,"NC, Sampson County",1960s,1960-79,Single-Family Detached,1500-1999,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",
+2020,NC,"NC, Pitt County",1950s,1940-59,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",
+2040,NC,"NC, Cumberland County",<1940,<1940,Single-Family Detached,2000-2499,2,4,2,Electricity,Electricity,Electricity Electric Boiler,No,South-Central,60-80%,"Wood Stud, Uninsulated",R-19
+2086,NC,"NC, Cabarrus County",1970s,1960-79,Single-Family Detached,2000-2499,3,4,1,Electricity,Electricity,Electricity Baseboard,No,South-Central,0-30%,"Wood Stud, Uninsulated",
+2096,NC,"NC, Henderson County",1970s,1960-79,Mobile Home,0-499,1,1,2,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,30-60%,"CMU, 6-in, Uninsulated",
+2100,NC,"NC, Cumberland County",1990s,1980-99,Single-Family Detached,1000-1499,2,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, R-19",R-19
+2118,NC,"NC, Wilkes County",1970s,1960-79,Mobile Home,750-999,1,2,2,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-7",
+2123,NC,"NC, Catawba County",1990s,1980-99,Single-Family Detached,2000-2499,2,4,2,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, R-11",R-19
+2141,NC,"NC, Lincoln County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-7",R-38
+2184,NC,"NC, Forsyth County",1970s,1960-79,Single-Family Detached,1000-1499,1,4,4,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, R-7",R-13
+2233,NC,"NC, Columbus County",1980s,1980-99,Mobile Home,1000-1499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-11",
+2237,NC,"NC, Gaston County",1980s,1980-99,Mobile Home,500-749,1,3,7,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-11",
+2302,NC,"NC, Macon County",<1940,<1940,Single-Family Detached,1500-1999,2,3,3,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",Uninsulated
+2309,NC,"NC, Onslow County",1990s,1980-99,Single-Family Detached,3000-3999,2,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-19",R-30
+2311,NC,"NC, Durham County",<1940,<1940,Single-Family Detached,2000-2499,1,5,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",R-13
+2324,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-15",R-30
+2343,NC,"NC, Burke County",1990s,1980-99,Mobile Home,750-999,1,1,2,Electricity,Electricity,Electricity Baseboard,No,North-Central,0-30%,"Wood Stud, R-11",
+2345,NC,"NC, Rowan County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-7",
+2358,NC,"NC, Wake County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",
+2361,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,2000-2499,2,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",R-30
+2376,NC,"NC, Cumberland County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Brick, 12-in, 3-wythe, R-7",
+2440,NC,"NC, Durham County",1970s,1960-79,Single-Family Detached,1500-1999,2,4,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",R-19
+2449,NC,"NC, Wake County",2010s,2010s,Single-Family Attached,500-749,1,1,1,Electricity,Electricity,Electricity MSHP,No,North-Central,100-120%,"Wood Stud, R-15",R-30
+2453,NC,"NC, Nash County",1990s,1980-99,Mobile Home,1000-1499,1,3,2,Electricity,Propane,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-11",
+2474,NC,"NC, Iredell County",2010s,2010s,Single-Family Detached,3000-3999,2,5,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-11",R-30
+2478,NC,"NC, Durham County",2000s,2000-09,Single-Family Detached,2500-2999,1,3,5,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,100-120%,"Wood Stud, R-15",
+2496,NC,"NC, Wake County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",R-30
+2513,NC,"NC, Onslow County",1940s,1940-59,Single-Family Detached,1500-1999,1,4,8,Electricity,Electricity,Electricity Baseboard,No,South-Central,100-120%,"Wood Stud, Uninsulated",
+2610,NC,"NC, Durham County",1950s,1940-59,Single-Family Detached,3000-3999,1,4,2,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",
+2612,NC,"NC, Granville County",2000s,2000-09,Single-Family Detached,3000-3999,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,120-150%,"Wood Stud, R-19",R-19
+2615,NC,"NC, Henderson County",1990s,1980-99,Single-Family Detached,1500-1999,2,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-19",
+2616,NC,"NC, Cabarrus County",1940s,1940-59,Single-Family Detached,750-999,1,1,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+2617,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,3000-3999,2,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",R-30
+2629,NC,"NC, Rockingham County",1970s,1960-79,Single-Family Detached,1500-1999,1,2,3,Electricity,Propane,Electricity Electric Furnace,Yes,North-Central,80-100%,"Wood Stud, Uninsulated",R-30
+2630,NC,"NC, Mecklenburg County",1960s,1960-79,Single-Family Detached,2500-2999,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, Uninsulated",R-38
+2632,NC,"NC, Carteret County",1970s,1960-79,Single-Family Detached,2500-2999,2,5,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+2656,NC,"NC, Moore County",1980s,1980-99,Mobile Home,1500-1999,1,3,3,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,120-150%,"Wood Stud, R-11",
+2665,NC,"NC, Harnett County",1990s,1980-99,Single-Family Detached,1000-1499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-11",
+2677,NC,"NC, Randolph County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+2705,NC,"NC, Lincoln County",1940s,1940-59,Single-Family Detached,2000-2499,2,4,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-30
+2778,NC,"NC, Wilson County",1950s,1940-59,Single-Family Detached,2000-2499,1,4,2,Propane,Propane,Propane Fuel Furnace,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",
+2792,NC,"NC, Iredell County",1980s,1980-99,Single-Family Detached,1500-1999,2,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-19
+2797,NC,"NC, Robeson County",1950s,1940-59,Mobile Home,1000-1499,1,3,2,Electricity,Propane,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",
+2803,NC,"NC, Wayne County",1970s,1960-79,Mobile Home,0-499,1,1,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,60-80%,"Wood Stud, Uninsulated",
+2806,NC,"NC, Wake County",1960s,1960-79,Mobile Home,500-749,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",
+2808,NC,"NC, Swain County",1980s,1980-99,Single-Family Detached,750-999,1,2,1,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",R-30
+2849,NC,"NC, Moore County",2010s,2010s,Single-Family Detached,1000-1499,1,3,4,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,120-150%,"Wood Stud, R-19",
+2857,NC,"NC, Rowan County",<1940,<1940,Single-Family Detached,1000-1499,1,3,2,Propane,Electricity,Propane Fuel Wall/Floor Furnace,No,South-Central,30-60%,"Wood Stud, Uninsulated",R-30
+2859,NC,"NC, Sampson County",<1940,<1940,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-30
+2860,NC,"NC, Brunswick County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,100-120%,"Wood Stud, R-15",
+2877,NC,"NC, Guilford County",1970s,1960-79,Single-Family Detached,2000-2499,2,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",R-7
+2895,NC,"NC, Forsyth County",2000s,2000-09,Single-Family Detached,2000-2499,1,4,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-15",R-30
+2901,NC,"NC, Caswell County",1960s,1960-79,Single-Family Detached,1500-1999,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",R-13
+2910,NC,"NC, Mecklenburg County",2010s,2010s,Single-Family Detached,4000+,2,5,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-11",R-30
+2928,NC,"NC, Chatham County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-11",R-30
+2949,NC,"NC, Buncombe County",1990s,1980-99,Mobile Home,750-999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-15",
+2975,NC,"NC, Cabarrus County",<1940,<1940,Single-Family Detached,1000-1499,1,2,2,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",R-13
+2981,NC,"NC, Wilkes County",<1940,<1940,Single-Family Detached,750-999,1,2,1,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",
+2985,NC,"NC, Carteret County",<1940,<1940,Single-Family Detached,1000-1499,1,4,4,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, Uninsulated",R-13
+2996,NC,"NC, Alamance County",1990s,1980-99,Mobile Home,1000-1499,1,4,1,Electricity,Electricity,Electricity Baseboard,No,North-Central,30-60%,"Wood Stud, R-19",
+3018,NC,"NC, Wake County",2010s,2010s,Single-Family Detached,4000+,2,5,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",
+3022,NC,"NC, Chatham County",2010s,2010s,Single-Family Detached,1500-1999,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-19",R-30
+3026,NC,"NC, Cabarrus County",2000s,2000-09,Single-Family Attached,1000-1499,2,1,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, R-15",
+3036,NC,"NC, Wilson County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+3060,NC,"NC, Lenoir County",2010s,2010s,Single-Family Detached,1000-1499,1,3,4,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-15",R-30
+3064,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1500-1999,1,4,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, R-15",R-19
+3066,NC,"NC, Alamance County",1950s,1940-59,Single-Family Detached,750-999,1,2,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",R-19
+3070,NC,"NC, New Hanover County",1970s,1960-79,Single-Family Detached,500-749,1,2,2,Electricity,Propane,Electricity Baseboard,No,South-Central,30-60%,"Wood Stud, R-7",R-13
+3080,NC,"NC, Henderson County",2000s,2000-09,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",
+3091,NC,"NC, Haywood County",1960s,1960-79,Single-Family Detached,2500-2999,2,3,4,Electricity,Electricity,Electricity Electric Wall Furnace,No,North-Central,100-120%,"Brick, 12-in, 3-wythe, Uninsulated",R-19
+3099,NC,"NC, Person County",1970s,1960-79,Single-Family Detached,2000-2499,1,5,6,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, R-7",
+3106,NC,"NC, Pender County",1980s,1980-99,Single-Family Detached,1500-1999,2,3,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+3121,NC,"NC, Buncombe County",1990s,1980-99,Mobile Home,1000-1499,1,3,5,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,80-100%,"Wood Stud, R-11",
+3129,NC,"NC, Buncombe County",2010s,2010s,Single-Family Detached,3000-3999,2,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",R-30
+3144,NC,"NC, Caldwell County",1960s,1960-79,Single-Family Detached,2000-2499,1,4,4,Electricity,Electricity,Electricity Baseboard,No,North-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",
+3147,NC,"NC, Lincoln County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",R-19
+3155,NC,"NC, Bladen County",1990s,1980-99,Mobile Home,1500-1999,1,2,6,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,80-100%,"Wood Stud, R-15",
+3209,NC,"NC, Davidson County",1960s,1960-79,Single-Family Detached,500-749,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+3211,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-15",R-30
+3249,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-15",R-38
+3326,NC,"NC, Stanly County",2000s,2000-09,Single-Family Detached,2000-2499,1,4,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+3345,NC,"NC, Brunswick County",1980s,1980-99,Single-Family Attached,1500-1999,2,3,1,Electricity,Electricity,Electricity Baseboard,Yes,South-Central,30-60%,"Wood Stud, R-11",
+3373,NC,"NC, Alamance County",2000s,2000-09,Single-Family Detached,1000-1499,1,2,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",R-30
+3423,NC,"NC, Ashe County",1970s,1960-79,Single-Family Detached,2000-2499,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",
+3426,NC,"NC, Wayne County",1990s,1980-99,Single-Family Detached,2500-2999,1,4,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-19",
+3446,NC,"NC, Pasquotank County",1990s,1980-99,Single-Family Detached,1500-1999,2,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-11",R-30
+3462,NC,"NC, Gaston County",1970s,1960-79,Single-Family Detached,2000-2499,1,4,4,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, R-7",
+3486,NC,"NC, Guilford County",2000s,2000-09,Single-Family Attached,750-999,2,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",
+3489,NC,"NC, Dare County",1960s,1960-79,Single-Family Detached,2000-2499,3,3,1,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",
+3493,NC,"NC, Wake County",2010s,2010s,Single-Family Detached,4000+,2,5,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-11",R-30
+3510,NC,"NC, Wake County",2000s,2000-09,Single-Family Attached,2000-2499,2,4,5,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-15",R-19
+3520,NC,"NC, Henderson County",<1940,<1940,Single-Family Detached,1500-1999,2,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",R-19
+3523,NC,"NC, Cumberland County",1990s,1980-99,Mobile Home,750-999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-15",
+3527,NC,"NC, Wilkes County",1980s,1980-99,Mobile Home,750-999,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",
+3541,NC,"NC, New Hanover County",1960s,1960-79,Single-Family Detached,750-999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-13
+3547,NC,"NC, Gaston County",<1940,<1940,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+3560,NC,"NC, Wilson County",1970s,1960-79,Mobile Home,500-749,1,1,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",
+3564,NC,"NC, Davidson County",2000s,2000-09,Single-Family Detached,1500-1999,2,3,5,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",R-30
+3572,NC,"NC, Johnston County",<1940,<1940,Single-Family Attached,500-749,1,2,3,Electricity,Electricity,Electricity Baseboard,No,South-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",R-19
+3579,NC,"NC, Pitt County",1980s,1980-99,Mobile Home,0-499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-11",
+3612,NC,"NC, Carteret County",1990s,1980-99,Single-Family Detached,1500-1999,1,4,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-15",R-30
+3618,NC,"NC, Rowan County",1960s,1960-79,Single-Family Detached,750-999,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-30
+3661,NC,"NC, Martin County",2000s,2000-09,Single-Family Detached,2500-2999,2,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-19",R-30
+3679,NC,"NC, Buncombe County",1990s,1980-99,Mobile Home,2000-2499,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, R-19",
+3680,NC,"NC, Stokes County",1970s,1960-79,Mobile Home,1500-1999,1,3,6,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",
+3685,NC,"NC, Mecklenburg County",1950s,1940-59,Single-Family Detached,750-999,1,1,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-13
+3703,NC,"NC, Brunswick County",2000s,2000-09,Single-Family Detached,1500-1999,2,4,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-19",R-19
+3746,NC,"NC, Haywood County",<1940,<1940,Single-Family Detached,750-999,1,3,3,Propane,Propane,Propane Fuel Wall/Floor Furnace,No,North-Central,0-30%,"Wood Stud, Uninsulated",
+3747,NC,"NC, Cumberland County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, R-7",R-19
+3752,NC,"NC, Guilford County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity Electric Wall Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",
+3754,NC,"NC, Cleveland County",1960s,1960-79,Single-Family Detached,1000-1499,1,2,1,Electricity,Electricity,Electricity Electric Wall Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",R-7
+3801,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-15",R-19
+3818,NC,"NC, Forsyth County",2000s,2000-09,Single-Family Detached,2000-2499,1,2,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",R-30
+3843,NC,"NC, Rutherford County",1990s,1980-99,Single-Family Detached,1500-1999,1,4,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"CMU, 6-in, R-11",
+3852,NC,"NC, Durham County",2000s,2000-09,Single-Family Detached,1000-1499,1,3,4,Natural Gas,Natural Gas,Natural Gas Fuel Boiler,No,North-Central,120-150%,"Brick, 12-in, 3-wythe, R-11",R-30
+3853,NC,"NC, Burke County",2000s,2000-09,Single-Family Detached,2000-2499,1,5,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",R-30
+3887,NC,"NC, Gaston County",2000s,2000-09,Single-Family Detached,1500-1999,1,4,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-11",
+3895,NC,"NC, Forsyth County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,3,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",R-38
+3899,NC,"NC, Rutherford County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",R-30
+3903,NC,"NC, Guilford County",2000s,2000-09,Mobile Home,2000-2499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-15",
+3932,NC,"NC, Buncombe County",<1940,<1940,Single-Family Detached,750-999,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",R-13
+3942,NC,"NC, Johnston County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-19",R-19
+3945,NC,"NC, Forsyth County",1990s,1980-99,Mobile Home,500-749,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",
+3947,NC,"NC, Hertford County",1970s,1960-79,Mobile Home,0-499,1,1,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,0-30%,"Wood Stud, R-7",
+3951,NC,"NC, Union County",1970s,1960-79,Single-Family Detached,1000-1499,1,4,5,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, R-7",
+3976,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Detached,1500-1999,2,3,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-15",
+3979,NC,"NC, New Hanover County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, R-11",R-38
+4014,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1000-1499,1,4,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-15",R-30
+4016,NC,"NC, Wayne County",<1940,<1940,Single-Family Detached,2500-2999,2,3,3,Electricity,Propane,Electricity ASHP,Yes,South-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+4025,NC,"NC, Pitt County",<1940,<1940,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-7
+4030,NC,"NC, Mecklenburg County",1960s,1960-79,Single-Family Detached,1500-1999,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, Uninsulated",R-30
+4032,NC,"NC, Cleveland County",1950s,1940-59,Single-Family Detached,750-999,1,3,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, Uninsulated",
+4059,NC,"NC, Columbus County",1950s,1940-59,Single-Family Detached,1000-1499,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, Uninsulated",Uninsulated
+4065,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Detached,1000-1499,1,2,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-30
+4082,NC,"NC, Gaston County",1980s,1980-99,Mobile Home,4000+,1,4,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-19",
+4090,NC,"NC, Guilford County",1970s,1960-79,Single-Family Detached,750-999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",R-19
+4093,NC,"NC, Forsyth County",1990s,1980-99,Single-Family Detached,2500-2999,2,2,1,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-19
+4105,NC,"NC, Brunswick County",1990s,1980-99,Mobile Home,750-999,1,3,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-19",
+4106,NC,"NC, Swain County",1960s,1960-79,Single-Family Detached,750-999,1,3,1,Electricity,Electricity,Electricity Baseboard,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+4107,NC,"NC, Johnston County",1960s,1960-79,Single-Family Detached,2000-2499,2,4,2,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",
+4116,NC,"NC, Rowan County",1990s,1980-99,Mobile Home,1000-1499,1,2,1,Electricity,Electricity,Electricity Baseboard,No,South-Central,100-120%,"Wood Stud, R-11",
+4140,NC,"NC, Iredell County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-15",R-30
+4177,NC,"NC, Stanly County",1960s,1960-79,Single-Family Detached,1500-1999,2,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",
+4192,NC,"NC, Mecklenburg County",1970s,1960-79,Single-Family Attached,1000-1499,2,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-30
+4195,NC,"NC, Burke County",1950s,1940-59,Single-Family Detached,750-999,1,2,2,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-13
+4216,NC,"NC, Gaston County",1950s,1940-59,Single-Family Detached,1500-1999,1,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",
+4220,NC,"NC, Pamlico County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,1,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-13
+4234,NC,"NC, Montgomery County",<1940,<1940,Single-Family Detached,1500-1999,1,3,4,Electricity,Electricity,Electricity Baseboard,No,South-Central,80-100%,"Wood Stud, Uninsulated",R-38
+4245,NC,"NC, Bladen County",1990s,1980-99,Mobile Home,1000-1499,1,3,3,Electricity,Electricity,Electricity Electric Wall Furnace,No,South-Central,100-120%,"Wood Stud, R-15",
+4251,NC,"NC, Catawba County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,1,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, R-11",
+4257,NC,"NC, Pitt County",1980s,1980-99,Mobile Home,1000-1499,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-11",
+4270,NC,"NC, Chatham County",1990s,1980-99,Mobile Home,750-999,1,3,1,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",
+4296,NC,"NC, Watauga County",<1940,<1940,Single-Family Detached,2000-2499,2,3,1,Propane,Propane,Propane Fuel Furnace,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+4297,NC,"NC, Cumberland County",1990s,1980-99,Mobile Home,1000-1499,1,2,1,Propane,Propane,Propane Fuel Wall/Floor Furnace,Yes,South-Central,100-120%,"Wood Stud, R-19",
+4330,NC,"NC, Nash County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,2,Propane,Propane,Propane Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-15",R-30
+4338,NC,"NC, Ashe County",1970s,1960-79,Single-Family Detached,1000-1499,1,2,1,Propane,Electricity,Propane Fuel Wall/Floor Furnace,No,North-Central,30-60%,"Wood Stud, Uninsulated",R-19
+4339,NC,"NC, McDowell County",1970s,1960-79,Single-Family Detached,750-999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+4349,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,4000+,2,5,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-15",R-38
+4352,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, R-11",R-30
+4353,NC,"NC, Wake County",1950s,1940-59,Single-Family Detached,2000-2499,2,4,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",
+4392,NC,"NC, Macon County",1960s,1960-79,Single-Family Detached,750-999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, Uninsulated",
+4395,NC,"NC, Transylvania County",1950s,1940-59,Single-Family Detached,750-999,2,2,4,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",
+4411,NC,"NC, Avery County",1990s,1980-99,Single-Family Detached,750-999,1,2,2,Propane,Electricity,Propane Fuel Wall/Floor Furnace,No,North-Central,0-30%,"Wood Stud, R-15",R-30
+4412,NC,"NC, Cumberland County",1970s,1960-79,Single-Family Attached,1000-1499,1,2,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-7",
+4437,NC,"NC, Mecklenburg County",1980s,1980-99,Single-Family Detached,1500-1999,2,5,5,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,80-100%,"Wood Stud, R-11",R-13
+4458,NC,"NC, Yadkin County",1950s,1940-59,Single-Family Detached,1500-1999,1,4,6,Fuel Oil,Fuel Oil,Fuel Oil Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",R-30
+4460,NC,"NC, Edgecombe County",1960s,1960-79,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, Uninsulated",R-7
+4463,NC,"NC, Forsyth County",1980s,1980-99,Mobile Home,500-749,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-11",
+4527,NC,"NC, Buncombe County",1990s,1980-99,Mobile Home,1000-1499,1,3,3,Electricity,Electricity,Electricity Baseboard,No,North-Central,60-80%,"Wood Stud, R-15",
+4541,NC,"NC, New Hanover County",2000s,2000-09,Single-Family Detached,3000-3999,1,4,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",R-30
+4550,NC,"NC, Moore County",1950s,1940-59,Single-Family Detached,1500-1999,1,4,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",
+4562,NC,"NC, Buncombe County",1990s,1980-99,Single-Family Detached,2000-2499,2,3,1,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,60-80%,"Brick, 12-in, 3-wythe, R-15",R-19
+4601,NC,"NC, Warren County",1960s,1960-79,Single-Family Detached,2500-2999,2,4,4,Natural Gas,Natural Gas,Natural Gas Fuel Boiler,No,North-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-19
+4603,NC,"NC, Haywood County",1990s,1980-99,Single-Family Detached,1000-1499,1,4,2,Electricity,Propane,Electricity ASHP,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, R-11",R-19
+4610,NC,"NC, Surry County",2000s,2000-09,Single-Family Detached,750-999,1,2,2,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-11",R-38
+4636,NC,"NC, Alamance County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-11",
+4639,NC,"NC, Perquimans County",1960s,1960-79,Single-Family Detached,750-999,1,2,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+4642,NC,"NC, Johnston County",2010s,2010s,Single-Family Detached,2500-2999,2,3,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-19
+4650,NC,"NC, Columbus County",1990s,1980-99,Single-Family Detached,1500-1999,1,4,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Brick, 12-in, 3-wythe, R-11",R-30
+4672,NC,"NC, Robeson County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,1,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",
+4689,NC,"NC, Johnston County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-15",R-19
+4697,NC,"NC, Alamance County",1940s,1940-59,Single-Family Detached,2000-2499,2,3,3,Natural Gas,Electricity,Natural Gas Fuel Boiler,No,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+4703,NC,"NC, Guilford County",1990s,1980-99,Single-Family Detached,4000+,2,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-15",R-30
+4709,NC,"NC, Franklin County",1970s,1960-79,Mobile Home,750-999,1,2,2,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-7",
+4743,NC,"NC, Hoke County",<1940,<1940,Single-Family Detached,750-999,1,2,1,Natural Gas,Natural Gas,Natural Gas Fuel Wall/Floor Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-38
+4744,NC,"NC, Cabarrus County",2000s,2000-09,Single-Family Detached,1000-1499,1,2,4,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, R-11",
+4746,NC,"NC, Catawba County",1970s,1960-79,Single-Family Detached,1500-1999,1,4,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, R-7",R-30
+4755,NC,"NC, Lincoln County",1960s,1960-79,Single-Family Detached,2000-2499,1,5,6,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",R-13
+4794,NC,"NC, Alexander County",2000s,2000-09,Single-Family Detached,4000+,2,3,4,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-19",R-30
+4802,NC,"NC, Henderson County",1980s,1980-99,Mobile Home,750-999,1,2,3,Electricity,Electricity,Electricity Baseboard,Yes,North-Central,30-60%,"Wood Stud, R-11",
+4808,NC,"NC, Harnett County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, R-7",R-19
+4817,NC,"NC, Wilkes County",1960s,1960-79,Mobile Home,750-999,1,2,1,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",
+4830,NC,"NC, Rockingham County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+4835,NC,"NC, Durham County",1950s,1940-59,Single-Family Detached,1500-1999,2,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, Uninsulated",R-38
+4851,NC,"NC, Yancey County",1990s,1980-99,Mobile Home,750-999,1,3,2,Electricity,Electricity,Electricity Baseboard,Yes,North-Central,0-30%,"Wood Stud, R-11",
+4852,NC,"NC, Johnston County",2000s,2000-09,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity Baseboard,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, R-15",R-30
+4879,NC,"NC, Wilson County",1960s,1960-79,Single-Family Detached,1500-1999,1,2,1,Electricity,Propane,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-7
+4885,NC,"NC, Craven County",1990s,1980-99,Single-Family Detached,1000-1499,1,4,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-19",R-19
+4891,NC,"NC, Guilford County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+4926,NC,"NC, Guilford County",1970s,1960-79,Single-Family Detached,1000-1499,1,4,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",
+4937,NC,"NC, Guilford County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",R-30
+4948,NC,"NC, Stokes County",1970s,1960-79,Single-Family Detached,1000-1499,2,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-7",R-30
+4950,NC,"NC, Randolph County",1940s,1940-59,Single-Family Detached,1000-1499,1,2,2,Propane,Propane,Propane Fuel Furnace,Yes,South-Central,60-80%,"CMU, 6-in, Uninsulated",R-30
+4954,NC,"NC, Scotland County",<1940,<1940,Single-Family Detached,750-999,1,2,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, Uninsulated",R-30
+4955,NC,"NC, Dare County",1990s,1980-99,Single-Family Detached,3000-3999,2,4,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-19",
+4960,NC,"NC, Randolph County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-19
+4986,NC,"NC, Mecklenburg County",1970s,1960-79,Mobile Home,750-999,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-7",
+4994,NC,"NC, Moore County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,4,Propane,Propane,Propane Fuel Wall/Floor Furnace,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, R-11",R-19
+5007,NC,"NC, Franklin County",1980s,1980-99,Single-Family Detached,1500-1999,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-13
+5024,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,1000-1499,2,4,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-11",
+5029,NC,"NC, Orange County",1990s,1980-99,Single-Family Detached,2500-2999,1,4,4,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",
+5035,NC,"NC, Duplin County",1940s,1940-59,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, Uninsulated",R-19
+5039,NC,"NC, Alamance County",1980s,1980-99,Mobile Home,750-999,1,2,5,Electricity,Electricity,Electricity Baseboard,No,North-Central,60-80%,"Wood Stud, R-11",
+5051,NC,"NC, Guilford County",1980s,1980-99,Single-Family Detached,2000-2499,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-13
+5077,NC,"NC, Mecklenburg County",1940s,1940-59,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-13
+5083,NC,"NC, Robeson County",<1940,<1940,Single-Family Detached,1500-1999,1,3,4,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"CMU, 6-in, Uninsulated",R-19
+5152,NC,"NC, Henderson County",<1940,<1940,Single-Family Detached,1500-1999,1,2,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-7
+5184,NC,"NC, Henderson County",1950s,1940-59,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",
+5264,NC,"NC, Durham County",1940s,1940-59,Single-Family Detached,1000-1499,1,2,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"CMU, 6-in, Uninsulated",R-13
+5285,NC,"NC, Davidson County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",R-19
+5293,NC,"NC, Ashe County",1990s,1980-99,Single-Family Detached,1500-1999,2,4,7,Fuel Oil,Fuel Oil,Fuel Oil Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-19",R-19
+5329,NC,"NC, Cabarrus County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,2,Propane,Propane,Propane Fuel Furnace,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",
+5334,NC,"NC, Iredell County",1990s,1980-99,Mobile Home,1000-1499,1,3,3,Electricity,Electricity,Electricity Baseboard,No,North-Central,80-100%,"Wood Stud, R-19",
+5340,NC,"NC, Henderson County",1950s,1940-59,Single-Family Detached,1500-1999,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+5364,NC,"NC, New Hanover County",2010s,2010s,Single-Family Detached,2000-2499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",
+5370,NC,"NC, Wake County",1970s,1960-79,Single-Family Attached,1000-1499,1,2,4,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",
+5373,NC,"NC, Carteret County",1990s,1980-99,Single-Family Detached,2000-2499,1,4,2,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",
+5381,NC,"NC, Guilford County",1960s,1960-79,Single-Family Detached,1500-1999,1,3,5,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",R-38
+5383,NC,"NC, Edgecombe County",<1940,<1940,Single-Family Detached,750-999,1,2,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",Uninsulated
+5386,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Attached,1000-1499,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, R-15",
+5412,NC,"NC, Gaston County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Wall/Floor Furnace,No,South-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-7
+5422,NC,"NC, Henderson County",1960s,1960-79,Single-Family Detached,750-999,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-19
+5441,NC,"NC, Orange County",2000s,2000-09,Single-Family Detached,1500-1999,1,4,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",R-38
+5460,NC,"NC, Cabarrus County",1960s,1960-79,Single-Family Detached,2000-2499,1,4,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-7
+5505,NC,"NC, Burke County",1980s,1980-99,Single-Family Detached,1500-1999,1,4,4,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",R-19
+5525,NC,"NC, Johnston County",1980s,1980-99,Single-Family Detached,4000+,1,4,4,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,100-120%,"Wood Stud, R-11",R-13
+5528,NC,"NC, Gaston County",2000s,2000-09,Single-Family Detached,2000-2499,1,4,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",R-30
+5533,NC,"NC, Mitchell County",1970s,1960-79,Single-Family Detached,750-999,1,2,1,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, R-7",
+5552,NC,"NC, Buncombe County",1970s,1960-79,Single-Family Detached,1500-1999,1,1,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, Uninsulated",
+5557,NC,"NC, Guilford County",1990s,1980-99,Single-Family Detached,3000-3999,2,4,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, R-11",R-19
+5585,NC,"NC, Mecklenburg County",1960s,1960-79,Single-Family Detached,1500-1999,2,3,4,Electricity,Electricity,Electricity Baseboard,No,South-Central,0-30%,"Wood Stud, Uninsulated",
+5636,NC,"NC, Columbus County",1950s,1940-59,Single-Family Detached,1500-1999,1,2,1,Propane,Propane,Propane Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-30
+5643,NC,"NC, Union County",1970s,1960-79,Single-Family Detached,500-749,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-30
+5666,NC,"NC, Chatham County",1970s,1960-79,Mobile Home,0-499,1,1,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",
+5679,NC,"NC, Cabarrus County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, R-11",R-38
+5698,NC,"NC, Wake County",2010s,2010s,Single-Family Detached,2500-2999,2,4,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-19",R-30
+5704,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Detached,2500-2999,1,4,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-11",R-19
+5710,NC,"NC, Randolph County",1940s,1940-59,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-7
+5728,NC,"NC, Cumberland County",1990s,1980-99,Single-Family Detached,1500-1999,2,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",
+5741,NC,"NC, Wayne County",1970s,1960-79,Single-Family Detached,1000-1499,1,4,5,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-7",R-7
+5759,NC,"NC, Jackson County",1990s,1980-99,Single-Family Detached,1000-1499,1,2,1,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-15",
+5764,NC,"NC, Yancey County",1960s,1960-79,Single-Family Detached,1000-1499,2,4,1,Fuel Oil,Electricity,Fuel Oil Fuel Boiler,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",R-38
+5805,NC,"NC, Robeson County",1970s,1960-79,Mobile Home,750-999,1,2,2,Propane,Electricity,Propane Fuel Wall/Floor Furnace,No,South-Central,0-30%,"Wood Stud, R-7",
+5816,NC,"NC, Lenoir County",2000s,2000-09,Single-Family Detached,2000-2499,1,4,1,Electricity,Electricity,Electricity Baseboard,Yes,South-Central,60-80%,"Wood Stud, R-11",R-49
+5836,NC,"NC, Burke County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, R-7",
+5848,NC,"NC, Cleveland County",1980s,1980-99,Single-Family Detached,750-999,1,1,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, R-11",R-7
+5850,NC,"NC, Mecklenburg County",1980s,1980-99,Single-Family Detached,3000-3999,1,4,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",R-13
+5861,NC,"NC, Cumberland County",1970s,1960-79,Single-Family Detached,2000-2499,2,3,1,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, R-7",R-13
+5862,NC,"NC, Rowan County",<1940,<1940,Single-Family Detached,1000-1499,1,3,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",R-7
+5872,NC,"NC, Carteret County",2000s,2000-09,Single-Family Detached,750-999,1,2,2,Propane,Propane,Propane Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, R-11",R-38
+5881,NC,"NC, Pender County",2000s,2000-09,Single-Family Attached,1500-1999,2,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, R-11",R-30
+5921,NC,"NC, Chatham County",1970s,1960-79,Mobile Home,0-499,1,1,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, R-7",
+5923,NC,"NC, Harnett County",1990s,1980-99,Mobile Home,1500-1999,1,2,2,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-19",
+5943,NC,"NC, Sampson County",2010s,2010s,Single-Family Detached,3000-3999,2,4,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-11",R-30
+6006,NC,"NC, Bladen County",1970s,1960-79,Mobile Home,750-999,1,3,1,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, R-7",
+6033,NC,"NC, Mecklenburg County",1940s,1940-59,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-19
+6042,NC,"NC, New Hanover County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-15",
+6077,NC,"NC, Pender County",1990s,1980-99,Single-Family Detached,1000-1499,1,2,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-19
+6078,NC,"NC, Scotland County",1940s,1940-59,Single-Family Detached,2000-2499,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",R-30
+6096,NC,"NC, Warren County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, R-11",
+6119,NC,"NC, Durham County",2000s,2000-09,Single-Family Detached,1000-1499,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+6126,NC,"NC, Lenoir County",1980s,1980-99,Mobile Home,1000-1499,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-11",
+6127,NC,"NC, Guilford County",2000s,2000-09,Single-Family Detached,4000+,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",R-30
+6138,NC,"NC, Wake County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-7
+6144,NC,"NC, Bertie County",2000s,2000-09,Mobile Home,2000-2499,1,4,2,Electricity,Propane,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",
+6153,NC,"NC, Watauga County",2010s,2010s,Single-Family Detached,1000-1499,1,5,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-19",
+6178,NC,"NC, Buncombe County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity Baseboard,No,North-Central,80-100%,"Brick, 12-in, 3-wythe, R-7",R-13
+6194,NC,"NC, Pasquotank County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+6206,NC,"NC, Guilford County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",
+6209,NC,"NC, Pitt County",2000s,2000-09,Single-Family Detached,2000-2499,1,2,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, R-11",
+6217,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,2000-2499,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-15",R-30
+6224,NC,"NC, Pender County",1980s,1980-99,Single-Family Detached,2000-2499,1,4,2,Electricity,Electricity,Electricity Baseboard,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, R-11",R-7
+6244,NC,"NC, New Hanover County",1950s,1940-59,Single-Family Detached,750-999,1,4,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+6291,NC,"NC, Rockingham County",<1940,<1940,Single-Family Detached,500-749,1,2,3,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",R-19
+6292,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Detached,3000-3999,2,4,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",R-19
+6320,NC,"NC, Moore County",1950s,1940-59,Mobile Home,750-999,1,2,1,Electricity,Electricity,Electricity Baseboard,Yes,South-Central,0-30%,"CMU, 6-in, Uninsulated",
+6324,NC,"NC, Wake County",1980s,1980-99,Single-Family Attached,1000-1499,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-11",
+6333,NC,"NC, Carteret County",1990s,1980-99,Mobile Home,1000-1499,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,120-150%,"Wood Stud, R-15",
+6347,NC,"NC, Anson County",2000s,2000-09,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+6364,NC,"NC, Pitt County",1970s,1960-79,Single-Family Detached,2000-2499,2,4,1,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,120-150%,"Brick, 12-in, 3-wythe, R-7",
+6416,NC,"NC, Robeson County",1960s,1960-79,Single-Family Detached,1000-1499,1,2,1,Electricity,Electricity,Electricity Baseboard,No,South-Central,30-60%,"Wood Stud, Uninsulated",R-19
+6418,NC,"NC, Chatham County",2000s,2000-09,Single-Family Detached,4000+,2,4,1,Electricity,Propane,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+6437,NC,"NC, Sampson County",1990s,1980-99,Mobile Home,750-999,1,3,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-11",
+6459,NC,"NC, Buncombe County",2000s,2000-09,Single-Family Detached,2000-2499,1,4,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, R-11",R-30
+6464,NC,"NC, Halifax County",1990s,1980-99,Mobile Home,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-19",
+6479,NC,"NC, Durham County",1990s,1980-99,Single-Family Attached,750-999,1,3,3,Natural Gas,Natural Gas,Natural Gas Fuel Boiler,Yes,North-Central,0-30%,"Wood Stud, R-19",R-30
+6486,NC,"NC, Catawba County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, Uninsulated",
+6504,NC,"NC, Gaston County",<1940,<1940,Single-Family Detached,500-749,1,3,4,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-13
+6505,NC,"NC, Pitt County",1980s,1980-99,Single-Family Attached,1500-1999,2,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, R-19",
+6508,NC,"NC, Wayne County",<1940,<1940,Single-Family Detached,0-499,1,1,1,Propane,Electricity,Propane Fuel Wall/Floor Furnace,No,South-Central,30-60%,"Wood Stud, Uninsulated",
+6511,NC,"NC, Macon County",1990s,1980-99,Mobile Home,1000-1499,1,2,2,Electricity,Electricity,Electricity Baseboard,No,North-Central,60-80%,"Wood Stud, R-15",
+6527,NC,"NC, Buncombe County",1940s,1940-59,Single-Family Detached,1500-1999,1,2,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,120-150%,"Wood Stud, Uninsulated",
+6533,NC,"NC, Lenoir County",1950s,1940-59,Single-Family Detached,2000-2499,3,3,4,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",
+6558,NC,"NC, Hoke County",1950s,1940-59,Single-Family Detached,500-749,1,2,3,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-7
+6563,NC,"NC, Cleveland County",1990s,1980-99,Mobile Home,1000-1499,1,3,4,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-15",
+6609,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,1000-1499,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-19",
+6650,NC,"NC, Bladen County",2000s,2000-09,Single-Family Detached,750-999,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-19",R-30
+6683,NC,"NC, Wilkes County",2000s,2000-09,Single-Family Detached,1000-1499,1,2,1,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-11",R-30
+6694,NC,"NC, Nash County",1950s,1940-59,Single-Family Detached,1000-1499,1,4,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+6699,NC,"NC, Cabarrus County",1970s,1960-79,Single-Family Detached,1000-1499,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-38
+6700,NC,"NC, Wake County",<1940,<1940,Single-Family Detached,2000-2499,2,3,5,Natural Gas,Natural Gas,Natural Gas Fuel Boiler,No,North-Central,100-120%,"Brick, 12-in, 3-wythe, Uninsulated",R-7
+6706,NC,"NC, Craven County",1990s,1980-99,Mobile Home,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-15",
+6715,NC,"NC, Guilford County",1990s,1980-99,Single-Family Detached,1500-1999,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, R-15",
+6729,NC,"NC, Cumberland County",2010s,2010s,Single-Family Detached,2000-2499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",R-38
+6751,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Attached,1500-1999,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, R-15",
+6792,NC,"NC, Duplin County",1990s,1980-99,Mobile Home,750-999,1,2,3,Electricity,Electricity,Electricity Baseboard,Yes,South-Central,100-120%,"Wood Stud, R-19",
+6818,NC,"NC, New Hanover County",1970s,1960-79,Single-Family Detached,2000-2499,2,5,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-7",R-30
+6819,NC,"NC, Wake County",1980s,1980-99,Single-Family Detached,2000-2499,1,4,4,Propane,Propane,Propane Fuel Boiler,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, R-11",R-19
+6825,NC,"NC, Caldwell County",2000s,2000-09,Single-Family Detached,1000-1499,1,2,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, R-11",R-38
+6828,NC,"NC, Burke County",2000s,2000-09,Mobile Home,1500-1999,1,2,3,Electricity,Electricity,Electricity Electric Wall Furnace,Yes,North-Central,100-120%,"CMU, 6-in, R-19",
+6852,NC,"NC, Cabarrus County",1940s,1940-59,Single-Family Detached,1500-1999,2,3,3,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",
+6858,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,1500-1999,1,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",
+6867,NC,"NC, Durham County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, R-7",
+6884,NC,"NC, Pender County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,1,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, R-11",R-13
+6887,NC,"NC, Harnett County",1980s,1980-99,Single-Family Detached,500-749,1,1,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-11",
+6888,NC,"NC, Haywood County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,3,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",
+6889,NC,"NC, Orange County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,2,Natural Gas,Electricity,Natural Gas Fuel Boiler,Yes,North-Central,80-100%,"Wood Stud, R-11",R-19
+6897,NC,"NC, Buncombe County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,2,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, R-7",R-19
+6913,NC,"NC, Rowan County",2000s,2000-09,Mobile Home,1000-1499,1,2,1,Electricity,Propane,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-15",
+6915,NC,"NC, Union County",2010s,2010s,Single-Family Detached,2000-2499,1,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, R-19",R-30
+6919,NC,"NC, Wilkes County",2000s,2000-09,Single-Family Detached,1500-1999,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-15",
+6926,NC,"NC, Harnett County",1980s,1980-99,Mobile Home,750-999,1,2,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-11",
+6936,NC,"NC, Duplin County",1950s,1940-59,Single-Family Detached,750-999,1,2,1,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",Uninsulated
+6956,NC,"NC, Wake County",1980s,1980-99,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+6978,NC,"NC, Buncombe County",1960s,1960-79,Single-Family Detached,1500-1999,1,3,3,Natural Gas,Natural Gas,Natural Gas Fuel Wall/Floor Furnace,No,North-Central,80-100%,"Wood Stud, Uninsulated",
+6988,NC,"NC, Stokes County",<1940,<1940,Single-Family Detached,750-999,1,3,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",R-7
+6992,NC,"NC, Wayne County",1980s,1980-99,Mobile Home,500-749,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",
+7019,NC,"NC, Pamlico County",1990s,1980-99,Single-Family Detached,1500-1999,1,2,2,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-11",R-19
+7034,NC,"NC, Wake County",2010s,2010s,Single-Family Attached,2000-2499,2,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, R-11",R-30
+7045,NC,"NC, Wake County",1980s,1980-99,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, Uninsulated",R-19
+7061,NC,"NC, Yancey County",1960s,1960-79,Single-Family Detached,750-999,1,3,1,Propane,Electricity,Propane Fuel Wall/Floor Furnace,Yes,North-Central,120-150%,"Wood Stud, Uninsulated",R-13
+7064,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,2000-2499,1,5,6,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+7078,NC,"NC, Alexander County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-19",
+7112,NC,"NC, Guilford County",1940s,1940-59,Single-Family Detached,750-999,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Wall/Floor Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",R-7
+7121,NC,"NC, Harnett County",2010s,2010s,Single-Family Detached,2000-2499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-11",R-30
+7140,NC,"NC, Johnston County",1990s,1980-99,Mobile Home,2000-2499,1,4,5,Electricity,Electricity,Electricity Baseboard,Yes,South-Central,60-80%,"Wood Stud, R-11",
+7154,NC,"NC, Lee County",1980s,1980-99,Single-Family Attached,500-749,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-11",R-13
+7170,NC,"NC, Montgomery County",1980s,1980-99,Mobile Home,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",
+7172,NC,"NC, Watauga County",2000s,2000-09,Single-Family Detached,1500-1999,2,4,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-19",R-30
+7173,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Attached,1000-1499,2,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, R-11",
+7189,NC,"NC, Union County",<1940,<1940,Single-Family Detached,750-999,1,5,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-19
+7223,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,3,Electricity,Electricity,Electricity Baseboard,Yes,North-Central,100-120%,"Wood Stud, R-11",R-30
+7232,NC,"NC, Onslow County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+7235,NC,"NC, Forsyth County",1980s,1980-99,Single-Family Detached,1000-1499,2,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, R-11",R-30
+7239,NC,"NC, Alamance County",<1940,<1940,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,80-100%,"CMU, 6-in, Uninsulated",R-7
+7248,NC,"NC, Harnett County",1990s,1980-99,Mobile Home,4000+,1,4,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"CMU, 6-in, R-11",
+7273,NC,"NC, Onslow County",1990s,1980-99,Mobile Home,1000-1499,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,80-100%,"Wood Stud, R-15",
+7284,NC,"NC, Moore County",2000s,2000-09,Single-Family Detached,750-999,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-11",R-30
+7287,NC,"NC, Buncombe County",1980s,1980-99,Mobile Home,1000-1499,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",
+7290,NC,"NC, Cumberland County",1970s,1960-79,Single-Family Detached,1500-1999,1,2,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",
+7293,NC,"NC, Randolph County",2000s,2000-09,Single-Family Detached,1500-1999,2,3,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-30
+7302,NC,"NC, Iredell County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-19",R-19
+7335,NC,"NC, Craven County",2000s,2000-09,Single-Family Detached,2500-2999,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, R-11",R-38
+7349,NC,"NC, Cleveland County",1940s,1940-59,Single-Family Detached,1500-1999,2,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",
+7389,NC,"NC, Pasquotank County",<1940,<1940,Single-Family Detached,750-999,1,3,5,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+7407,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1500-1999,2,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-19
+7408,NC,"NC, Sampson County",1960s,1960-79,Single-Family Detached,2000-2499,1,5,2,Propane,Propane,Propane Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, Uninsulated",R-13
+7423,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,2500-2999,2,4,5,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-19",R-30
+7458,NC,"NC, Cleveland County",1990s,1980-99,Mobile Home,1000-1499,1,3,2,Electricity,Electricity,Electricity Baseboard,No,North-Central,120-150%,"Wood Stud, R-11",
+7461,NC,"NC, Cumberland County",1940s,1940-59,Single-Family Detached,2000-2499,2,5,7,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-13
+7485,NC,"NC, Wake County",1970s,1960-79,Single-Family Detached,1000-1499,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",
+7497,NC,"NC, Craven County",1960s,1960-79,Single-Family Detached,2500-2999,2,4,2,Fuel Oil,Electricity,Fuel Oil Fuel Boiler,No,South-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+7502,NC,"NC, Pasquotank County",1970s,1960-79,Mobile Home,4000+,1,3,5,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,120-150%,"Wood Stud, R-7",
+7507,NC,"NC, Chatham County",1980s,1980-99,Single-Family Detached,1000-1499,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-11",R-19
+7513,NC,"NC, Henderson County",1990s,1980-99,Single-Family Detached,1500-1999,1,4,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-11",
+7526,NC,"NC, Wake County",2010s,2010s,Single-Family Detached,1500-1999,2,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",
+7530,NC,"NC, Cumberland County",1950s,1940-59,Single-Family Detached,1000-1499,1,2,1,Electricity,Electricity,Electricity Baseboard,No,South-Central,100-120%,"Wood Stud, Uninsulated",Uninsulated
+7541,NC,"NC, Moore County",2000s,2000-09,Single-Family Detached,1500-1999,2,4,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, R-11",R-30
+7566,NC,"NC, Burke County",1940s,1940-59,Single-Family Detached,1000-1499,1,3,1,Fuel Oil,Electricity,Fuel Oil Fuel Wall/Floor Furnace,No,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",
+7579,NC,"NC, Buncombe County",1980s,1980-99,Single-Family Detached,1000-1499,2,2,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-13
+7591,NC,"NC, Rowan County",1990s,1980-99,Mobile Home,750-999,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, R-11",
+7592,NC,"NC, Durham County",2000s,2000-09,Single-Family Detached,2000-2499,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-19
+7594,NC,"NC, Robeson County",1980s,1980-99,Mobile Home,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",
+7628,NC,"NC, New Hanover County",1990s,1980-99,Single-Family Detached,1000-1499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",R-30
+7631,NC,"NC, Vance County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-19",R-19
+7637,NC,"NC, Hertford County",1990s,1980-99,Mobile Home,0-499,1,1,1,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",
+7654,NC,"NC, Mecklenburg County",1950s,1940-59,Single-Family Detached,1500-1999,1,3,3,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",
+7657,NC,"NC, Chatham County",2010s,2010s,Mobile Home,1500-1999,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",
+7672,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Detached,2000-2499,1,2,3,Electricity,Propane,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-19
+7677,NC,"NC, Lenoir County",1990s,1980-99,Single-Family Detached,1500-1999,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Brick, 12-in, 3-wythe, R-11",R-30
+7683,NC,"NC, Wayne County",1960s,1960-79,Single-Family Detached,2000-2499,1,3,3,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-7
+7697,NC,"NC, Pitt County",1960s,1960-79,Single-Family Detached,1500-1999,2,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-7
+7712,NC,"NC, Rowan County",1940s,1940-59,Single-Family Detached,1500-1999,2,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+7717,NC,"NC, Greene County",<1940,<1940,Single-Family Detached,1500-1999,2,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",
+7725,NC,"NC, Mecklenburg County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, R-7",R-19
+7750,NC,"NC, Wake County",2000s,2000-09,Single-Family Attached,1500-1999,2,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",
+7751,NC,"NC, Brunswick County",1990s,1980-99,Single-Family Detached,2000-2499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-15",R-30
+7753,NC,"NC, Randolph County",1980s,1980-99,Mobile Home,4000+,1,4,1,Electricity,Electricity,Electricity Baseboard,No,South-Central,120-150%,"Wood Stud, R-11",
+7773,NC,"NC, Cumberland County",1950s,1940-59,Single-Family Attached,1500-1999,1,2,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",R-19
+7792,NC,"NC, Wake County",2010s,2010s,Single-Family Attached,1500-1999,2,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-19
+7797,NC,"NC, Rowan County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",R-13
+7817,NC,"NC, Union County",1990s,1980-99,Single-Family Detached,1000-1499,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+7821,NC,"NC, New Hanover County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, R-7",R-30
+7823,NC,"NC, Buncombe County",1960s,1960-79,Single-Family Detached,1000-1499,1,4,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",
+7825,NC,"NC, Durham County",1990s,1980-99,Single-Family Detached,2500-2999,1,3,2,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",
+7832,NC,"NC, Harnett County",<1940,<1940,Single-Family Detached,1500-1999,2,2,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",
+7837,NC,"NC, Moore County",1990s,1980-99,Mobile Home,2000-2499,1,3,4,Electricity,Electricity,Electricity Baseboard,No,South-Central,80-100%,"Wood Stud, R-11",
+7853,NC,"NC, Alamance County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,2,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",R-7
+7857,NC,"NC, Mecklenburg County",1960s,1960-79,Mobile Home,750-999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",
+7873,NC,"NC, Rowan County",<1940,<1940,Single-Family Detached,1000-1499,1,2,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, Uninsulated",R-30
+7875,NC,"NC, Orange County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-19
+7890,NC,"NC, Guilford County",1960s,1960-79,Single-Family Detached,2000-2499,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",
+7915,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, R-11",R-30
+7926,NC,"NC, Mecklenburg County",<1940,<1940,Single-Family Detached,2500-2999,2,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-30
+7931,NC,"NC, Guilford County",1950s,1940-59,Single-Family Detached,4000+,2,5,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",R-19
+7933,NC,"NC, Mecklenburg County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, R-11",R-19
+7953,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-15",R-30
+7975,NC,"NC, Rockingham County",1980s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity Electric Boiler,No,North-Central,120-150%,"Wood Stud, R-11",R-30
+7976,NC,"NC, Buncombe County",<1940,<1940,Single-Family Detached,1000-1499,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",R-30
+7982,NC,"NC, New Hanover County",1970s,1960-79,Single-Family Attached,750-999,1,2,1,Electricity,Natural Gas,Electricity Electric Furnace,Yes,South-Central,120-150%,"Brick, 12-in, 3-wythe, R-7",
+7989,NC,"NC, Mecklenburg County",1990s,1980-99,Mobile Home,1000-1499,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,80-100%,"Wood Stud, R-11",
+8022,NC,"NC, Buncombe County",<1940,<1940,Single-Family Detached,1000-1499,2,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-19
+8035,NC,"NC, Granville County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-11",
+8046,NC,"NC, Iredell County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-11",R-30
+8067,NC,"NC, Mecklenburg County",1980s,1980-99,Single-Family Detached,2000-2499,1,3,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, R-11",
+8073,NC,"NC, New Hanover County",2010s,2010s,Single-Family Detached,2000-2499,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-30
+8075,NC,"NC, Robeson County",1970s,1960-79,Mobile Home,1500-1999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-7",
+8094,NC,"NC, Johnston County",1980s,1980-99,Single-Family Detached,3000-3999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, R-11",R-19
+8098,NC,"NC, Guilford County",1970s,1960-79,Single-Family Detached,1500-1999,2,4,4,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, R-7",R-7
+8127,NC,"NC, Columbus County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,3,Fuel Oil,Electricity,Fuel Oil Fuel Wall/Floor Furnace,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-30
+8143,NC,"NC, Carteret County",2010s,2010s,Single-Family Detached,1500-1999,2,3,6,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, R-15",
+8154,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-11",R-30
+8160,NC,"NC, Forsyth County",1940s,1940-59,Single-Family Detached,1500-1999,1,3,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-7
+8194,NC,"NC, Forsyth County",1950s,1940-59,Single-Family Detached,1500-1999,1,4,1,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",
+8218,NC,"NC, Forsyth County",1970s,1960-79,Single-Family Detached,2000-2499,1,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, R-7",
+8241,NC,"NC, Mecklenburg County",1980s,1980-99,Single-Family Attached,1000-1499,2,2,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, R-11",
+8252,NC,"NC, Chowan County",2000s,2000-09,Mobile Home,1000-1499,1,3,4,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,80-100%,"Wood Stud, R-11",
+8266,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Detached,2000-2499,1,5,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, R-11",
+8270,NC,"NC, Orange County",1960s,1960-79,Single-Family Detached,2000-2499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, Uninsulated",
+8279,NC,"NC, Catawba County",1960s,1960-79,Single-Family Detached,1500-1999,1,4,4,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",R-13
+8283,NC,"NC, Cumberland County",1980s,1980-99,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",
+8284,NC,"NC, Durham County",2000s,2000-09,Single-Family Detached,1500-1999,1,1,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-19",
+8300,NC,"NC, Guilford County",1990s,1980-99,Single-Family Attached,1500-1999,2,2,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-11",R-19
+8301,NC,"NC, Cleveland County",<1940,<1940,Single-Family Detached,2500-2999,2,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",R-38
+8325,NC,"NC, Wake County",1940s,1940-59,Single-Family Detached,1000-1499,1,3,3,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,80-100%,"Wood Stud, Uninsulated",R-30
+8345,NC,"NC, Union County",1980s,1980-99,Single-Family Detached,2500-2999,2,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,120-150%,"Wood Stud, R-11",
+8380,NC,"NC, New Hanover County",1990s,1980-99,Mobile Home,1500-1999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",
+8392,NC,"NC, Warren County",<1940,<1940,Single-Family Detached,2000-2499,2,3,3,Electricity,Electricity,Electricity Electric Wall Furnace,No,North-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+8404,NC,"NC, Mecklenburg County",1980s,1980-99,Single-Family Detached,2000-2499,1,4,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-7",
+8411,NC,"NC, Gaston County",<1940,<1940,Single-Family Detached,750-999,1,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-38
+8420,NC,"NC, New Hanover County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-38
+8422,NC,"NC, Brunswick County",2000s,2000-09,Single-Family Detached,4000+,2,5,5,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",R-30
+8453,NC,"NC, Guilford County",1990s,1980-99,Single-Family Detached,2000-2499,2,4,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-15",R-30
+8463,NC,"NC, Guilford County",2000s,2000-09,Single-Family Attached,1500-1999,3,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-15",R-30
+8485,NC,"NC, Dare County",1980s,1980-99,Single-Family Detached,2000-2499,1,1,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",R-19
+8486,NC,"NC, Rockingham County",1970s,1960-79,Single-Family Detached,1000-1499,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-7",
+8493,NC,"NC, Rockingham County",2010s,2010s,Single-Family Detached,3000-3999,2,5,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-19
+8494,NC,"NC, Halifax County",1940s,1940-59,Single-Family Detached,1500-1999,1,3,5,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, Uninsulated",R-13
+8507,NC,"NC, Madison County",2010s,2010s,Single-Family Detached,1000-1499,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-19
+8508,NC,"NC, Durham County",2010s,2010s,Single-Family Detached,3000-3999,1,4,5,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-19",R-30
+8517,NC,"NC, Durham County",1950s,1940-59,Single-Family Detached,1500-1999,1,3,5,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+8523,NC,"NC, Craven County",1990s,1980-99,Single-Family Detached,2000-2499,2,4,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-15",
+8529,NC,"NC, Sampson County",2010s,2010s,Single-Family Detached,1000-1499,1,2,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-15",R-19
+8531,NC,"NC, Nash County",1990s,1980-99,Mobile Home,1000-1499,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-11",
+8547,NC,"NC, Burke County",1990s,1980-99,Single-Family Detached,3000-3999,1,4,8,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-19",R-30
+8564,NC,"NC, Harnett County",1940s,1940-59,Single-Family Detached,1500-1999,1,3,8,Electricity,Propane,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",
+8575,NC,"NC, Nash County",1980s,1980-99,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",
+8584,NC,"NC, Clay County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,1,Propane,Propane,Propane Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, R-7",R-13
+8622,NC,"NC, Cumberland County",1970s,1960-79,Single-Family Detached,1000-1499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, Uninsulated",R-19
+8628,NC,"NC, Carteret County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-13
+8640,NC,"NC, Cabarrus County",2000s,2000-09,Single-Family Attached,1000-1499,2,3,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+8666,NC,"NC, Mecklenburg County",1990s,1980-99,Mobile Home,1500-1999,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-11",
+8678,NC,"NC, Ashe County",1940s,1940-59,Single-Family Detached,1000-1499,1,3,2,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+8694,NC,"NC, Lincoln County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-19
+8711,NC,"NC, Ashe County",<1940,<1940,Single-Family Detached,3000-3999,2,5,2,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, Uninsulated",
+8721,NC,"NC, New Hanover County",1980s,1980-99,Single-Family Detached,2500-2999,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-11",R-30
+8723,NC,"NC, Wake County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-7",R-13
+8728,NC,"NC, Durham County",2000s,2000-09,Single-Family Detached,2500-2999,2,4,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",R-19
+8733,NC,"NC, Rutherford County",2000s,2000-09,Single-Family Detached,1000-1499,1,4,10+,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, R-15",R-30
+8742,NC,"NC, Onslow County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,3,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-19",R-30
+8762,NC,"NC, Ashe County",1970s,1960-79,Single-Family Detached,2500-2999,2,3,1,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",
+8772,NC,"NC, Cabarrus County",1990s,1980-99,Single-Family Detached,1500-1999,3,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",R-30
+8804,NC,"NC, Mecklenburg County",1980s,1980-99,Single-Family Detached,2000-2499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-19
+8822,NC,"NC, Montgomery County",1990s,1980-99,Mobile Home,1000-1499,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-11",
+8823,NC,"NC, Gaston County",1950s,1940-59,Single-Family Detached,750-999,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",
+8828,NC,"NC, Davidson County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-30
+8831,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,2500-2999,1,2,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",R-30
+8843,NC,"NC, Guilford County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",
+8848,NC,"NC, Davie County",1970s,1960-79,Mobile Home,1000-1499,1,2,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",
+8853,NC,"NC, Wake County",1980s,1980-99,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-11",R-30
+8878,NC,"NC, Wilkes County",1990s,1980-99,Single-Family Detached,2500-2999,2,4,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-15",
+8960,NC,"NC, Burke County",1990s,1980-99,Mobile Home,2500-2999,1,4,9,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-19",
+8966,NC,"NC, Anson County",1980s,1980-99,Mobile Home,750-999,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-11",
+8973,NC,"NC, Durham County",2010s,2010s,Single-Family Detached,3000-3999,2,4,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+8977,NC,"NC, Franklin County",1990s,1980-99,Single-Family Detached,2000-2499,1,3,2,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-15",
+8978,NC,"NC, Henderson County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,1,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-7
+8998,NC,"NC, Johnston County",2000s,2000-09,Single-Family Detached,2500-2999,2,5,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",R-30
+9007,NC,"NC, Chatham County",1980s,1980-99,Single-Family Detached,2500-2999,2,4,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-7
+9020,NC,"NC, Carteret County",1990s,1980-99,Mobile Home,1000-1499,1,3,4,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, R-15",
+9021,NC,"NC, Guilford County",1970s,1960-79,Single-Family Detached,1000-1499,2,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",
+9028,NC,"NC, Johnston County",1980s,1980-99,Single-Family Detached,1000-1499,1,2,1,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",R-19
+9034,NC,"NC, Halifax County",2010s,2010s,Single-Family Detached,2000-2499,2,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-11",R-19
+9038,NC,"NC, Wake County",2010s,2010s,Single-Family Attached,1500-1999,1,3,4,Electricity,Natural Gas,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",R-30
+9061,NC,"NC, Jackson County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",
+9080,NC,"NC, New Hanover County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-15",R-30
+9090,NC,"NC, Lee County",1990s,1980-99,Mobile Home,750-999,1,2,1,Electricity,Electricity,Electricity Baseboard,No,North-Central,0-30%,"Wood Stud, R-11",
+9098,NC,"NC, Rutherford County",1960s,1960-79,Mobile Home,1000-1499,1,3,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",
+9153,NC,"NC, Iredell County",1980s,1980-99,Single-Family Detached,1000-1499,1,3,2,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",
+9196,NC,"NC, Burke County",1970s,1960-79,Mobile Home,1000-1499,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",
+9223,NC,"NC, Guilford County",1950s,1940-59,Single-Family Detached,1500-1999,1,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, Uninsulated",R-7
+9234,NC,"NC, Brunswick County",2000s,2000-09,Single-Family Detached,2000-2499,2,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+9238,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Attached,1000-1499,2,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-11",
+9239,NC,"NC, Brunswick County",1990s,1980-99,Mobile Home,1500-1999,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, R-11",
+9262,NC,"NC, New Hanover County",1970s,1960-79,Mobile Home,1000-1499,1,2,3,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",
+9268,NC,"NC, Durham County",2010s,2010s,Single-Family Detached,3000-3999,2,4,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",
+9321,NC,"NC, Wilson County",1980s,1980-99,Mobile Home,1000-1499,1,1,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-11",
+9345,NC,"NC, Columbus County",1940s,1940-59,Single-Family Detached,1000-1499,1,2,1,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",Uninsulated
+9384,NC,"NC, Person County",1970s,1960-79,Single-Family Detached,1000-1499,1,2,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",
+9385,NC,"NC, Wake County",1980s,1980-99,Mobile Home,0-499,1,1,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",
+9388,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Detached,2000-2499,2,3,3,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-11",
+9392,NC,"NC, Wake County",2010s,2010s,Mobile Home,1000-1499,1,3,2,Electricity,Electricity,Electricity MSHP,No,North-Central,120-150%,"CMU, 6-in, R-11",
+9451,NC,"NC, Davie County",2000s,2000-09,Single-Family Detached,2000-2499,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",R-38
+9454,NC,"NC, Durham County",1980s,1980-99,Single-Family Attached,1000-1499,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",
+9456,NC,"NC, Robeson County",1970s,1960-79,Mobile Home,750-999,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",
+9459,NC,"NC, Northampton County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,2,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",R-49
+9469,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,2000-2499,1,4,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, R-11",
+9479,NC,"NC, Johnston County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-13
+9488,NC,"NC, Davidson County",1990s,1980-99,Mobile Home,1500-1999,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-19",
+9499,NC,"NC, Rockingham County",1970s,1960-79,Mobile Home,1500-1999,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",
+9530,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Propane,Electricity Electric Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",
+9533,NC,"NC, Hertford County",1980s,1980-99,Mobile Home,1000-1499,1,3,3,Electricity,Electricity,Electricity Electric Wall Furnace,No,North-Central,80-100%,"Wood Stud, R-11",
+9545,NC,"NC, Wake County",1950s,1940-59,Single-Family Detached,1000-1499,1,2,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+9564,NC,"NC, Cleveland County",1960s,1960-79,Single-Family Detached,500-749,1,1,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, Uninsulated",R-19
+9566,NC,"NC, Rowan County",1950s,1940-59,Mobile Home,0-499,1,1,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",
+9593,NC,"NC, Currituck County",1950s,1940-59,Single-Family Detached,1500-1999,1,3,1,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, Uninsulated",
+9596,NC,"NC, Wayne County",2000s,2000-09,Mobile Home,1500-1999,1,2,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",
+9619,NC,"NC, Davidson County",1970s,1960-79,Mobile Home,750-999,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-7",
+9630,NC,"NC, Johnston County",1970s,1960-79,Single-Family Detached,2000-2499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, R-7",R-7
+9631,NC,"NC, Guilford County",2000s,2000-09,Single-Family Detached,4000+,2,5,5,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, R-11",R-19
+9639,NC,"NC, Davidson County",2010s,2010s,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-11",
+9643,NC,"NC, Guilford County",1960s,1960-79,Single-Family Detached,1500-1999,1,3,5,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",
+9660,NC,"NC, Wake County",1980s,1980-99,Single-Family Detached,1000-1499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-11",
+9662,NC,"NC, Northampton County",1970s,1960-79,Single-Family Detached,1000-1499,1,2,1,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-7",R-7
+9683,NC,"NC, Pitt County",1990s,1980-99,Mobile Home,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-15",
+9685,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, R-11",R-30
+9704,NC,"NC, Wake County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,4,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",R-19
+9705,NC,"NC, Gaston County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",
+9713,NC,"NC, Cabarrus County",1940s,1940-59,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Boiler,No,South-Central,0-30%,"Wood Stud, Uninsulated",
+9723,NC,"NC, Wayne County",2000s,2000-09,Mobile Home,1000-1499,1,2,3,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, R-11",
+9725,NC,"NC, Northampton County",1960s,1960-79,Single-Family Detached,1000-1499,1,4,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",
+9771,NC,"NC, Cabarrus County",1970s,1960-79,Single-Family Detached,3000-3999,2,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",
+9775,NC,"NC, Rutherford County",2010s,2010s,Single-Family Detached,2000-2499,1,4,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-19",R-30
+9781,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, R-15",R-30
+9799,NC,"NC, Caldwell County",1980s,1980-99,Single-Family Detached,2000-2499,2,4,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-11",R-30
+9807,NC,"NC, Stanly County",1990s,1980-99,Mobile Home,500-749,1,2,4,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-11",
+9846,NC,"NC, Caldwell County",1950s,1940-59,Single-Family Detached,2000-2499,1,4,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+9849,NC,"NC, Buncombe County",2010s,2010s,Single-Family Detached,1500-1999,1,4,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-11",R-30
+9856,NC,"NC, Bertie County",1980s,1980-99,Mobile Home,1500-1999,1,3,3,Electricity,Electricity,Electricity Baseboard,No,North-Central,0-30%,"Wood Stud, R-11",
+9887,NC,"NC, Burke County",1990s,1980-99,Single-Family Detached,2000-2499,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-11",
+9892,NC,"NC, Forsyth County",2000s,2000-09,Single-Family Detached,2000-2499,2,4,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-11",R-30
+9913,NC,"NC, Alamance County",1990s,1980-99,Mobile Home,500-749,1,4,2,Electricity,Electricity,Electricity Baseboard,No,North-Central,80-100%,"Wood Stud, R-11",
+9930,NC,"NC, Richmond County",1950s,1940-59,Single-Family Detached,2000-2499,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-38
+9948,NC,"NC, Burke County",1990s,1980-99,Single-Family Detached,2000-2499,1,2,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, R-15",
+9949,NC,"NC, Durham County",<1940,<1940,Single-Family Detached,1500-1999,3,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",Uninsulated
+9953,NC,"NC, Brunswick County",1990s,1980-99,Single-Family Detached,1000-1499,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, R-11",R-30
+9956,NC,"NC, Graham County",2000s,2000-09,Single-Family Detached,1000-1499,1,4,5,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,80-100%,"Wood Stud, R-11",R-30
+9971,NC,"NC, Mecklenburg County",1970s,1960-79,Single-Family Detached,2000-2499,1,4,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",
+9977,NC,"NC, Union County",2000s,2000-09,Single-Family Detached,1500-1999,2,3,3,Natural Gas,Natural Gas,Natural Gas Fuel Boiler,Yes,South-Central,100-120%,"Wood Stud, R-15",R-19
+9986,NC,"NC, Mecklenburg County",1970s,1960-79,Mobile Home,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-7",
+9989,NC,"NC, Iredell County",1960s,1960-79,Single-Family Detached,1500-1999,1,2,5,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",R-7
+10006,NC,"NC, Rockingham County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-7",R-30
+10019,NC,"NC, Surry County",1950s,1940-59,Single-Family Detached,3000-3999,2,4,4,Propane,Electricity,Propane Fuel Furnace,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+10023,NC,"NC, Carteret County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity Baseboard,No,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+10060,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,2000-2499,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+10088,NC,"NC, Randolph County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-30
+10091,NC,"NC, Onslow County",1950s,1940-59,Single-Family Detached,750-999,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,60-80%,"Wood Stud, Uninsulated",
+10108,NC,"NC, Alexander County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",
+10110,NC,"NC, Stanly County",2010s,2010s,Single-Family Detached,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-11",R-30
+10125,NC,"NC, Cherokee County",1980s,1980-99,Single-Family Detached,3000-3999,1,3,3,Electricity,Electricity,Electricity Baseboard,Yes,North-Central,120-150%,"Wood Stud, R-11",R-13
+10145,NC,"NC, Forsyth County",1950s,1940-59,Single-Family Detached,1000-1499,1,4,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+10155,NC,"NC, Mecklenburg County",2010s,2010s,Single-Family Detached,2500-2999,2,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",R-30
+10171,NC,"NC, Chatham County",1970s,1960-79,Single-Family Detached,1000-1499,1,2,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",
+10180,NC,"NC, Orange County",1990s,1980-99,Single-Family Detached,3000-3999,2,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",R-30
+10200,NC,"NC, Carteret County",1940s,1940-59,Single-Family Detached,1000-1499,1,3,5,Propane,Electricity,Propane Fuel Boiler,No,South-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",
+10207,NC,"NC, Franklin County",1990s,1980-99,Single-Family Detached,2000-2499,2,3,6,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-15",R-38
+10256,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,3,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",R-19
+10260,NC,"NC, Guilford County",1980s,1980-99,Single-Family Detached,3000-3999,1,3,3,Electricity,Electricity,Electricity Baseboard,No,North-Central,30-60%,"Wood Stud, R-11",R-19
+10283,NC,"NC, Beaufort County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-30
+10291,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Attached,1000-1499,2,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-11",R-30
+10309,NC,"NC, Buncombe County",1990s,1980-99,Mobile Home,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-19",
+10313,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1500-1999,1,5,9,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-15",R-30
+10325,NC,"NC, Wake County",<1940,<1940,Single-Family Detached,2000-2499,2,4,6,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",R-13
+10331,NC,"NC, Johnston County",2000s,2000-09,Single-Family Detached,2000-2499,2,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+10337,NC,"NC, Jackson County",1970s,1960-79,Single-Family Detached,1000-1499,2,4,2,Electricity,Electricity,Electricity Baseboard,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-38
+10339,NC,"NC, Wilkes County",1980s,1980-99,Single-Family Detached,2000-2499,1,2,2,Electricity,Electricity,Electricity Baseboard,No,North-Central,120-150%,"Wood Stud, R-11",R-19
+10348,NC,"NC, Polk County",<1940,<1940,Single-Family Detached,1500-1999,1,4,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",R-13
+10377,NC,"NC, Onslow County",2010s,2010s,Single-Family Attached,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",
+10408,NC,"NC, Gaston County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, Uninsulated",R-30
+10435,NC,"NC, Randolph County",1990s,1980-99,Mobile Home,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",
+10437,NC,"NC, Iredell County",1940s,1940-59,Single-Family Detached,3000-3999,1,4,6,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",R-13
+10451,NC,"NC, Person County",1960s,1960-79,Single-Family Detached,2000-2499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, Uninsulated",Uninsulated
+10467,NC,"NC, Duplin County",1990s,1980-99,Mobile Home,750-999,1,3,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-11",
+10469,NC,"NC, Iredell County",2000s,2000-09,Single-Family Detached,2000-2499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+10505,NC,"NC, Wayne County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-7
+10547,NC,"NC, Cumberland County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+10573,NC,"NC, Cumberland County",1990s,1980-99,Single-Family Detached,2000-2499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, R-11",R-19
+10619,NC,"NC, Robeson County",1950s,1940-59,Single-Family Detached,1500-1999,1,4,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-19
+10639,NC,"NC, Carteret County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-7
+10674,NC,"NC, Iredell County",2000s,2000-09,Single-Family Detached,2000-2499,1,4,4,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",R-30
+10692,NC,"NC, Johnston County",1940s,1940-59,Single-Family Detached,1000-1499,1,3,6,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",
+10706,NC,"NC, Catawba County",1980s,1980-99,Mobile Home,1000-1499,1,2,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",
+10708,NC,"NC, Rockingham County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,5,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, R-7",
+10716,NC,"NC, Brunswick County",2000s,2000-09,Single-Family Detached,4000+,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, R-11",R-30
+10740,NC,"NC, Stanly County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",R-38
+10754,NC,"NC, Macon County",1970s,1960-79,Single-Family Detached,2000-2499,1,4,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, R-7",
+10759,NC,"NC, Mecklenburg County",1960s,1960-79,Mobile Home,1000-1499,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",
+10781,NC,"NC, Craven County",1970s,1960-79,Mobile Home,750-999,1,3,4,Propane,Electricity,Propane Fuel Boiler,No,South-Central,80-100%,"Wood Stud, Uninsulated",
+10791,NC,"NC, Franklin County",2010s,2010s,Single-Family Detached,1500-1999,2,2,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+10792,NC,"NC, Burke County",1960s,1960-79,Single-Family Detached,1500-1999,1,4,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",
+10800,NC,"NC, Graham County",1940s,1940-59,Single-Family Detached,500-749,2,2,2,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, Uninsulated",
+10802,NC,"NC, Cabarrus County",1950s,1940-59,Single-Family Detached,750-999,1,1,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-30
+10805,NC,"NC, Mecklenburg County",<1940,<1940,Single-Family Detached,2000-2499,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",R-13
+10815,NC,"NC, Orange County",2000s,2000-09,Mobile Home,750-999,1,2,4,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,0-30%,"Wood Stud, R-19",
+10826,NC,"NC, Mecklenburg County",<1940,<1940,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",
+10831,NC,"NC, Davie County",1970s,1960-79,Mobile Home,750-999,1,3,2,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-7",
+10839,NC,"NC, Wayne County",1970s,1960-79,Single-Family Detached,1500-1999,2,3,3,Propane,Electricity,Propane Fuel Boiler,No,South-Central,120-150%,"Wood Stud, Uninsulated",R-7
+10846,NC,"NC, Pender County",1990s,1980-99,Single-Family Detached,1000-1499,1,4,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-19",R-19
+10865,NC,"NC, Duplin County",1990s,1980-99,Mobile Home,750-999,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-15",
+10888,NC,"NC, Mecklenburg County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,2,Electricity,Propane,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, Uninsulated",Uninsulated
+10897,NC,"NC, Forsyth County",1980s,1980-99,Single-Family Detached,2000-2499,1,4,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",
+10904,NC,"NC, Union County",2000s,2000-09,Single-Family Attached,2000-2499,2,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-11",R-38
+10909,NC,"NC, Guilford County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",
+10924,NC,"NC, Pitt County",1960s,1960-79,Single-Family Detached,1500-1999,2,3,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",R-13
+10934,NC,"NC, Watauga County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,6,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-11",R-30
+10935,NC,"NC, Randolph County",2010s,2010s,Single-Family Detached,1000-1499,1,3,5,Fuel Oil,Fuel Oil,Fuel Oil Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, R-19",R-38
+10941,NC,"NC, Transylvania County",<1940,<1940,Single-Family Detached,1500-1999,2,2,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+10944,NC,"NC, Forsyth County",1950s,1940-59,Single-Family Detached,1000-1499,1,2,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",Uninsulated
+10963,NC,"NC, Duplin County",1980s,1980-99,Mobile Home,750-999,1,4,6,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-11",
+10964,NC,"NC, Haywood County",1980s,1980-99,Mobile Home,1000-1499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",
+10980,NC,"NC, Robeson County",1990s,1980-99,Mobile Home,1000-1499,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-15",
+11002,NC,"NC, Henderson County",2000s,2000-09,Single-Family Detached,3000-3999,1,4,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-11",R-30
+11007,NC,"NC, Harnett County",2000s,2000-09,Single-Family Detached,1000-1499,2,4,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, R-11",
+11035,NC,"NC, Wilkes County",1990s,1980-99,Single-Family Detached,2000-2499,2,4,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-11",
+11039,NC,"NC, Durham County",2010s,2010s,Single-Family Detached,3000-3999,2,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-19",R-38
+11044,NC,"NC, Gaston County",1950s,1940-59,Single-Family Detached,2500-2999,2,3,5,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",
+11050,NC,"NC, Guilford County",1990s,1980-99,Mobile Home,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-11",
+11069,NC,"NC, Wake County",1940s,1940-59,Single-Family Detached,750-999,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",
+11079,NC,"NC, Buncombe County",1980s,1980-99,Mobile Home,500-749,1,2,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",
+11099,NC,"NC, Mecklenburg County",1980s,1980-99,Mobile Home,1000-1499,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",
+11103,NC,"NC, Richmond County",1980s,1980-99,Single-Family Detached,750-999,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",
+11114,NC,"NC, Catawba County",1940s,1940-59,Single-Family Detached,1500-1999,1,3,1,Fuel Oil,Propane,Fuel Oil Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, Uninsulated",
+11116,NC,"NC, Craven County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-15",R-19
+11133,NC,"NC, Johnston County",1980s,1980-99,Mobile Home,1000-1499,1,2,2,Electricity,Electricity,Electricity Baseboard,No,South-Central,120-150%,"Wood Stud, R-11",
+11177,NC,"NC, Madison County",1990s,1980-99,Mobile Home,1000-1499,1,2,1,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",
+11178,NC,"NC, Wilson County",2000s,2000-09,Single-Family Detached,500-749,2,2,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-11",R-30
+11197,NC,"NC, Buncombe County",1990s,1980-99,Mobile Home,750-999,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",
+11199,NC,"NC, Cleveland County",1980s,1980-99,Mobile Home,1000-1499,1,3,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-11",
+11210,NC,"NC, Johnston County",1990s,1980-99,Single-Family Detached,1000-1499,1,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, R-19",R-30
+11211,NC,"NC, Pitt County",1980s,1980-99,Single-Family Detached,1000-1499,1,3,3,Electricity,Natural Gas,Electricity Baseboard,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, R-11",R-13
+11214,NC,"NC, Pitt County",2000s,2000-09,Single-Family Detached,2000-2499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-30
+11229,NC,"NC, Mecklenburg County",1970s,1960-79,Single-Family Detached,2000-2499,1,4,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, R-7",R-30
+11238,NC,"NC, Haywood County",<1940,<1940,Single-Family Detached,2500-2999,2,4,1,Fuel Oil,Fuel Oil,Fuel Oil Fuel Boiler,No,North-Central,30-60%,"Wood Stud, Uninsulated",
+11269,NC,"NC, Union County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-19",
+11273,NC,"NC, Craven County",1960s,1960-79,Single-Family Detached,1000-1499,1,4,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+11309,NC,"NC, Robeson County",1990s,1980-99,Single-Family Detached,2000-2499,1,2,1,Electricity,Propane,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-19",R-30
+11322,NC,"NC, Harnett County",1980s,1980-99,Mobile Home,750-999,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, R-11",
+11338,NC,"NC, Gaston County",1950s,1940-59,Single-Family Detached,750-999,1,3,5,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,60-80%,"Wood Stud, Uninsulated",R-30
+11341,NC,"NC, Harnett County",1980s,1980-99,Mobile Home,1000-1499,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-11",
+11350,NC,"NC, McDowell County",1990s,1980-99,Mobile Home,1000-1499,1,4,4,Electricity,Electricity,Electricity Baseboard,No,North-Central,30-60%,"Wood Stud, R-19",
+11356,NC,"NC, Carteret County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,3,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",
+11360,NC,"NC, Mecklenburg County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+11375,NC,"NC, Durham County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-19
+11389,NC,"NC, Wake County",2000s,2000-09,Single-Family Attached,1500-1999,1,3,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Brick, 12-in, 3-wythe, R-11",
+11390,NC,"NC, Randolph County",1980s,1980-99,Single-Family Detached,2000-2499,1,4,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-30
+11428,NC,"NC, Sampson County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",
+11430,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Attached,1500-1999,2,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",
+11439,NC,"NC, McDowell County",1990s,1980-99,Mobile Home,750-999,1,2,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",
+11441,NC,"NC, Gaston County",1970s,1960-79,Single-Family Detached,1000-1499,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-7",
+11450,NC,"NC, Forsyth County",2000s,2000-09,Single-Family Detached,2500-2999,1,4,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-19
+11451,NC,"NC, Montgomery County",1990s,1980-99,Single-Family Detached,2500-2999,2,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-15",R-19
+11452,NC,"NC, Onslow County",2010s,2010s,Single-Family Detached,2000-2499,2,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-19",R-30
+11467,NC,"NC, Richmond County",1990s,1980-99,Single-Family Detached,750-999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-11",
+11503,NC,"NC, Durham County",1940s,1940-59,Single-Family Attached,750-999,1,2,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",
+11514,NC,"NC, Rowan County",1980s,1980-99,Mobile Home,1000-1499,1,2,2,Electricity,Electricity,Electricity Baseboard,No,South-Central,30-60%,"Wood Stud, R-11",
+11525,NC,"NC, Pender County",1990s,1980-99,Single-Family Detached,2000-2499,2,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"CMU, 6-in, R-19",R-19
+11526,NC,"NC, Durham County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",R-13
+11529,NC,"NC, Iredell County",1990s,1980-99,Mobile Home,1500-1999,1,3,3,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",
+11545,NC,"NC, Cumberland County",1970s,1960-79,Single-Family Detached,1500-1999,1,4,1,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",
+11558,NC,"NC, Harnett County",1990s,1980-99,Mobile Home,4000+,1,3,5,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,80-100%,"Wood Stud, R-11",
+11605,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1500-1999,2,3,4,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-19
+11629,NC,"NC, Mecklenburg County",2010s,2010s,Single-Family Attached,2000-2499,1,4,7,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",
+11645,NC,"NC, Robeson County",1960s,1960-79,Single-Family Detached,750-999,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+11666,NC,"NC, Onslow County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,1,Electricity,Natural Gas,Electricity Electric Furnace,Yes,South-Central,80-100%,"Wood Stud, R-11",R-30
+11677,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,2000-2499,1,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, R-11",R-38
+11742,NC,"NC, Bertie County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+11747,NC,"NC, Rutherford County",1980s,1980-99,Mobile Home,750-999,1,2,3,Propane,Electricity,Propane Fuel Wall/Floor Furnace,No,North-Central,80-100%,"Wood Stud, R-11",
+11778,NC,"NC, Brunswick County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",R-30
+11783,NC,"NC, Cumberland County",1980s,1980-99,Single-Family Detached,1500-1999,2,3,7,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, R-11",R-19
+11787,NC,"NC, Vance County",1980s,1980-99,Mobile Home,1500-1999,1,3,3,Fuel Oil,Fuel Oil,Fuel Oil Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",
+11799,NC,"NC, Robeson County",1970s,1960-79,Single-Family Detached,1500-1999,1,3,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",
+11805,NC,"NC, Granville County",1980s,1980-99,Mobile Home,500-749,1,1,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,0-30%,"Wood Stud, R-11",
+11806,NC,"NC, Forsyth County",1970s,1960-79,Mobile Home,1000-1499,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,0-30%,"Wood Stud, R-7",
+11815,NC,"NC, Cabarrus County",1970s,1960-79,Mobile Home,750-999,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-7",
+11847,NC,"NC, Cabarrus County",1960s,1960-79,Single-Family Detached,1000-1499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+11869,NC,"NC, Ashe County",1980s,1980-99,Mobile Home,1000-1499,1,4,2,Electricity,Electricity,Electricity Baseboard,Yes,North-Central,60-80%,"Wood Stud, R-19",
+11888,NC,"NC, Mecklenburg County",1950s,1940-59,Single-Family Detached,2500-2999,1,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",
+11898,NC,"NC, Henderson County",2000s,2000-09,Single-Family Detached,3000-3999,1,5,3,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",R-38
+11904,NC,"NC, Lenoir County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",
+11934,NC,"NC, Moore County",1960s,1960-79,Single-Family Detached,2000-2499,1,2,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",
+11935,NC,"NC, Forsyth County",1990s,1980-99,Single-Family Detached,3000-3999,2,4,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+11942,NC,"NC, Vance County",1990s,1980-99,Mobile Home,1500-1999,1,3,3,Electricity,Electricity,Electricity Baseboard,No,North-Central,120-150%,"Wood Stud, R-15",
+11948,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Detached,1500-1999,2,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-15",R-30
+11951,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,2000-2499,1,5,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",R-30
+11956,NC,"NC, Mecklenburg County",1960s,1960-79,Single-Family Detached,2000-2499,2,4,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, Uninsulated",R-13
+11961,NC,"NC, Johnston County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, R-11",
+11992,NC,"NC, Cumberland County",1990s,1980-99,Single-Family Detached,1500-1999,2,3,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-11",R-19
+11993,NC,"NC, Caswell County",2000s,2000-09,Mobile Home,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-19",
+11995,NC,"NC, Guilford County",1990s,1980-99,Single-Family Detached,1000-1499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-11",R-30
+12060,NC,"NC, Johnston County",1980s,1980-99,Single-Family Detached,2000-2499,1,3,3,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+12100,NC,"NC, Onslow County",1950s,1940-59,Single-Family Detached,750-999,1,2,1,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,80-100%,"Brick, 12-in, 3-wythe, Uninsulated",Uninsulated
+12104,NC,"NC, Yadkin County",1970s,1960-79,Mobile Home,750-999,1,3,4,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,80-100%,"CMU, 6-in, R-7",
+12112,NC,"NC, Johnston County",2000s,2000-09,Single-Family Detached,2000-2499,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+12125,NC,"NC, Mecklenburg County",1980s,1980-99,Single-Family Detached,2000-2499,1,4,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",R-19
+12179,NC,"NC, Halifax County",1940s,1940-59,Single-Family Detached,750-999,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, Uninsulated",
+12196,NC,"NC, Carteret County",2000s,2000-09,Single-Family Detached,3000-3999,2,3,5,Electricity,Electricity,Electricity Baseboard,Yes,South-Central,100-120%,"Brick, 12-in, 3-wythe, R-11",
+12202,NC,"NC, Burke County",1960s,1960-79,Single-Family Detached,4000+,2,5,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",
+12210,NC,"NC, Henderson County",1940s,1940-59,Single-Family Detached,2000-2499,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",
+12219,NC,"NC, Harnett County",1940s,1940-59,Single-Family Detached,1500-1999,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",
+12233,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,1000-1499,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,80-100%,"Wood Stud, R-11",
+12243,NC,"NC, Durham County",1950s,1940-59,Single-Family Detached,750-999,1,2,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+12253,NC,"NC, Guilford County",1970s,1960-79,Single-Family Detached,1500-1999,1,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",
+12287,NC,"NC, Edgecombe County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+12288,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Detached,1500-1999,2,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-11",R-30
+12293,NC,"NC, Guilford County",<1940,<1940,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-7
+12305,NC,"NC, Mecklenburg County",2010s,2010s,Single-Family Detached,3000-3999,2,5,5,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-19",R-19
+12330,NC,"NC, Bladen County",1990s,1980-99,Mobile Home,750-999,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-15",
+12350,NC,"NC, Iredell County",1990s,1980-99,Mobile Home,500-749,1,2,1,Electricity,Electricity,Electricity Baseboard,No,North-Central,30-60%,"Wood Stud, R-11",
+12364,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,2000-2499,1,3,3,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+12366,NC,"NC, Dare County",1980s,1980-99,Single-Family Detached,1000-1499,1,4,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-19
+12375,NC,"NC, Wake County",1980s,1980-99,Single-Family Attached,1500-1999,2,2,3,Electricity,Natural Gas,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, R-11",
+12414,NC,"NC, Richmond County",1990s,1980-99,Mobile Home,0-499,1,2,1,Electricity,Electricity,Electricity Baseboard,No,South-Central,0-30%,"Wood Stud, R-19",
+12425,NC,"NC, Johnston County",<1940,<1940,Single-Family Detached,1000-1499,1,3,3,Electricity,Electricity,Electricity MSHP,No,South-Central,60-80%,"Wood Stud, Uninsulated",R-30
+12434,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,2000-2499,2,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, R-11",R-30
+12447,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,1500-1999,2,4,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Wood Stud, R-19",R-38
+12481,NC,"NC, Rowan County",1990s,1980-99,Single-Family Detached,1500-1999,2,1,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-19",R-30
+12494,NC,"NC, Guilford County",1960s,1960-79,Single-Family Attached,750-999,1,2,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",
+12512,NC,"NC, Cumberland County",1990s,1980-99,Single-Family Detached,1000-1499,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",R-19
+12524,NC,"NC, Johnston County",2010s,2010s,Single-Family Detached,4000+,1,5,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-15",R-30
+12525,NC,"NC, Forsyth County",1980s,1980-99,Mobile Home,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-11",
+12533,NC,"NC, Brunswick County",1980s,1980-99,Mobile Home,1000-1499,1,3,4,Electricity,Propane,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-11",
+12535,NC,"NC, Brunswick County",2000s,2000-09,Single-Family Detached,2000-2499,1,3,2,Electricity,Electricity,Electricity Electric Wall Furnace,No,South-Central,120-150%,"Wood Stud, R-11",
+12546,NC,"NC, Wayne County",1940s,1940-59,Single-Family Detached,1500-1999,2,4,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",R-13
+12559,NC,"NC, Iredell County",1980s,1980-99,Single-Family Detached,1500-1999,2,2,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-19",R-13
+12581,NC,"NC, Currituck County",1990s,1980-99,Single-Family Detached,2000-2499,2,5,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, R-19",
+12594,NC,"NC, Gaston County",1970s,1960-79,Single-Family Detached,1000-1499,1,2,2,Natural Gas,Electricity,Natural Gas Fuel Wall/Floor Furnace,No,South-Central,60-80%,"Wood Stud, R-7",
+12625,NC,"NC, Pitt County",1990s,1980-99,Single-Family Detached,2000-2499,1,3,4,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, R-19",R-30
+12708,NC,"NC, Cleveland County",1980s,1980-99,Mobile Home,1000-1499,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-11",
+12715,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-19",R-19
+12732,NC,"NC, Wayne County",1980s,1980-99,Mobile Home,1000-1499,1,3,3,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, R-11",
+12754,NC,"NC, Surry County",1970s,1960-79,Single-Family Detached,2500-2999,1,4,1,Fuel Oil,Electricity,Fuel Oil Fuel Wall/Floor Furnace,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",
+12778,NC,"NC, Orange County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,60-80%,"Wood Stud, Uninsulated",
+12797,NC,"NC, Mecklenburg County",1950s,1940-59,Single-Family Detached,1500-1999,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",
+12800,NC,"NC, Forsyth County",1980s,1980-99,Single-Family Detached,2500-2999,2,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, R-11",R-30
+12833,NC,"NC, Davidson County",2000s,2000-09,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",R-30
+12848,NC,"NC, Wake County",1980s,1980-99,Single-Family Detached,3000-3999,1,5,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",R-19
+12863,NC,"NC, Wayne County",1980s,1980-99,Single-Family Detached,1000-1499,1,3,2,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, R-7",R-13
+12889,NC,"NC, Lee County",1990s,1980-99,Mobile Home,750-999,1,2,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, R-15",
+12902,NC,"NC, Surry County",1980s,1980-99,Mobile Home,500-749,1,2,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Wood Stud, R-11",
+12912,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,3,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",R-30
+12923,NC,"NC, Lee County",2000s,2000-09,Single-Family Detached,1500-1999,1,2,2,Electricity,Propane,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-19",R-30
+12985,NC,"NC, Caldwell County",1970s,1960-79,Mobile Home,1000-1499,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,0-30%,"Wood Stud, R-7",
+12996,NC,"NC, Lincoln County",1990s,1980-99,Mobile Home,1500-1999,1,3,3,Electricity,Electricity,Electricity Electric Wall Furnace,No,North-Central,100-120%,"Wood Stud, R-11",
+13031,NC,"NC, Davidson County",1960s,1960-79,Single-Family Detached,1500-1999,1,3,2,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, Uninsulated",
+13034,NC,"NC, Pitt County",1960s,1960-79,Single-Family Detached,2000-2499,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",
+13038,NC,"NC, Cleveland County",1950s,1940-59,Single-Family Detached,750-999,1,2,1,Propane,Electricity,Propane Fuel Wall/Floor Furnace,No,North-Central,30-60%,"Wood Stud, Uninsulated",
+13042,NC,"NC, Moore County",2010s,2010s,Single-Family Detached,3000-3999,1,5,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-11",R-19
+13069,NC,"NC, Carteret County",2010s,2010s,Single-Family Detached,1000-1499,1,3,6,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, R-19",R-30
+13070,NC,"NC, Columbus County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",
+13093,NC,"NC, Orange County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-11",
+13119,NC,"NC, Guilford County",1950s,1940-59,Single-Family Detached,2000-2499,1,4,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+13130,NC,"NC, Alamance County",2000s,2000-09,Single-Family Detached,2000-2499,1,3,4,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-19",
+13135,NC,"NC, Stokes County",2000s,2000-09,Single-Family Detached,3000-3999,2,2,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, R-11",R-30
+13139,NC,"NC, Johnston County",1980s,1980-99,Mobile Home,1000-1499,1,4,3,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, R-11",
+13146,NC,"NC, Alleghany County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,5,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-30
+13156,NC,"NC, Henderson County",2000s,2000-09,Single-Family Detached,1000-1499,1,4,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-11",
+13163,NC,"NC, Lee County",<1940,<1940,Single-Family Detached,1500-1999,1,3,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",R-19
+13172,NC,"NC, Henderson County",2000s,2000-09,Single-Family Detached,2500-2999,2,5,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-11",R-30
+13173,NC,"NC, Randolph County",1970s,1960-79,Single-Family Detached,1500-1999,1,4,4,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, R-7",Uninsulated
+13178,NC,"NC, Pitt County",2010s,2010s,Single-Family Detached,3000-3999,1,4,6,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,60-80%,"Wood Stud, R-11",R-30
+13180,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Attached,1000-1499,2,2,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, R-11",
+13198,NC,"NC, Wake County",1960s,1960-79,Single-Family Detached,2500-2999,2,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Wood Stud, Uninsulated",R-13
+13215,NC,"NC, Onslow County",2010s,2010s,Single-Family Attached,1500-1999,2,3,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",
+13252,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Wood Stud, R-11",R-30
+13269,NC,"NC, Wake County",2000s,2000-09,Single-Family Detached,1000-1499,1,3,5,Electricity,Natural Gas,Electricity Electric Furnace,Yes,North-Central,0-30%,"Wood Stud, R-11",
+13272,NC,"NC, Union County",1960s,1960-79,Single-Family Detached,750-999,1,3,2,Natural Gas,Natural Gas,Natural Gas Fuel Wall/Floor Furnace,No,South-Central,120-150%,"Wood Stud, Uninsulated",
+13345,NC,"NC, New Hanover County",2000s,2000-09,Single-Family Attached,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, R-11",
+13361,NC,"NC, Catawba County",1970s,1960-79,Mobile Home,500-749,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",
+13373,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,2,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,100-120%,"Wood Stud, R-15",R-30
+13377,NC,"NC, Cleveland County",1990s,1980-99,Mobile Home,2000-2499,1,4,3,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, R-19",
+13380,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,South-Central,80-100%,"Wood Stud, R-15",
+13386,NC,"NC, Cumberland County",1980s,1980-99,Single-Family Detached,1500-1999,1,4,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",R-19
+13410,NC,"NC, Mecklenburg County",1980s,1980-99,Single-Family Detached,1500-1999,1,4,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-7",R-19
+13438,NC,"NC, Mecklenburg County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity Baseboard,No,South-Central,0-30%,"Wood Stud, Uninsulated",
+13485,NC,"NC, Guilford County",2000s,2000-09,Single-Family Detached,4000+,2,4,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,120-150%,"Wood Stud, R-11",R-30
+13496,NC,"NC, Rutherford County",1950s,1940-59,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",R-13
+13503,NC,"NC, Gaston County",2000s,2000-09,Single-Family Detached,2500-2999,2,4,3,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,120-150%,"Wood Stud, R-11",R-30
+13540,NC,"NC, Rowan County",1980s,1980-99,Mobile Home,750-999,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, R-11",
+13541,NC,"NC, Johnston County",<1940,<1940,Single-Family Detached,1500-1999,2,4,1,Propane,Electricity,Propane Fuel Furnace,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",Uninsulated
+13543,NC,"NC, Guilford County",1990s,1980-99,Single-Family Detached,1500-1999,1,4,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-15",R-38
+13565,NC,"NC, Rutherford County",1960s,1960-79,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+13570,NC,"NC, Edgecombe County",1980s,1980-99,Mobile Home,1500-1999,1,3,1,Propane,Electricity,Propane Fuel Boiler,No,South-Central,30-60%,"Wood Stud, R-11",
+13592,NC,"NC, New Hanover County",1950s,1940-59,Single-Family Detached,2500-2999,3,5,3,Natural Gas,Natural Gas,Natural Gas Fuel Boiler,Yes,South-Central,80-100%,"Wood Stud, Uninsulated",R-19
+13621,NC,"NC, Pender County",1980s,1980-99,Mobile Home,1000-1499,1,2,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",
+13630,NC,"NC, Robeson County",1960s,1960-79,Single-Family Detached,2000-2499,1,5,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, Uninsulated",
+13631,NC,"NC, Union County",2000s,2000-09,Single-Family Detached,4000+,2,5,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-11",R-30
+13638,NC,"NC, Wake County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Wood Stud, R-19",R-30
+13645,NC,"NC, Scotland County",1980s,1980-99,Mobile Home,1000-1499,1,4,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Wood Stud, Uninsulated",
+13667,NC,"NC, Alamance County",1960s,1960-79,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-7
+13672,NC,"NC, Macon County",2000s,2000-09,Single-Family Detached,1500-1999,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Wood Stud, R-19",R-38
+13678,NC,"NC, Duplin County",1960s,1960-79,Single-Family Detached,1500-1999,2,3,2,Electricity,Electricity,Electricity Baseboard,No,South-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+13683,NC,"NC, Rowan County",1970s,1960-79,Single-Family Attached,4000+,1,5,3,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-19
+13688,NC,"NC, Wake County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,3,Electricity,Electricity,Electricity ASHP,Yes,North-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",R-13
+13725,NC,"NC, Dare County",1990s,1980-99,Mobile Home,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-11",
+13743,NC,"NC, Haywood County",1950s,1940-59,Single-Family Detached,1000-1499,1,3,5,Electricity,Natural Gas,Electricity ASHP,Yes,North-Central,100-120%,"Brick, 12-in, 3-wythe, Uninsulated",
+13768,NC,"NC, Montgomery County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, R-15",
+13783,NC,"NC, McDowell County",2000s,2000-09,Single-Family Detached,2500-2999,2,3,1,Electricity,Electricity,Electricity ASHP,Yes,North-Central,80-100%,"Wood Stud, R-19",R-30
+13808,NC,"NC, Watauga County",1990s,1980-99,Mobile Home,750-999,1,3,2,Propane,Electricity,Propane Fuel Boiler,No,North-Central,100-120%,"Wood Stud, R-15",
+13811,NC,"NC, Hoke County",1990s,1980-99,Single-Family Detached,1500-1999,1,3,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-19",R-19
+13820,NC,"NC, Nash County",1970s,1960-79,Mobile Home,0-499,1,2,1,Propane,Propane,Propane Fuel Wall/Floor Furnace,No,North-Central,30-60%,"Wood Stud, R-7",
+13840,NC,"NC, Union County",1990s,1980-99,Single-Family Detached,1500-1999,1,4,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Brick, 12-in, 3-wythe, R-15",R-30
+13849,NC,"NC, Buncombe County",1940s,1940-59,Single-Family Detached,750-999,1,2,2,Fuel Oil,Electricity,Fuel Oil Fuel Furnace,Yes,North-Central,80-100%,"Wood Stud, Uninsulated",
+13856,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Detached,1500-1999,1,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,30-60%,"Brick, 12-in, 3-wythe, R-15",R-30
+13888,NC,"NC, Gaston County",1980s,1980-99,Single-Family Detached,3000-3999,2,5,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, R-11",R-19
+13896,NC,"NC, Gates County",1980s,1980-99,Mobile Home,500-749,1,1,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,0-30%,"Wood Stud, R-11",
+13898,NC,"NC, Wake County",1980s,1980-99,Single-Family Detached,2500-2999,2,4,6,Electricity,Electricity,Electricity Baseboard,No,North-Central,60-80%,"Wood Stud, R-11",R-30
+13919,NC,"NC, Rockingham County",1960s,1960-79,Single-Family Detached,1000-1499,1,5,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,0-30%,"Brick, 12-in, 3-wythe, Uninsulated",
+13939,NC,"NC, Mecklenburg County",2000s,2000-09,Single-Family Detached,2000-2499,1,4,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,0-30%,"Wood Stud, R-19",
+13943,NC,"NC, Gaston County",1970s,1960-79,Single-Family Detached,1500-1999,1,4,5,Electricity,Electricity,Electricity ASHP,Yes,South-Central,30-60%,"Wood Stud, Uninsulated",
+13951,NC,"NC, Davidson County",1960s,1960-79,Single-Family Detached,750-999,2,2,5,Fuel Oil,Fuel Oil,Fuel Oil Fuel Furnace,Yes,South-Central,60-80%,"Brick, 12-in, 3-wythe, Uninsulated",R-19
+13955,NC,"NC, Craven County",2000s,2000-09,Single-Family Attached,1000-1499,2,3,4,Electricity,Natural Gas,Electricity ASHP,Yes,South-Central,80-100%,"Wood Stud, R-15",
+13963,NC,"NC, Cleveland County",1990s,1980-99,Mobile Home,750-999,1,3,1,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",
+13975,NC,"NC, Mecklenburg County",1970s,1960-79,Mobile Home,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Wood Stud, R-7",
+13977,NC,"NC, Mecklenburg County",1960s,1960-79,Single-Family Detached,3000-3999,2,4,2,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
+13998,NC,"NC, Catawba County",1980s,1980-99,Mobile Home,1500-1999,1,2,1,Fuel Oil,Electricity,Fuel Oil Fuel Boiler,No,North-Central,100-120%,"Wood Stud, R-11",
+14021,NC,"NC, Wake County",1970s,1960-79,Single-Family Detached,1500-1999,1,4,4,Electricity,Electricity,Electricity ASHP,Yes,North-Central,120-150%,"Brick, 12-in, 3-wythe, Uninsulated",
+14025,NC,"NC, Hoke County",1990s,1980-99,Mobile Home,1000-1499,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,80-100%,"Wood Stud, R-15",
+14031,NC,"NC, Iredell County",1960s,1960-79,Single-Family Attached,750-999,1,2,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",
+14043,NC,"NC, Anson County",1970s,1960-79,Single-Family Detached,1500-1999,2,5,2,Electricity,Electricity,Electricity ASHP,Yes,South-Central,100-120%,"Wood Stud, Uninsulated",R-7
+14047,NC,"NC, Watauga County",1980s,1980-99,Single-Family Detached,1000-1499,1,3,1,Electricity,Natural Gas,Electricity Electric Furnace,Yes,North-Central,30-60%,"Wood Stud, R-11",R-13
+14049,NC,"NC, Haywood County",1980s,1980-99,Single-Family Detached,750-999,1,3,2,Electricity,Electricity,Electricity Electric Furnace,Yes,North-Central,0-30%,"Wood Stud, Uninsulated",R-7
+14062,NC,"NC, Wake County",1980s,1980-99,Single-Family Detached,2000-2499,2,3,1,Natural Gas,Electricity,Natural Gas Fuel Furnace,Yes,North-Central,100-120%,"Wood Stud, R-11",
+14068,NC,"NC, McDowell County",1970s,1960-79,Single-Family Detached,2000-2499,1,5,5,Electricity,Electricity,Electricity ASHP,Yes,North-Central,30-60%,"Wood Stud, Uninsulated",
+14081,NC,"NC, Wake County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,4,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,60-80%,"Brick, 12-in, 3-wythe, R-7",
+14140,NC,"NC, New Hanover County",1940s,1940-59,Single-Family Detached,2000-2499,1,3,4,Electricity,Electricity,Electricity ASHP,Yes,South-Central,120-150%,"Wood Stud, Uninsulated",R-30
+14171,NC,"NC, Mecklenburg County",1970s,1960-79,Single-Family Detached,1000-1499,1,3,1,Electricity,Electricity,Electricity ASHP,Yes,South-Central,0-30%,"Brick, 12-in, 3-wythe, R-7",
+14173,NC,"NC, Cumberland County",1980s,1980-99,Mobile Home,750-999,1,3,4,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,30-60%,"Wood Stud, R-11",
+14178,NC,"NC, Mecklenburg County",1990s,1980-99,Single-Family Detached,1000-1499,1,3,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,South-Central,0-30%,"Wood Stud, R-15",R-30
+14199,NC,"NC, Mecklenburg County",1960s,1960-79,Single-Family Attached,1500-1999,2,5,2,Electricity,Electricity,Electricity Electric Furnace,Yes,South-Central,80-100%,"CMU, 6-in, Uninsulated",R-30
+14213,NC,"NC, Forsyth County",1960s,1960-79,Single-Family Detached,1000-1499,1,4,1,Natural Gas,Natural Gas,Natural Gas Fuel Furnace,Yes,North-Central,30-60%,"Brick, 12-in, 3-wythe, Uninsulated",R-30
