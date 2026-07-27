@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: orchestrator
-  namespace: data-agents-demo
+  namespace: user-cclyburn
   labels:
     app.kubernetes.io/part-of: data-agents
     app.kubernetes.io/component: orchestrator
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: orchestrator
-          image: image-registry.openshift-image-registry.svc:5000/data-agents-demo/orchestrator:latest
+          image: image-registry.openshift-image-registry.svc:5000/user-cclyburn/orchestrator:latest
           ports:
             - containerPort: 8000
           env:
@@ -29,11 +29,11 @@ spec:
                   name: agent-secrets
                   key: LLM_API_KEY
             - name: STATS_AGENT_URL
-              value: "http://statistics-agent.data-agents-demo.svc.cluster.local"
+              value: "http://statistics-agent.user-cclyburn.svc.cluster.local:8001"
             - name: VIZ_AGENT_URL
-              value: "http://visualization-agent.data-agents-demo.svc.cluster.local"
+              value: "http://visualization-agent.user-cclyburn.svc.cluster.local:8002"
             - name: GRAFANA_URL
-              value: ""
+              value: "https://grafana-user-cclyburn.apps.ocp.cloud.rhai-tmm.dev"
           envFrom:
             - configMapRef:
                 name: agent-config
@@ -61,7 +61,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: orchestrator
-  namespace: data-agents-demo
+  namespace: user-cclyburn
   labels:
     app.kubernetes.io/part-of: data-agents
     app.kubernetes.io/component: orchestrator
@@ -77,7 +77,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: orchestrator
-  namespace: data-agents-demo
+  namespace: user-cclyburn
   labels:
     app.kubernetes.io/part-of: data-agents
 spec:

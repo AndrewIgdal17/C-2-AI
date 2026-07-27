@@ -2,21 +2,21 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: agent-config
-  namespace: data-agents-demo
+  namespace: user-cclyburn
   labels:
     app.kubernetes.io/part-of: data-agents
 data:
-  LLM_API_BASE: "https://litellm-litemaas.apps.prod.rhoai.rh-aiservices-bu.com/v1"
+  LLM_API_BASE: "https://litemaas.rhoai.rh-aiservices-bu.com/v1"
   LLM_MODEL: "Qwen3.6-35B-A3B"
   OTEL_ENABLED: "true"
-  OTEL_EXPORTER_OTLP_ENDPOINT: "http://otel-collector.data-agents-demo.svc.cluster.local:4317"
+  OTEL_EXPORTER_OTLP_ENDPOINT: "http://otel-collector.user-cclyburn.svc.cluster.local:4317"
   GRAFANA_URL: ""
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: otel-collector-config
-  namespace: data-agents-demo
+  namespace: user-cclyburn
   labels:
     app.kubernetes.io/part-of: data-agents
 data:
@@ -34,7 +34,7 @@ data:
         send_batch_size: 1024
     exporters:
       otlp/tempo:
-        endpoint: tempo.data-agents-demo.svc.cluster.local:4317
+        endpoint: tempo.user-cclyburn.svc.cluster.local:4317
         tls:
           insecure: true
       logging:
@@ -50,7 +50,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: tempo-config
-  namespace: data-agents-demo
+  namespace: user-cclyburn
   labels:
     app.kubernetes.io/part-of: data-agents
 data:
@@ -68,6 +68,8 @@ data:
         backend: local
         local:
           path: /tmp/tempo/blocks
+        wal:
+          path: /tmp/tempo/wal
     ingester:
       trace_idle_period: 10s
       max_block_bytes: 1048576
@@ -77,7 +79,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: grafana-provisioning
-  namespace: data-agents-demo
+  namespace: user-cclyburn
   labels:
     app.kubernetes.io/part-of: data-agents
 data:
@@ -87,7 +89,7 @@ data:
       - name: Tempo
         type: tempo
         access: proxy
-        url: http://tempo.data-agents-demo.svc.cluster.local:3200
+        url: http://tempo.user-cclyburn.svc.cluster.local:3200
         isDefault: true
         editable: true
         jsonData:

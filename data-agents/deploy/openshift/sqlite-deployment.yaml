@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: sqlite-data
-  namespace: data-agents-demo
+  namespace: user-cclyburn
   labels:
     app.kubernetes.io/part-of: data-agents
 spec:
@@ -16,7 +16,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: database-init
-  namespace: data-agents-demo
+  namespace: user-cclyburn
   labels:
     app.kubernetes.io/part-of: data-agents
     app.kubernetes.io/component: database
@@ -30,7 +30,7 @@ spec:
       restartPolicy: OnFailure
       containers:
         - name: init-db
-          image: image-registry.openshift-image-registry.svc:5000/data-agents-demo/database:latest
+          image: image-registry.openshift-image-registry.svc:5000/user-cclyburn/database:latest
           env:
             - name: SQLITE_DB_PATH
               value: /data/residential_energy.db

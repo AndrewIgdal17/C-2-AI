@@ -1,21 +1,25 @@
-apiVersion: serving.knative.dev/v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: visualization-agent
-  namespace: data-agents-demo
+  namespace: user-cclyburn
   labels:
     app.kubernetes.io/part-of: data-agents
     app.kubernetes.io/component: visualization-agent
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: visualization-agent
   template:
     metadata:
-      annotations:
-        autoscaling.knative.dev/min-scale: "0"
-        autoscaling.knative.dev/max-scale: "3"
-        autoscaling.knative.dev/scale-down-delay: "60s"
+      labels:
+        app.kubernetes.io/component: visualization-agent
+        app.kubernetes.io/part-of: data-agents
     spec:
       containers:
-        - image: image-registry.openshift-image-registry.svc:5000/data-agents-demo/visualization-agent:latest
+        - name: visualization-agent
+          image: image-registry.openshift-image-registry.svc:5000/user-cclyburn/visualization-agent:latest
           ports:
             - containerPort: 8002
           env:
@@ -30,7 +34,7 @@ spec:
                   name: agent-secrets
                   key: MCP_AUTH_TOKEN
             - name: QUERY_AGENT_MCP_URL
-              value: "http://query-agent.data-agents-demo.svc.cluster.local/mcp"
+              value: "http://query-agent.user-cclyburn.svc.cluster.local:8003/mcp"
           envFrom:
             - configMapRef:
                 name: agent-config
@@ -41,3 +45,31 @@ spec:
             limits:
               memory: "1Gi"
               cpu: "1"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8002
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8002
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: visualization-agent
+  namespace: user-cclyburn
+  labels:
+    app.kubernetes.io/part-of: data-agents
+    app.kubernetes.io/component: visualization-agent
+spec:
+  selector:
+    app.kubernetes.io/component: visualization-agent
+  ports:
+    - port: 8002
+      targetPort: 8002
+      protocol: TCP

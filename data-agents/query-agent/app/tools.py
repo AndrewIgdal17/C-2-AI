@@ -435,7 +435,8 @@ async def describe_building_column(column: str, filters: dict = None) -> str:
                     continue
 
             if not values:
-                return json.dumps({"error": f"No numeric values found in column '{column}'"})
+                logger.info("Column '%s' is categorical, falling back to building_stock_summary", column)
+                return await building_stock_summary(column, filters)
 
             result = _compute_percentiles(values)
             result["column"] = column
@@ -490,7 +491,8 @@ AVAILABLE TOOLS:
 6. describe_building_column(column, filters?)
    Returns numeric summary stats (count, mean, median, min, max, p25, p75) for a building characteristic.
    Use for: "What's the average number of occupants?", "How many bedrooms do these homes have?"
-   Only works on numeric-like columns (occupants, bedrooms, stories). For categorical columns, use building_stock_summary.
+   ONLY works on truly numeric columns: occupants, bedrooms, stories.
+   For ALL other building columns, use building_stock_summary instead — this includes floor_area, vintage, building_type, heating_fuel, etc. which are categorical text values even if they look numeric.
 
 7. list_available_data()
    Returns all available metric and characteristic names. No arguments.
@@ -511,6 +513,8 @@ KEY NOTES:
 - All energy values are annual MBtu. A value of 0.0 means the building doesn't use that fuel.
 - heating_fuel is the most important stratification dimension for energy analysis.
 - climate_zone has 2 values: North-Central, South-Central.
+- NUMERIC columns (use describe_building_column): occupants, bedrooms, stories.
+- CATEGORICAL columns (use building_stock_summary): building_type, vintage, vintage_acs, floor_area, heating_fuel, water_heater_fuel, hvac_type, hvac_has_ducts, climate_zone, area_median_income, insulation_wall, insulation_ceiling, state, county.
 - The "filters" argument is a dict mapping building column names to exact string values.
 - Only include filters if the user explicitly mentioned a constraint.
 - EXACT filter values (use these exactly, not abbreviations):

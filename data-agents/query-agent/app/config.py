@@ -2,7 +2,7 @@ import os
 
 LLM_API_BASE = os.getenv(
     "LLM_API_BASE",
-    "https://litellm-litemaas.apps.prod.rhoai.rh-aiservices-bu.com/v1",
+    "https://litemaas.rhoai.rh-aiservices-bu.com/v1",
 )
 LLM_API_KEY = os.getenv("LLM_API_KEY", "")
 LLM_MODEL = os.getenv("LLM_MODEL", "Qwen3.6-35B-A3B")

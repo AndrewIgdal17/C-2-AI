@@ -29,7 +29,7 @@ services:
       - path: ../../.env
         required: false
     environment:
-      - LLM_API_BASE=${LLM_API_BASE:-https://litellm-litemaas.apps.prod.rhoai.rh-aiservices-bu.com/v1}
+      - LLM_API_BASE=${LLM_API_BASE:-https://litemaas.rhoai.rh-aiservices-bu.com/v1}
       - LLM_API_KEY=${LLM_API_KEY}
       - LLM_MODEL=${LLM_MODEL:-Qwen3.6-35B-A3B}
       - SQLITE_DB_PATH=/data/residential_energy.db
@@ -65,7 +65,7 @@ services:
       - path: ../../.env
         required: false
     environment:
-      - LLM_API_BASE=${LLM_API_BASE:-https://litellm-litemaas.apps.prod.rhoai.rh-aiservices-bu.com/v1}
+      - LLM_API_BASE=${LLM_API_BASE:-https://litemaas.rhoai.rh-aiservices-bu.com/v1}
       - LLM_API_KEY=${LLM_API_KEY}
       - LLM_MODEL=${LLM_MODEL:-Qwen3.6-35B-A3B}
       - QUERY_AGENT_MCP_URL=http://query-agent:8003/mcp
@@ -97,7 +97,7 @@ services:
       - path: ../../.env
         required: false
     environment:
-      - LLM_API_BASE=${LLM_API_BASE:-https://litellm-litemaas.apps.prod.rhoai.rh-aiservices-bu.com/v1}
+      - LLM_API_BASE=${LLM_API_BASE:-https://litemaas.rhoai.rh-aiservices-bu.com/v1}
       - LLM_API_KEY=${LLM_API_KEY}
       - LLM_MODEL=${LLM_MODEL:-Qwen3.6-35B-A3B}
       - QUERY_AGENT_MCP_URL=http://query-agent:8003/mcp
@@ -129,7 +129,7 @@ services:
       - path: ../../.env
         required: false
     environment:
-      - LLM_API_BASE=${LLM_API_BASE:-https://litellm-litemaas.apps.prod.rhoai.rh-aiservices-bu.com/v1}
+      - LLM_API_BASE=${LLM_API_BASE:-https://litemaas.rhoai.rh-aiservices-bu.com/v1}
       - LLM_API_KEY=${LLM_API_KEY}
       - LLM_MODEL=${LLM_MODEL:-Qwen3.6-35B-A3B}
       - STATS_AGENT_URL=http://statistics-agent:8001

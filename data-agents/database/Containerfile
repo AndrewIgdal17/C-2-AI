@@ -7,13 +7,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY database/load_resstock.py .
 COPY database/init_db.py .
-COPY data/buildstock.csv /data/source/buildstock.csv
-COPY data/results_up00.parquet /data/source/results_up00.parquet
+COPY data/buildstock.csv /app/source/buildstock.csv
+COPY data/results_up00.parquet /app/source/results_up00.parquet
 
 ENV PYTHONUNBUFFERED=1
 ENV SQLITE_DB_PATH=/data/residential_energy.db
-ENV BUILDSTOCK_CSV_PATH=/data/source/buildstock.csv
-ENV RESULTS_PARQUET_PATH=/data/source/results_up00.parquet
+ENV BUILDSTOCK_CSV_PATH=/app/source/buildstock.csv
+ENV RESULTS_PARQUET_PATH=/app/source/results_up00.parquet
 
 RUN mkdir -p /data
 

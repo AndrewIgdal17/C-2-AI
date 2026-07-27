@@ -1,21 +1,25 @@
-apiVersion: serving.knative.dev/v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: statistics-agent
-  namespace: data-agents-demo
+  namespace: user-cclyburn
   labels:
     app.kubernetes.io/part-of: data-agents
     app.kubernetes.io/component: statistics-agent
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: statistics-agent
   template:
     metadata:
-      annotations:
-        autoscaling.knative.dev/min-scale: "0"
-        autoscaling.knative.dev/max-scale: "3"
-        autoscaling.knative.dev/scale-down-delay: "60s"
+      labels:
+        app.kubernetes.io/component: statistics-agent
+        app.kubernetes.io/part-of: data-agents
     spec:
       containers:
-        - image: image-registry.openshift-image-registry.svc:5000/data-agents-demo/statistics-agent:latest
+        - name: statistics-agent
+          image: image-registry.openshift-image-registry.svc:5000/user-cclyburn/statistics-agent:latest
           ports:
             - containerPort: 8001
           env:
@@ -30,7 +34,7 @@ spec:
                   name: agent-secrets
                   key: MCP_AUTH_TOKEN
             - name: QUERY_AGENT_MCP_URL
-              value: "http://query-agent.data-agents-demo.svc.cluster.local/mcp"
+              value: "http://query-agent.user-cclyburn.svc.cluster.local:8003/mcp"
           envFrom:
             - configMapRef:
                 name: agent-config
@@ -41,3 +45,31 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8001
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8001
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: statistics-agent
+  namespace: user-cclyburn
+  labels:
+    app.kubernetes.io/part-of: data-agents
+    app.kubernetes.io/component: statistics-agent
+spec:
+  selector:
+    app.kubernetes.io/component: statistics-agent
+  ports:
+    - port: 8001
+      targetPort: 8001
+      protocol: TCP
